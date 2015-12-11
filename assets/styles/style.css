@@ -1,0 +1,366 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
+
+/*MAIN*/
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  color: #333;
+  -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+
+}
+
+/* Custom CSS */
+
+.wrapper{
+  margin: 0 auto;
+  width: 100%;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9000;
+  min-height: 50px;
+  overflow: auto;
+  background-color: #fff;
+  border-bottom: 5px solid #CE2701;
+}
+
+
+
+h1 {
+    background-image: url('assets/images/ss_bike.png');
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    float: left;
+}
+
+h2 {
+  font-size: 5.5em;
+  font-weight: 900;
+  letter-spacing: -.02em;
+  color: #fff;
+}
+
+h3 {
+  font-size: 2em;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+h5 {
+  font-size: 1.25em;
+  font-weight: 900;
+}
+
+h6 {
+  font-size: 1em;
+  font-weight: 900;
+}
+
+
+
+/*NAVIGATION*/
+
+nav{
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+nav ul{
+  list-style-type: none;
+}
+nav ul li{
+  display: inline;
+  line-height: 40px;
+}
+nav ul li a{
+  color: #333;
+  text-decoration: none;
+}
+
+nav ul li a:hover{
+  border-bottom: 1px solid #333;
+}
+
+
+
+.brand {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+
+.logins-messages-creators {
+  position: fixed;
+  z-index: 10000;
+  top: 50px;
+  right: 0;
+  width: 350px;
+}
+
+.profile-nav:after {
+  content: " ";
+  clear: both;
+}
+
+#banner {
+    background-image: url('../images/steilacoom.jpg');
+    height: 500px;
+    background-size: cover;
+    padding-top: 50px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 8px #000000;
+}
+
+#banner h2 {
+  position: relative;
+  top: 200px;
+}
+
+#banner h4 {
+  position: relative;
+  top: 210px;
+  font-size:  2.5em;
+}
+
+#banner p {
+  position: relative;
+  top: 212px;
+  padding: 10px;
+  font-size: 1.5]2em;
+}
+
+
+
+
+
+img{max-width: 100%;}
+
+p{margin: 0 0 10px 0; line-height: 1;}
+
+input{
+      width: 100%;
+      border:0;
+      padding:10px;
+      margin: 2px auto;
+      font-size:.8em;
+      display: block;
+      color: #444;
+    }
+input[type="submit"] {
+  background: #CE2701;
+  color:white;
+}
+
+.top_nav {
+  top: 20px;
+}
+.top-nav-register, .top-nav-login {
+  display: inline-block;
+  width: 200px;
+  height: 20px;
+  top: 30px;
+  padding: 3px;
+  border-bottom: 4px solid rgba(170,21,5,1);
+  font-size: 1em;
+  font-weight: 900;
+  text-align: center;
+  line-height: .9em;
+  color: #333;
+}
+
+.top-nav-register:hover, .top-nav-login:hover {
+  border-bottom: 4px solid rgba(87, 138, 7, 1);
+}
+
+.top-nav-register:active, .top-nav-login:active {
+  border-bottom: 4px solid rgba(240,80,62, 1);
+}
+
+#register, #login, .new-bike-posting {
+  width: 90%;
+  overflow: auto;
+  background-color: #eee;
+}
+
+.user-messages {
+  color: #fff;
+}
+
+.reg-login  h6{
+  color: #fff;
+  padding: 10px 0 5px;
+}
+
+.API-register, .API-login {
+  z-index: 9999;
+  width: 300px;
+  height: 160px;
+  padding: 10px 5px;
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.container{
+  max-width: 100%;
+  margin: 0 auto 40px;
+  overflow: auto;
+}
+
+.main, .secondary {
+  max-width: 100%;
+  margin: 10px auto;
+  overflow: auto;
+}
+
+.secondary {
+  background-color: #e6e6e6;
+}
+
+.list-a-bike {
+  margin-right: 10%;
+}
+
+.bikes-for-sale, .profile, .post-bike {
+  overflow: auto;
+  margin-left: 10%;
+}
+
+.post-bike {
+  background-color: #eee;
+  overflow: auto;
+}
+
+.bike-posts {
+  background-color: #eee;
+  padding: 10px;
+  width: 200px;
+  height: 200px;
+  overflow: auto;
+  float: left;
+}
+
+.bike-posts:after {
+  content: " ";
+  clear: both;
+}
+
+.new-post-form {
+  float: left;
+}
+
+.bike-posts {
+  width: 180px;
+  height: 180px;
+  margin: 5px;
+  float: left;
+  background: #eee;
+  border-left: 5px solid rgba(87, 138, 7, 1);
+  color: #555;
+  transition: all .3s ease-in-out;
+}
+
+.bike-posts:hover{
+  background: rgba(87, 138, 7, 1);
+  transform: scale(1.02);
+  color: #fff;
+}
+
+.bike-posts:active{
+  background: radial-gradient(#FFEF8C 0%, #FF6A00 100%);
+}
+
+.bikes-for-sale, .profile, .current-user, .favorites {
+  width: 60%;
+  min-height: 300px;
+  margin-left: 10%
+}
+
+.bikes-for-sale:after {
+  content: '';
+  clear: both;
+}
+
+.current-user {
+  width: 63.4%;
+  min-height: 300px;
+}
+
+.favorites {
+  width: 43%;
+  min-height: 300px;
+  padding-top: 10px;
+  margin-top: 10px;
+  overflow: auto;
+}
+
+.messages-container {
+  width: 290px;
+  height: 200px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: rgba(87, 138, 7, .8);
+  overflow: auto;
+}
+
+.current-user, .favorites {
+  padding: 10px;
+}
+
+.favorite-menus {
+  padding: 10px;
+  margin: 10px;
+  background-color: rgba(0, 0, 0, .4);
+  overflow: auto;
+}
+
+.favorite-menus  h4 {
+  color: #fff;
+  padding-top: 15px;
+  font-size: 1.25em;
+}
+
+.usr-posts {
+  border-left: 5px solid #CE2701;
+}
+
+.usr-posts:hover {
+  background-color: #CE2701;
+}
+
+.usr-favs {
+  border-left: 5px solid #8D449E;
+}
+
+.usr-favs:hover {
+  background-color: #8D449E;
+}
+
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
