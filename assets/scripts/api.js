@@ -4,7 +4,8 @@
 
 var ssme_api = {
   bikeWatcher: null,
-  url: 'https://mighty-lowlands-8515.herokuapp.com',
+  // url: 'https://mighty-lowlands-8515.herokuapp.com',
+  url: 'http://localhost:3000',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -35,10 +36,18 @@ var ssme_api = {
     }, callback);
   },
 
-  listAllBikes: function (callback) {
+  // listAllBikes: function (callback) {
+  //   this.ajax({
+  //     method: 'GET',
+  //     url: this.url + '/bikes',
+  //     dataType: 'json'
+  //     }, callback);
+  // },
+
+  listAllBillboards: function (callback) {
     this.ajax({
       method: 'GET',
-      url: this.url + '/bikes',
+      url: this.url + '/billboards',
       dataType: 'json'
       }, callback);
   },

@@ -21,6 +21,9 @@ var favorite_bike = {
 
 // locations to append bikes
 var allBikesList = $('#all-bikes');
+
+var allBillboardsList = $('#all-bikes');
+
 var userBikesList = $('#user-bikes');
 var userFavoriteList = $('#user-favorite-bikes');
 
@@ -30,6 +33,10 @@ var removeBikes = function(data, location1, location2) {
 
 var listBikeHTML = function (bike) {
   allBikesList.append('<div id=' + bike.id + ' class="bike-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><button class="favorite-bike">Favorite this bike</button></div>');
+};
+
+var listBillboardHTML = function (billboard) {
+  allBillboardsList.append('<div id=' + billboard.id + ' class="billboard-posts"><h3>' + billboard.name + '</h3><p>' + billboard.title +'</p><p> billboard subtext01: '+ billboard.subtext01 +'</p><p> billboard subtext02: '+ billboard.subtext02 +'</p><button class="favorite-billboard">Favorite this billboard</button></div>');
 };
 
 var listUserBikeHTML = function(bike) {
@@ -130,18 +137,34 @@ var logoutCb = function (error){
   console.log("Logged out");
 };
 
-// listBikes callback
-var listAllBikesCb = function (error, data) {
+// // listBikes callback
+// var listAllBikesCb = function (error, data) {
+//   if (error) {
+//     console.error(error);
+//     $(".user-messages").html("<strong>Error! Bike listing fail!</strong>");
+//     return;
+//   }
+//   // grab bikes from Rails
+//   var bikes = data.bikes;
+
+//   bikes.forEach(function(bike){
+//     listBikeHTML(bike);
+//   });
+
+// };
+
+// listBillboards callback
+var listAllBillboardsCb = function (error, data) {
   if (error) {
     console.error(error);
     $(".user-messages").html("<strong>Error! Bike listing fail!</strong>");
     return;
   }
-  // grab bikes from Rails
-  var bikes = data.bikes;
+  // grab billboards from Rails
+  var billboards = data.billboards;
 
-  bikes.forEach(function(bike){
-    listBikeHTML(bike);
+  billboards.forEach(function(billboard){
+    listBillboardHTML(billboard);
   });
 
 };

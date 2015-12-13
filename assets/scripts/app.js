@@ -10,7 +10,8 @@ var user = {
 $(function() {
 
   // list all bikes for sale
-  ssme_api.listAllBikes(listAllBikesCb);
+  // ssme_api.listAllBikes(listAllBikesCb);
+  ssme_api.listAllBillboards(listAllBillboardsCb);
 
   // register event handler
   $('#register').on('submit', function(e) {
