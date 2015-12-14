@@ -35,7 +35,7 @@ header{
 
 
 h1 {
-    background-image: url('assets/images/ss_bike.png');
+    /*background-image: url('assets/images/ss_bike.png');*/
     background-size: contain;
     width: 50px;
     height: 50px;
@@ -120,7 +120,7 @@ nav ul li a:hover{
 }
 
 #banner {
-    background-image: url('../images/steilacoom.jpg');
+    /*background-image: url('../images/steilacoom.jpg');*/
     height: 500px;
     background-size: cover;
     padding-top: 50px;
@@ -363,4 +363,18 @@ input[type="submit"] {
 
 .clear {
   clear: both;
+}
+
+
+.myClass, .myClass2 {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+}
+
+
+.animateTest {
+  /*width: 100px;
+  height: 100px;*/
 }
