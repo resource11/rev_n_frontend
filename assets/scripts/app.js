@@ -13,21 +13,21 @@ $(function() {
   // ssme_api.listAllBikes(listAllBikesCb);
   ssme_api.listAllBillboards(listAllBillboardsCb);
 
-  // // register event handler
-  // $('#register').on('submit', function(e) {
-  //   var credentials = wrap('credentials', form2object(this));
+  // register event handler
+  $('#register').on('submit', function(e) {
+    var credentials = wrap('credentials', form2object(this));
 
-  //   ssme_api.register(credentials, regCb);
-  //   e.preventDefault();
-  // });
+    ssme_api.register(credentials, regCb);
+    e.preventDefault();
+  });
 
-  // // login event handler
-  // $('#login').on('submit', function(e) {
-  //   var credentials = wrap('credentials', form2object(this));
-
-  //   ssme_api.login(credentials, loginCb);
-  //   e.preventDefault();
-  // });
+  // login event handler
+  $('#login').on('submit', function(e) {
+    var credentials = wrap('credentials', form2object(this));
+console.log(credentials);
+    ssme_api.login(credentials, loginCb);
+    e.preventDefault();
+  });
 
   // // logout event handler
   // $('#logout').on('submit', function(e) {
