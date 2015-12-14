@@ -6,144 +6,199 @@
   <link rel="stylesheet" type="text/css" href="assets/styles/html5reset.css">
   <link rel="stylesheet" type="text/css" href="assets/styles/animate.css">
   <link rel="stylesheet" type="text/css" href="assets/styles/responsive.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
 </head>
 
 <body>
-  <header id="header" class="">
+  <!-- begin header -->
+  <header class="">
     <div class="brand">
-      <h1>SillySpeed Me</h1>
+      <h1>Rev.n</h1>
     </div>
-  </header><!-- /header -->
-
-  <div class="logins-messages-creators">
-    <!--  <nav>
+     <nav>
       <ul class="top-nav">
+        <li id="create-rev" class="top-nav-create-rev">Create new rev</li>
+        <li id="logout-button" class="top-nav-logout">Logout</li>
         <li id ="register-button" class="top-nav-register">Register</li>
         <li id="login-button" class="top-nav-login">Log In</li>
       </ul>
-    </nav> -->
+    </nav>
+  </header>
+  <!-- end header -->
 
-    <div class="reg-login API-register">
-      <h6>Register</h6>
+
+  <!-- begin hero -->
+  <section class="span_12_of_12 hero">
+    <div class="span_6_of_12 hero-intro">
+      <h2>Rev.n</h2>
+      <h3>iteration nirvana.</h3>
+      <button type="" class="span_4_of_12">sign in</button>
+      <p>Need an account? <a>Register</a>.</p>
+    </div>
+    <p class="bot-arrow"><i class="fa fa-chevron-down"></i></p>
+  </section>
+  <!-- end hero -->
+
+
+  <!-- begin register -->
+  <section class="span_12_of_12 register-scheme">
+  <div class="span_4_of_12">
+      <h3>Sign up</h3>
       <form id="register">
+        <label for="email">email:</label>
         <input name="email" type="text" placeholder="email">
+        <label for="password">password:</label>
         <input name="password" type="password" placeholder="password">
+        <label for="password confirmation">password confirmation:</label>
         <input name="password_confirmation" type="password" placeholder="password confirmation">
-        <input name="register" type="submit" value="Register" class="top-reg-button">
+        <!-- <input name="register" type="submit" value="Register" class="top-reg-button"> -->
+        <button type="">Register</button>
       </form>
-    </div><!-- end register -->
+    </div>
+  </section>
+  <!-- end register -->
 
-    <div class="reg-login API-login">
-      <h6>Login</h6>
+
+  <!-- begin login -->
+  <section class="span_12_of_12 login-scheme">
+    <div class="span_4_of_12">
+      <h3>Sign in</h3>
       <form id="login">
+        <label for="email">email:</label>
         <input name="email" type="text" placeholder="email">
+        <label for="password">password:</label>
         <input name="password" type="password" placeholder="password">
-        <input name="login" type="submit" value="Login" class="top-login-button">
+        <!-- <input name="login" type="submit" value="Login" class="top-login-button"> -->
+        <button type="">Log in</button>
       </form>
-    </div><!-- end login -->
+    </div>
+  </section>
+  <!-- end login -->
+
+
+  <!-- begin create rev -->
+  <section class="span_12_of_12">
+    <div class="span_6_of_12">
+      <h6>Create a new rev</h6>
+      <form id="create">
+        <input name="name" type="text" placeholder="name">
+        <input name="title" type="text" placeholder="title">
+        <input name="subtext01" type="text" placeholder="subtext 01">
+        <input name="subtext02" type="text" placeholder="subtext 02">
+        <!-- <input name="color_scheme" type="text" placeholder="color scheme"> -->
+        <select name="color_scheme">
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+        </select>
+        <!-- <input name="anim_option" type="text" placeholder="animation option"> -->
+        <select name="anim_option">
+          <option value="circle">Circles</option>
+          <option value="square">Squares</option>
+          <option value="triangle">Triangles</option>
+        </select>
+        <input name="create" type="submit" value="Create rev" class="top-login-button">
+      </form>
+    </div>
+  </section>
+  <!-- end create rev -->
+
+
+  <!-- begin create rev side menu -->
+  <section class="span_12_of_12">
+    <div class="span_3_of_12">
+      <h6>Create a new rev</h6>
+      <form id="create-side">
+        <input name="name" type="text" placeholder="name">
+        <input name="title" type="text" placeholder="title">
+        <input name="subtext01" type="text" placeholder="subtext 01">
+        <input name="subtext02" type="text" placeholder="subtext 02">
+        <input name="color_scheme" type="text" placeholder="color scheme">
+        <input name="anim_option" type="text" placeholder="animation option">
+        <input name="create-side" type="submit" value="Create rev" class="top-login-button">
+      </form>
+    </div>
+  </section>
+  <!-- end create rev side menu -->
+
+
+  <!-- begin edit rev -->
+  <section class="span_12_of_12">
+    <div class="span_3_of_12">
+      <h6>Create a new rev</h6>
+      <form id="create-side">
+        <input name="name" type="text" placeholder="name">
+        <input name="title" type="text" placeholder="title">
+        <input name="subtext01" type="text" placeholder="subtext 01">
+        <input name="subtext02" type="text" placeholder="subtext 02">
+        <input name="color_scheme" type="text" placeholder="color scheme">
+        <input name="anim_option" type="text" placeholder="animation option">
+        <input name="create-side" type="submit" value="Create rev" class="top-login-button">
+      </form>
+    </div>
+
+  </section>
+  <!-- end edit rev -->
+
+
+  <!-- begin user revs list -->
+  <section class="span_12_of_12">
+    <div class="bikes-for-sale">
+          <h4>Your revs</h4>
+
+          <div id="all-bikes">
+            <!-- dynamic content -->
+          </div>
+
+        </div><!-- end bikes-for-sale -->
+  </section>
+  <!-- end user revs list -->
+
+
+  <!-- begin rev view -->
+  <section class="span_12_of_12">
+
+  </section>
+  <!-- end rev view -->
+
+
+  <!-- begin front view -->
+  <section class="span_12_of_12">
+
+  </section>
+  <!-- end front view -->
+
+
+  <!-- begin left view -->
+  <section class="span_12_of_12">
+
+  </section>
+  <!-- end left view -->
+
+
+  <!-- begin right view -->
+  <section class="span_12_of_12">
+
+  </section>
+  <!-- end right view -->
 
 
 
-    <!-- user messages -->
+
+
+
+
+<!--   <div class="logins-messages-creators">
     <div class="messages-container">
       <h4 class="user-messages">messages here</h4>
     </div>
-
-  </div>
-
-  <section id="banner">
-    <h2>SillySpeed Me!</h2>
-    <h4>one-geared fun.</h4>
-    <p>[Register and Log in to list a bike]</p>
-  </section>
+  </div> -->
 
 
 
   <!-- begin wrapper -->
   <div class="wrapper">
-
-    <!-- begin container -->
-    <div class="container">
-
-
-
-      <!-- all bikes -->
-    <div class="main">
-      <div class="bikes-for-sale">
-        <h4>All bikes for sale</h4>
-
-        <div id="all-bikes">
-          <!-- dynamic content -->
-        </div>
-
-      </div><!-- end bikes-for-sale -->
-    </div>
-
-    <div class="secondary"><!-- current user -->
-          <div id="profile left">
-
-            <div class="current-user">
-              <h4>Your bikes for sale</h4>
-
-              <div id="user-bikes">
-              <!-- dynamic content -->
-              </div>
-            </div>
-
-            <div class="favorites left">
-                <h4>Your favorite bikes</h4>
-
-                <div id="user-favorite-bikes">
-                <!-- dynamic content -->
-                </div>
-
-            </div>
-
-
-          </div><!-- end profile -->
-
-          <div name="list-a-bike left">
-
-
-
-<!--           <div class="favorite-menus left">
-           <h4>Post a bike</h4>
-            <div class="new-post-form">
-              <form id="bike">
-                <input name="title" type="text" placeholder="title of your post">
-                <input name="description" type="text" placeholder="Posting description">
-                <input type="submit">
-              </form>
-            </div>
-
-            <div>
-              <h4>Favorite a Bike</h4>
-                <form id="favorite_bike">
-                  <input name="favorite" type="text" placeholder="set to true">
-                  <input name="user_id" type="text" placeholder="user_id number">
-                  <input name="bike_id" type="text" placeholder="bike_id number">
-                  <input type="submit">
-                </form>
-            </div>
-
-            <div>
-              <h4>unFavorite a Bike</h4>
-               <form id="update_favorite">
-                 <input name="id" type="text" placeholder="favorite_bike id">
-                 <input name="favorite" type="text" placeholder="set to false">
-                 <input name="user_id" type="text" placeholder="user_id number">
-                 <input name="bike_id" type="text" placeholder="bike_id number">
-                 <input type="submit">
-               </form>
-            </div>
-          </div> -->
-
-        </div>
-      </div>
-  </div>
-   <!-- end container -->
-
 
          <!-- begin test anim div -->
   <div class="myClass">
