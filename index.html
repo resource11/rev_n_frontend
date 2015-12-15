@@ -14,7 +14,7 @@
   <!-- begin header -->
   <header class="">
     <div class="brand">
-      <h1>Rev.n</h1>
+      <h1>Rev(n)</h1>
     </div>
      <nav>
       <ul class="top-nav">
@@ -31,12 +31,12 @@
   <!-- begin hero -->
   <section class="span_12_of_12 hero">
     <div class="span_6_of_12 hero-intro">
-      <h2>Rev.n</h2>
+      <h2>Rev(n)</h2>
       <h3>iteration nirvana.</h3>
       <button type="" class="span_4_of_12">sign in</button>
       <p>Need an account? <a>Register</a>.</p>
     </div>
-    <p class="bot-arrow"><i class="fa fa-angle-down"></i></p>
+    <p class="span_2_of_12 bot-arrow"><i class="fa fa-angle-down"></i></p>
   </section>
   <!-- end hero -->
 
@@ -188,13 +188,45 @@
 
 
   <!-- begin user revs list -->
-  <section class="span_12_of_12">
+  <section class="span_3_of_12 list-scheme sidebar">
     <p class="close-me"><i class="fa fa-times"></i></p>
-    <div class="bikes-for-sale">
-          <h4>Your revs</h4>
+    <div class="rev-list">
+          <h3>Your revs</h3>
 
-          <div id="all-bikes">
+          <div id="user-revs">
             <!-- dynamic content -->
+            <input type="checkbox" id="toggler" />
+          <label for="toggler">Toggle the checkbox!</label>
+          <!-- <ul>
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+          </ul> -->
+          <form id="edit-side">
+              <label for="name">name:</label>
+              <input name="name" type="text" placeholder="name">
+              <label for="title">title:</label>
+              <input name="title" type="text" placeholder="title">
+              <label for="subtext 01">subtext 01:</label>
+              <input name="subtext01" type="text" placeholder="subtext 01">
+              <label for="subtext 02">subtext 02:</label>
+              <input name="subtext02" type="text" placeholder="subtext 02">
+              <!-- <input name="color_scheme" type="text" placeholder="color scheme"> -->
+              <label for="color scheme">color scheme:</label>
+              <select name="color_scheme">
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+              </select>
+              <!-- <input name="anim_option" type="text" placeholder="animation option"> -->
+              <label for="animation option">animation option:</label>
+              <select name="anim_option">
+                <option value="circle">Circles</option>
+                <option value="square">Squares</option>
+                <option value="triangle">Triangles</option>
+              </select>
+              <!-- <input name="create" type="submit" value="Create rev" class="top-login-button"> -->
+              <button type="">Save changes</button>
+            </form>
           </div>
 
         </div><!-- end bikes-for-sale -->

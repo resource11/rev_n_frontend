@@ -12,40 +12,27 @@ var bike = {
   user_id: null
 };
 
-var favorite_bike = {
-  id: null,
-  favorite: false,
-  user_id: null,
-  bike_id: null
-};
 
 // locations to append bikes
 var allBikesList = $('#all-bikes');
 
-var allBillboardsList = $('#all-bikes');
+var allBillboardsList = $('#all-revs');
 
-var userBikesList = $('#user-bikes');
-var userFavoriteList = $('#user-favorite-bikes');
+var userBillboardsList = $('#user-revs');
 
 var removeBikes = function(data, location1, location2) {
   location1.find.location2.remove();
 };
 
-var listBikeHTML = function (bike) {
-  allBikesList.append('<div id=' + bike.id + ' class="bike-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><button class="favorite-bike">Favorite this bike</button></div>');
-};
 
 var listBillboardHTML = function (billboard) {
   allBillboardsList.append('<div id=' + billboard.id + ' class="billboard-posts"><h3>' + billboard.name + '</h3><p>' + billboard.title +'</p><p> billboard subtext01: '+ billboard.subtext01 +'</p><p> billboard subtext02: '+ billboard.subtext02 +'</p><button class="favorite-billboard">Favorite this billboard</button></div>');
 };
 
-var listUserBikeHTML = function(bike) {
-  userBikesList.append('<div id=' + bike.id + ' class="bike-posts usr-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><button class="delete-bike">Delete this listing</button></div>');
- };
 
-var listFavBikeHTML = function(favBike) {
-  userFavoriteList.append('<div id=' + favBike.id + ' class="bike-posts usr-favs"><h3> Favorite bike id ' + favBike.id + '</h3><p> bike id: ' + favBike.bike_id  + '</p><p> user id: ' + favBike.user_id  + '</p><button class="remove-favorite-bike">remove this Favorite</button></div>');
- };
+var listUserBillboardHTML = function (billboard) {
+  userBillboardsList.append('<div id=' + billboard.id + ' class="billboard-posts"><h3>' + billboard.name + '</h3><p>' + billboard.title +'</p><p> billboard subtext01: '+ billboard.subtext01 +'</p><p> billboard subtext02: '+ billboard.subtext02 +'</p><button class="favorite-billboard">Favorite this billboard</button></div>');
+};
 
 // create object from form data
 var form2object = function(form) {
@@ -153,7 +140,7 @@ var logoutCb = function (error){
 
 // };
 
-// listBillboards callback
+// listAllBillboards callback
 var listAllBillboardsCb = function (error, data) {
   if (error) {
     console.error(error);
@@ -165,6 +152,23 @@ var listAllBillboardsCb = function (error, data) {
 
   billboards.forEach(function(billboard){
     listBillboardHTML(billboard);
+  });
+
+};
+
+
+// listUserBillboards callback
+var listUserBillboardsCb = function (error, data) {
+  if (error) {
+    console.error(error);
+    $(".user-messages").html("<strong>Error! Rev listing fail!</strong>");
+    return;
+  }
+  // grab billboards from Rails
+  var billboards = data.billboards;
+
+  billboards.forEach(function(billboard){
+    listUserBillboardHTML(billboard);
   });
 
 };

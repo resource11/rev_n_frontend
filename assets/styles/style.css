@@ -180,6 +180,8 @@ select {
 
 
 
+
+
 /* hero section */
 
 .hero {
@@ -214,7 +216,7 @@ select {
 .bot-arrow {
   position: relative;
   top: 110px;
-  margin: 0px auto 50px;
+  margin: 0px auto;
   font-size: 4em;
 }
 
@@ -293,6 +295,13 @@ select {
 }
 
 
+.list-scheme {
+  background: linear-gradient(to bottom, #1c1c1c 0%,#595959 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  padding-top: 60px;
+
+}
+
+
 #create-side, #edit-side {
   width: 90%;
   margin: 0 auto;
@@ -368,20 +377,6 @@ select {
 
 /*p{margin: 0 0 10px 0; line-height: 1;}*/
 
-/*input {
-      width: 100%;
-      border:0;
-      padding:10px;
-      margin: 2px auto;
-      font-size:.8em;
-      display: block;
-      color: #444;
-}*/
-
-/*input[type="submit"] {
-  background: #CE2701;
-  color:white;
-}*/
 
 /*.top_nav {
   top: 20px;
@@ -433,99 +428,6 @@ select {
   background-color: rgba(0, 0, 0, .4);
 }*/
 
-/*.container{
-  max-width: 100%;
-  margin: 0 auto 40px;
-  overflow: auto;
-}*/
-
-/*.main, .secondary {
-  max-width: 100%;
-  margin: 10px auto;
-  overflow: auto;
-}*/
-
-/*.secondary {
-  background-color: #e6e6e6;
-}
-*/
-
-/*.list-a-bike {
-  margin-right: 10%;
-}*/
-
-/*.bikes-for-sale, .profile, .post-bike {
-  overflow: auto;
-  margin-left: 10%;
-}*/
-
-/*.post-bike {
-  background-color: #eee;
-  overflow: auto;
-}*/
-
-/*.bike-posts {
-  background-color: #eee;
-  padding: 10px;
-  width: 200px;
-  height: 200px;
-  overflow: auto;
-  float: left;
-}*/
-
-/*.bike-posts:after {
-  content: " ";
-  clear: both;
-}*/
-
-/*.new-post-form {
-  float: left;
-}*/
-
-/*.bike-posts {
-  width: 180px;
-  height: 180px;
-  margin: 5px;
-  float: left;
-  background: #eee;
-  border-left: 5px solid rgba(87, 138, 7, 1);
-  color: #555;
-  transition: all .3s ease-in-out;
-}*/
-
-/*.bike-posts:hover{
-  background: rgba(87, 138, 7, 1);
-  transform: scale(1.02);
-  color: #fff;
-}*/
-
-/*.bike-posts:active{
-  background: radial-gradient(#FFEF8C 0%, #FF6A00 100%);
-}*/
-
-/*.bikes-for-sale, .profile, .current-user, .favorites {
-  width: 60%;
-  min-height: 300px;
-  margin-left: 10%
-}*/
-
-/*.bikes-for-sale:after {
-  content: '';
-  clear: both;
-}*/
-
-/*.current-user {
-  width: 63.4%;
-  min-height: 300px;
-}*/
-
-/*.favorites {
-  width: 43%;
-  min-height: 300px;
-  padding-top: 10px;
-  margin-top: 10px;
-  overflow: auto;
-}*/
 
 /*.messages-container {
   width: 290px;
@@ -547,14 +449,6 @@ select {
 
 /*.usr-posts:hover {
   background-color: #CE2701;
-}*/
-
-/*.usr-favs {
-  border-left: 5px solid #8D449E;
-}*/
-
-/*.usr-favs:hover {
-  background-color: #8D449E;
 }*/
 
 
@@ -580,4 +474,56 @@ select {
 
 
 .animateTest {
+}
+
+
+.clearfix {
+  content: '';
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0;
+}
+
+
+/* flexbox */
+
+/*.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}*/
+
+/* wrapper flexbox */
+
+.register-scheme, .login-scheme, .create-scheme, .edit-scheme, .list-scheme{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.sidebar {
+  -webkit-box-flex: 1;   /* OLD - iOS 6-, Safari 3.1-6 */
+  /*width: 20%; */           /* For old syntax, otherwise collapses. */
+  -webkit-flex: 1;       /* Safari 6.1+. iOS 7.1+, BB10 */
+  -ms-flex: 1;           /* IE 10 */
+  flex: 1;               /* NEW, Spec - Firefox, Chrome, Opera */
+}
+
+
+/* toggle hidden menu */
+
+#toggler {
+  display: none;
+}
+#toggler ~ form {
+  max-height: 0;
+  overflow: hidden;
+  background: slategrey;
+  transition: max-height 1s;
+}
+#toggler:checked ~ form {
+  max-height: 100vh;
 }
