@@ -4,6 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>rev(n)</title>
   <link rel="stylesheet" type="text/css" href="assets/styles/html5reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/icomoon.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/MyFontsWebfontsKit.css">
   <link rel="stylesheet" type="text/css" href="assets/styles/animate.css">
   <link rel="stylesheet" type="text/css" href="assets/styles/responsive.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -33,16 +35,16 @@
     <div class="span_6_of_12 hero-intro">
       <h2>Rev(n)</h2>
       <h3>iteration nirvana.</h3>
-      <button type="" class="span_4_of_12">sign in</button>
-      <p>Need an account? <a>Register</a>.</p>
+      <button type="" class="span_4_of_12 login-a">sign in</button>
+      <p>Need an account? <a class="register-a">Register</a>.</p>
+      <p class="span_2_of_12 bot-arrow"><i class="fa fa-angle-down"></i></p>
     </div>
-    <p class="span_2_of_12 bot-arrow"><i class="fa fa-angle-down"></i></p>
   </section>
   <!-- end hero -->
 
 
   <!-- begin register -->
-  <section class="span_12_of_12 register-scheme">
+  <section class="span_12_of_12 register-scheme hidden">
     <p class="close-me"><i class="fa fa-times"></i></p>
     <div class="span_4_of_12">
       <h3>Sign up</h3>
@@ -54,15 +56,16 @@
         <label for="password confirmation">password confirmation:</label>
         <input name="password_confirmation" type="password" placeholder="password confirmation">
         <!-- <input name="register" type="submit" value="Register" class="top-reg-button"> -->
-        <button type="">Register</button>
+        <button type="" class="">Register</button>
       </form>
+      <p>Already signed up? <a class="login-a2">Sign in</a>.</p>
     </div>
   </section>
   <!-- end register -->
 
 
   <!-- begin login -->
-  <section class="span_12_of_12 login-scheme">
+  <section class="span_12_of_12 login-scheme hidden">
     <p class="close-me"><i class="fa fa-times"></i></p>
     <div class="span_4_of_12">
       <h3>Sign in</h3>
@@ -72,54 +75,26 @@
         <label for="password">password:</label>
         <input name="password" type="password" placeholder="password">
         <!-- <input name="login" type="submit" value="Login" class="top-login-button"> -->
-        <button type="">Log in</button>
+        <button type="" class="">Log in</button>
       </form>
+      <p>Need an account? <a class="register-a2">Register</a>.</p>
     </div>
   </section>
   <!-- end login -->
 
 
-  <!-- begin create rev -->
-  <section class="span_12_of_12 create-scheme">
-    <p class="close-me"><i class="fa fa-times"></i></p>
-    <div class="span_4_of_12">
-      <h3>Another rev</h3>
-      <form id="create">
-        <label for="name">name:</label>
-        <input name="name" type="text" placeholder="name">
-        <label for="title">title:</label>
-        <input name="title" type="text" placeholder="title">
-        <label for="subtext 01">subtext 01:</label>
-        <input name="subtext01" type="text" placeholder="subtext 01">
-        <label for="subtext 02">subtext 02:</label>
-        <input name="subtext02" type="text" placeholder="subtext 02">
-        <!-- <input name="color_scheme" type="text" placeholder="color scheme"> -->
-        <label for="color scheme">color scheme:</label>
-        <select name="color_scheme">
-          <option value="red">Red</option>
-          <option value="green">Green</option>
-          <option value="blue">Blue</option>
-        </select>
-        <!-- <input name="anim_option" type="text" placeholder="animation option"> -->
-        <label for="animation option">animation option:</label>
-        <select name="anim_option">
-          <option value="circle">Circles</option>
-          <option value="square">Squares</option>
-          <option value="triangle">Triangles</option>
-        </select>
-        <!-- <input name="create" type="submit" value="Create rev" class="top-login-button"> -->
-        <button type="">Create</button>
-      </form>
-    </div>
+  <!-- begin rev info container -->
+  <section class="span_4_of_12">
+    <!-- dynamic content here -->
   </section>
-  <!-- end create rev -->
+  <!-- end rev info container  -->
 
 
   <!-- begin create rev side menu -->
-  <section class="span_3_of_12 create-scheme sidebar">
+  <section class="span_3_of_12 create-scheme sidebar hidden">
     <p class="close-me"><i class="fa fa-times"></i></p>
-    <div class="">
-      <h3>Another rev</h3>
+    <div>
+      <h3>One more rev</h3>
       <form id="create-side">
         <label for="name">name:</label>
         <input name="name" type="text" placeholder="name">
@@ -152,11 +127,11 @@
 
 
   <!-- begin edit rev -->
-  <section class="span_3_of_12 edit-scheme sidebar">
+  <section class="span_3_of_12 edit-scheme sidebar hidden">
     <p class="close-me"><i class="fa fa-times"></i></p>
-    <div class="">
+    <div class="" >
       <h3>Edit rev</h3>
-      <form id="edit-side">
+      <form id="edit-side" data-id="">
         <label for="name">name:</label>
         <input name="name" type="text" placeholder="name">
         <label for="title">title:</label>
@@ -179,7 +154,7 @@
           <option value="square">Squares</option>
           <option value="triangle">Triangles</option>
         </select>
-        <!-- <input name="create" type="submit" value="Create rev" class="top-login-button"> -->
+        <!-- <input name="edit-side" type="submit" value="Create rev" class="top-login-button"> -->
         <button type="">Save changes</button>
       </form>
     </div>
@@ -188,20 +163,17 @@
 
 
   <!-- begin user revs list -->
-  <section class="span_3_of_12 list-scheme sidebar">
-    <p class="close-me"><i class="fa fa-times"></i></p>
+  <section class="span_3_of_12 list-scheme sidebar hidden">
+    <!-- <p class="close-me"><i class="fa fa-times"></i></p> -->
     <div class="rev-list">
           <h3>Your revs</h3>
 
           <div id="user-revs">
             <!-- dynamic content -->
+          </div>
             <input type="checkbox" id="toggler" />
-          <label for="toggler">Toggle the checkbox!</label>
-          <!-- <ul>
-            <li>List Item 1</li>
-            <li>List Item 2</li>
-          </ul> -->
-          <form id="edit-side">
+            <label for="toggler">Toggle the checkbox!</label>
+            <form id="edit-side">
               <label for="name">name:</label>
               <input name="name" type="text" placeholder="name">
               <label for="title">title:</label>
@@ -227,9 +199,9 @@
               <!-- <input name="create" type="submit" value="Create rev" class="top-login-button"> -->
               <button type="">Save changes</button>
             </form>
-          </div>
 
-        </div><!-- end bikes-for-sale -->
+
+        </div>
   </section>
   <!-- end user revs list -->
 

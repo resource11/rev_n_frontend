@@ -3,8 +3,11 @@
 /*MAIN*/
 
 body {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
+  /*font-family: 'Lato', sans-serif;
+  font-weight: 300;*/
+  font-family: SoinSansPro-Light;
+  font-weight: normal;
+  font-style: normal;
   font-size: 1em;
   color: #fff;
   -webkit-box-sizing: border-box;
@@ -13,6 +16,58 @@ body {
 }
 
 /* Custom CSS */
+
+img{max-width: 100%;}
+
+p{margin: 0 0 10px 0; line-height: 1;}
+
+h2, h5, h6 {
+  font-family: SoinSansPro-Bold;
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+    /*background-image: url('assets/images/ss_bike.png');*/
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    float: left;
+}
+
+h2 {
+  font-size: 13vw;
+  /*font-size: 13em;*/
+  /*font-weight: 900;*/
+  letter-spacing: -.02em;
+  /*color: #fff;*/
+}
+
+h3 {
+  font-size: 3.2em;
+  /*font-weight: 100;*/
+  /*text-transform: uppercase;*/
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+h5 {
+  font-size: 1.25em;
+  /*font-weight: 900;*/
+}
+
+h6 {
+  font-size: 1em;
+  /*font-weight: 900;*/
+}
+
+
+
 
 .wrapper{
   margin: 0 auto;
@@ -44,47 +99,23 @@ footer {
 }
 
 
-h1 {
-    /*background-image: url('assets/images/ss_bike.png');*/
-    background-size: contain;
-    width: 50px;
-    height: 50px;
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    float: left;
+a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
 }
 
-h2 {
-  font-size: 15vw;
-  /*font-size: 13em;*/
-  font-weight: 900;
-  letter-spacing: -.02em;
-  /*color: #fff;*/
+a:link, a:visited {
+  color: #fff;
 }
 
-h3 {
-  font-size: 3em;
-  font-weight: 300;
-  /*text-transform: uppercase;*/
+a:hover {
+  border-bottom: 2px solid orange;
 }
 
-h4 {
-  font-size: 1.5em;
-  font-weight: 300;
+a:active {
+  border-bottom: 2px solid limegreen;
 }
-
-h5 {
-  font-size: 1.25em;
-  font-weight: 900;
-}
-
-h6 {
-  font-size: 1em;
-  font-weight: 900;
-}
-
-
 
 /*NAVIGATION*/
 
@@ -149,7 +180,6 @@ input[type="submit"]{
 
 label {
   font-size: 1.3em;
-  /*padding-left: 10px;*/
 }
 
 select {
@@ -185,7 +215,9 @@ select {
 /* hero section */
 
 .hero {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   background-image: url('../images/times_sq_bg_blur_dk.jpg');
   background-size: cover;
   background-position: center;
@@ -243,7 +275,9 @@ select {
 }
 
 .register-scheme, .login-scheme, .create-scheme {
-  position: relative;
+  position: absolute;
+  top: 70px;
+  left: 0;
   height: 520px;
   padding: 120px 0;
   background: linear-gradient(to bottom, #ea2803 0%, #ff6600 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -372,12 +406,6 @@ select {
 
 
 
-
-/*img{max-width: 100%;}*/
-
-/*p{margin: 0 0 10px 0; line-height: 1;}*/
-
-
 /*.top_nav {
   top: 20px;
 }*/
@@ -404,28 +432,9 @@ select {
   border-bottom: 4px solid rgba(240,80,62, 1);
 }*/
 
-/*#register, #login, .new-bike-posting {
-  width: 90%;
-  overflow: auto;
-  background-color: #eee;
-}
-*/
 
 /*.user-messages {
   color: #fff;
-}*/
-
-/*.reg-login  h6{
-  color: #fff;
-  padding: 10px 0 5px;
-}*/
-
-/*.API-register, .API-login {
-  z-index: 9999;
-  width: 300px;
-  height: 160px;
-  padding: 10px 5px;
-  background-color: rgba(0, 0, 0, .4);
 }*/
 
 
@@ -452,17 +461,6 @@ select {
 }*/
 
 
-/*.left {
-  float: left;
-}*/
-
-/*.right {
-  float: right;
-}*/
-
-/*.clear {
-  clear: both;
-}*/
 
 
 .myClass, .myClass2 {
@@ -485,6 +483,59 @@ select {
   height: 0;
 }
 
+.hidden {
+  display: none;
+}
+
+/* rev container */
+
+.billboard-post {
+  position: relative;
+  border-top: 2px solid rgba(255,255,255,0.5);
+  padding: 10px 5%;
+}
+
+/*.rev-item {
+  float: left;
+}*/
+
+.rev-button {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  display: inline;
+  width: 15%;
+  overflow: auto;
+}
+
+.billboard-post button {
+  width: 25px;
+  height: 25px;
+  margin: 3px;
+  padding: 3px;
+  font-size: .8em;
+  border: 0;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.billboard-post button:hover {
+  background-color: limegreen;
+}
+
+.billboard-post button:active {
+  background-color: orangered;
+}
+
+
+
+.billboard-post:after {
+  content: '';
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0;
+}
 
 /* flexbox */
 
@@ -497,7 +548,7 @@ select {
 
 /* wrapper flexbox */
 
-.register-scheme, .login-scheme, .create-scheme, .edit-scheme, .list-scheme{
+/*.register-scheme, .login-scheme, .create-scheme, .edit-scheme, .list-scheme{
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -505,12 +556,12 @@ select {
 }
 
 .sidebar {
-  -webkit-box-flex: 1;   /* OLD - iOS 6-, Safari 3.1-6 */
-  /*width: 20%; */           /* For old syntax, otherwise collapses. */
-  -webkit-flex: 1;       /* Safari 6.1+. iOS 7.1+, BB10 */
-  -ms-flex: 1;           /* IE 10 */
-  flex: 1;               /* NEW, Spec - Firefox, Chrome, Opera */
-}
+  -webkit-box-flex: 1;
+  width: 20%;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}*/
 
 
 /* toggle hidden menu */
@@ -518,12 +569,61 @@ select {
 #toggler {
   display: none;
 }
+
 #toggler ~ form {
   max-height: 0;
   overflow: hidden;
   background: slategrey;
   transition: max-height 1s;
 }
+
 #toggler:checked ~ form {
   max-height: 100vh;
 }
+
+
+
+/* set z-index structure */
+
+.rev-info {
+  z-index: 2500;
+}
+
+.rev-views {
+  z-index: 2400;
+}
+
+.create-scheme {
+  z-index: 2200;
+}
+
+.edit-scheme {
+  position: absolute;
+  top: 70px;
+  left: 25%;
+  z-index: 2300;
+}
+
+.list-scheme {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  z-index: 2100;
+}
+
+.right-persp-view {
+  z-index: 1400;
+}
+
+.left-persp-view {
+  z-index: 1300;
+}
+
+.front-persp-view {
+  z-index: 1200;
+}
+
+.front-view {
+  z-index: 1100;
+}
+

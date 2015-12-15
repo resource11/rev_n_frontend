@@ -5,34 +5,60 @@ var session = {
   token: null,
 };
 
-var bike = {
+var billboard = {
   id: null,
+  name: null,
   title: null,
-  description: null,
+  subtext01: null,
+  subtext02: null,
+  color_scheme: null,
+  anim_option: null,
   user_id: null
 };
 
 
-// locations to append bikes
-var allBikesList = $('#all-bikes');
-
-var allBillboardsList = $('#all-revs');
-
+var registerSubmit = $('#register');
+var loginSubmit = $('#login');
+var registerMenu = $('.register-scheme');
+var loginMenu = $('.login-scheme');
+var createSideMenu = $('.create-scheme');
+var editSide = $('.edit-scheme');
 var userBillboardsList = $('#user-revs');
+var closeMe = $('.close-me');
 
-var removeBikes = function(data, location1, location2) {
-  location1.find.location2.remove();
-};
+// var userBillboardsList = $('#user-revs');
+
+// var removeBillboard = function(data, location1, location2) {
+//   location1.find.location2.remove();
+// };
 
 
-var listBillboardHTML = function (billboard) {
-  allBillboardsList.append('<div id=' + billboard.id + ' class="billboard-posts"><h3>' + billboard.name + '</h3><p>' + billboard.title +'</p><p> billboard subtext01: '+ billboard.subtext01 +'</p><p> billboard subtext02: '+ billboard.subtext02 +'</p><button class="favorite-billboard">Favorite this billboard</button></div>');
-};
+// var listBillboardHTML = function (billboard) {
+//   allBillboardsList.append(
+//     '<article data-id=' + billboard.id +
+//     ' class="billboard-post"><div class="rev-item"><h5>'
+//      + billboard.name + '</h5><p>' + billboard.title +'</p><p>'
+//      + billboard.subtext01 + '</p><p>' + billboard.subtext02 +
+//     '</p></div><div class="rev-button"><button class="edit-rev">edit</button><button class="delete-rev">delete</button></div></article>'
+//     );
+// };
 
 
 var listUserBillboardHTML = function (billboard) {
-  userBillboardsList.append('<div id=' + billboard.id + ' class="billboard-posts"><h3>' + billboard.name + '</h3><p>' + billboard.title +'</p><p> billboard subtext01: '+ billboard.subtext01 +'</p><p> billboard subtext02: '+ billboard.subtext02 +'</p><button class="favorite-billboard">Favorite this billboard</button></div>');
+  userBillboardsList.prepend(
+    '<article data-id=' + billboard.id +
+    ' class="billboard-post"><div class="rev-item"><h5>'
+     + billboard.name + '</h5><h6>' + billboard.title +'</h6><p>'
+     + billboard.subtext01 + '</p><p>' + billboard.subtext02 +
+    '</p><p>color scheme: ' + billboard.color_scheme +
+    '</p><p>animation option: ' + billboard.anim_option +
+    '</p></div><div class="rev-button"><button class="edit-rev icon-pencil"></button><button href="" class="delete-rev icon-bin"></button></article>'
+    );
 };
+
+
+// define jQuery search for user rev list
+var revList = $(".list-scheme");
 
 // create object from form data
 var form2object = function(form) {
@@ -99,11 +125,10 @@ var loginCb = function (error, data) {
   // display current_user status
   data.user.current_user = true;
 
-  // list current user bikes for sale
-  ssme_api.listUserBikes(session.token, listUserBikesCb);
 
-  // list current user favorited bikes
-  ssme_api.listFavBikes(session.token, listFavBikesCb);
+
+  // list current user billboards
+  api.listUserBillboards(session.token, listUserBillboardsCb);
 
 
   console.log(JSON.stringify(data, null, 4));
@@ -124,38 +149,6 @@ var logoutCb = function (error){
   console.log("Logged out");
 };
 
-// // listBikes callback
-// var listAllBikesCb = function (error, data) {
-//   if (error) {
-//     console.error(error);
-//     $(".user-messages").html("<strong>Error! Bike listing fail!</strong>");
-//     return;
-//   }
-//   // grab bikes from Rails
-//   var bikes = data.bikes;
-
-//   bikes.forEach(function(bike){
-//     listBikeHTML(bike);
-//   });
-
-// };
-
-// listAllBillboards callback
-var listAllBillboardsCb = function (error, data) {
-  if (error) {
-    console.error(error);
-    $(".user-messages").html("<strong>Error! Bike listing fail!</strong>");
-    return;
-  }
-  // grab billboards from Rails
-  var billboards = data.billboards;
-
-  billboards.forEach(function(billboard){
-    listBillboardHTML(billboard);
-  });
-
-};
-
 
 // listUserBillboards callback
 var listUserBillboardsCb = function (error, data) {
@@ -164,6 +157,13 @@ var listUserBillboardsCb = function (error, data) {
     $(".user-messages").html("<strong>Error! Rev listing fail!</strong>");
     return;
   }
+
+
+  // hide hero intro and show rev list
+  $('.hero-intro').fadeOut(200);
+  // show user rev list
+  revList.delay(600).fadeIn().removeClass('hidden');
+
   // grab billboards from Rails
   var billboards = data.billboards;
 
@@ -173,112 +173,62 @@ var listUserBillboardsCb = function (error, data) {
 
 };
 
-// createBike callback
-var createBikeCb = function (error, data) {
+
+// createBillboard callback
+var createBillboardCb = function (error, data) {
   if (error) {
     console.error(error);
-    $(".user-messages").html("<strong>Error! Bike create fail!</strong>");
+    $(".user-messages").html("<strong>Error! Rev create fail!</strong>");
     return;
   }
 
-  var bike = data.bike;
-  listBikeHTML(bike);
-  listUserBikeHTML(bike);
-  $('.user-messages').text('New bike ' + bike.id + ' created by user ' + data.user.id);
+  console.log(data)
+
+  var billboard = data.billboard;
+  listBillboardHTML(billboard);
+  // listUserBillboardHTML(billboard);
+  $('.user-messages').text('New rev ' + data.billboard.id + ' created by user ' + data.user.id);
 
 };
-// end of createBike submit handler
-
-// listUserBikes callback
-var listUserBikesCb = function (error, data) {
-  if (error) {
-    console.error(error);
-    $(".user-messages").html("<strong>Error! Bike listing fail!</strong>");
-    return;
-  }
-
-  // grab bikes from Rails
-  var bikes = data.bikes;
-
-  bikes.forEach(function(bike){
-    listUserBikeHTML(bike);
-  });
-
-};
-
-// listFavBikes callback
-var listFavBikesCb = function (error, data) {
-  if (error) {
-    console.error(error);
-    $(".user-messages").html("<strong>Error! Bike favorite fail!</strong>");
-    return;
-  }
-
-  // console.log test
-  console.log('favorite bike data is ' + data.favorite_bikes);
-
-  var favBikes = data.favorite_bikes;
-
-  favBikes.forEach(function(favBike){
-    listFavBikeHTML(favBike);
-  });
-
-  // console.log for testing
-  console.log('bikes are ', favBikes);
-
-};
+// end of createBillboard submit handler
 
 
-// favoriteBike callback
-var favoriteBikeCb = function (error, data) {
-  if (error) {
-    console.error(error);
-    $(".user-messages").html("<strong>Error! Bike favorite fail!</strong>");
-    return;
-  }
 
-  // console.log test
- console.log('favorite bike data is ' + data);
 
-  var favBike = data.favorite_bike;
-  listFavBikeHTML(favBike);
-};
-// end of favoriteBike submit handler
+
 
 // updateFavBike callback
-var updateFavBikeCb = function (error, data) {
+var editBillboardCb = function (error, data) {
   if (error) {
     console.error(error);
-    $(".user-messages").html("<strong>Error! Bike favorite fail!</strong>");
+    $(".user-messages").html("<strong>Error! Rev update fail!</strong>");
     return;
   }
   // console.log test
-  console.log('favorite bike favorite is ' + data);
+  console.log('updated rev is is ' + data);
 
-  var favBike = data.favorite_bike;
+  var updatedBillboard = data.billboard;
 
-  console.log('favorite status is' + favBike.id);
+  console.log('favorite status is' + data.billboard.id);
 
-  $(".user-messages").html("<strong>Favorite removed!</strong>");
+  $(".user-messages").html("<strong>Rev updated!</strong>");
 
 };
-// end of updateFavBike submit handler
+// end of editBillboard submit handler
 
 
 
 // deleteBikes callback
-var deleteBikeCb = function (error, data) {
+var deleteBillboardCb = function (error, data) {
   if (error) {
     console.error(error);
-    $(".user-messages").html("<strong>Error! Bike deletion fail!</strong>");
+    $(".user-messages").html("<strong>Error! Rev deletion fail!</strong>");
     return;
   }
 
-  // find div by id, delete that div in user bikes then in all bikes
+  // find div by data-id, delete that div in user-rev then in current billboard view
 
-  $(".user-messages").html("<strong>Bike deletion success!</strong>");
-
-
+  $(".user-messages").html("<strong>Rev deletion success!</strong>");
 
 };
 

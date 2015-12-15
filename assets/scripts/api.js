@@ -2,8 +2,8 @@
 
 // api HTTP requests/responses
 
-var ssme_api = {
-  bikeWatcher: null,
+var api = {
+  billboardWatcher: null,
   // url: 'https://mighty-lowlands-8515.herokuapp.com',
   url: 'http://localhost:3000',
 
@@ -36,14 +36,6 @@ var ssme_api = {
     }, callback);
   },
 
-  // listAllBikes: function (callback) {
-  //   this.ajax({
-  //     method: 'GET',
-  //     url: this.url + '/bikes',
-  //     dataType: 'json'
-  //     }, callback);
-  // },
-
   listAllBillboards: function (callback) {
     this.ajax({
       method: 'GET',
@@ -65,10 +57,10 @@ var ssme_api = {
     }, callback);
   },
 
-  createBike: function (token, data, callback) {
+  createBillboard: function (token, data, callback) {
     this.ajax({
       method: 'POST',
-      url: this.url + '/bikes',
+      url: this.url + '/billboards',
       headers: {
         Authorization: 'Token token=' + token
       },
@@ -78,10 +70,11 @@ var ssme_api = {
     }, callback);
   },
 
-  showBike: function (id, token, callback) {
+
+  showBillboard: function (id, token, callback) {
     this.ajax({
       method: 'GET',
-      url: this.url + '/bikes/' + id,
+      url: this.url + '/billboards/' + id,
       headers: {
         Authorization: 'Token token=' + token
       },
@@ -89,10 +82,10 @@ var ssme_api = {
     }, callback);
   },
 
-  listUserBikes: function (token, callback) {
+  listUserBillboards: function (token, callback) {
     this.ajax({
       method: 'GET',
-      url: this.url + '/bikes',
+      url: this.url + '/billboards',
       headers: {
         Authorization: 'Token token=' + token
       },
@@ -100,22 +93,10 @@ var ssme_api = {
       }, callback);
   },
 
-  listFavBikes: function (token, callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/favorite_bikes',
-      headers: {
-        Authorization: 'Token token=' + token
-      },
-      dataType: 'json'
-      }, callback);
-  },
-
-
-  editBike: function (id, data, token, callback) {
+  editBillboard: function (id, data, token, callback) {
     this.ajax({
       method: 'PATCH',
-      url: this.url + '/bikes/' + id,
+      url: this.url + '/billboards/' + id,
       headers: {
         Authorization: 'Token token=' + token
       },
@@ -125,36 +106,10 @@ var ssme_api = {
     }, callback);
   },
 
-  favoriteBike: function (data, token, callback) {
-    this.ajax({
-      method: 'POST',
-      url: this.url + '/favorite_bikes',
-      headers: {
-        Authorization: 'Token token=' + token
-      },
-      contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(data),
-      dataType: 'json'
-    }, callback);
-  },
-
-  updateFavBike: function (id, data, token, callback) {
-    this.ajax({
-      method: 'PATCH',
-      url: this.url + '/favorite_bikes/' + id,
-      headers: {
-        Authorization: 'Token token=' + token
-      },
-      contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(data),
-      dataType: 'json'
-    }, callback);
-  },
-
-  deleteBike: function (id, token, callback) {
+  deleteBillboard: function (id, token, callback) {
     this.ajax({
       method: 'DELETE',
-      url: this.url + '/bikes/' + id,
+      url: this.url + '/billboards/' + id,
       headers: {
         Authorization: 'Token token=' + token
       },
@@ -165,13 +120,13 @@ var ssme_api = {
   },
 
 
-  watchBike: function (id, token) {
-    var url = this.url + '/bikes/' + id + '/watch';
+  watchBillboard: function (id, token) {
+    var url = this.url + '/billboards/' + id + '/watch';
     var auth = {
       Authorization: 'Token token=' + token
     };
-    this.bikeWatcher = resourceWatcher(url, auth); //jshint ignore: line
-    return this.bikeWatcher;
+    this.billboardWatcher = resourceWatcher(url, auth); //jshint ignore: line
+    return this.billboardWatcher;
   }
 
 };
