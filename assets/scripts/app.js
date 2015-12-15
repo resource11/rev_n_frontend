@@ -5,6 +5,15 @@ var user = {
   token: null
 };
 
+var billboard = {
+  id: null,
+  name: null,
+  title: null,
+  subtext01: null,
+  subtext02: null,
+  color_scheme: null,
+  anim_option: null
+};
 
 //$(document).ready(...
 $(function() {
@@ -109,13 +118,18 @@ $(function() {
   // open the edit form and send data-id attribute over
   userBillboardsList.on('click', '.edit-rev', function(){
     console.log(userBillboardsList);
-    // open the edit form, find closest billboard data-id attr
-    // set the edit-side form data-id to this data-id
+
+    var id = $(this).closest('.billboard-post').attr('data-id');
+    console.log('id is ' + id);
+
+    // $( "input[name*='man']" ).val( "has man in it!" );
+    api.showBillboard(id, session.token, loadBillboardCb);
+
   });
 
 
   // edit billboard handler
-  editSide.on('submit', function(e) {
+  editSideMenu.on('submit', function(e) {
     var data = wrap('billboard', form2object(this));
     console.log("clicked");
     // test to see if the data was wrapped

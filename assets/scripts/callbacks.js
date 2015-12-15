@@ -22,7 +22,8 @@ var loginSubmit = $('#login');
 var registerMenu = $('.register-scheme');
 var loginMenu = $('.login-scheme');
 var createSideMenu = $('.create-scheme');
-var editSide = $('.edit-scheme');
+var editSideMenu = $('.edit-scheme');
+var editForm = $('#edit-side');
 var userBillboardsList = $('#user-revs');
 var closeMe = $('.close-me');
 
@@ -215,6 +216,45 @@ var editBillboardCb = function (error, data) {
 
 };
 // end of editBillboard submit handler
+
+
+
+// listUserBillboards callback
+var loadBillboardCb = function (error, data) {
+  if (error) {
+    console.error(error);
+    $(".user-messages").html("<strong>Error! Rev load fail!</strong>");
+    return;
+  }
+
+
+
+  // grab billboards from Rails
+  var billboard = data.billboard;
+
+  console.log(JSON.stringify(data));
+  // set data attribute of form
+  $('#edit-side').attr('data-pollid', billboard.id);
+
+  $('.edit-name').val(billboard.name);
+  $('.edit-title').val(billboard.title);
+  $('.edit-subtext01').val(billboard.subtext01);
+  $('.edit-subtext02').val(billboard.subtext02);
+  $('.edit-color').val(billboard.color_scheme);
+  $('.edit-anim').val(billboard.anim_option);
+
+
+// // km changing class references to id refs
+//   $('#option-one').html(data[0].options[0]);
+//   $('#option-two').html(data[0].options[1]);
+//   $('#option-three').html(data[0].options[2]);
+//   $('#option-four').html(data[0].options[3]);
+//   $('#option-five').html(data[0].options[4]);
+//   $('#rendered-poll').attr('data-currentpollid', poll.id);
+
+  editSideMenu.fadeIn(300);
+
+};
 
 
 
