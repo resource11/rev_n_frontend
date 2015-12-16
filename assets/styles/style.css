@@ -504,29 +504,7 @@ select {
 }
 
 
-.myClass, .myClass2 {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  background-color: purple;
-}
 
-
-.animateTest {
-}
-
-
-.clearfix {
-  content: '';
-  clear: both;
-  display: block;
-  visibility: hidden;
-  height: 0;
-}
-
-.hidden {
-  display: none;
-}
 
 /* rev container */
 
@@ -591,31 +569,6 @@ select {
   height: 0;
 }
 
-/* flexbox */
-
-/*.wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-}*/
-
-/* wrapper flexbox */
-
-/*.register-scheme, .login-scheme, .create-scheme, .edit-scheme, .list-scheme{
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-}
-
-.sidebar {
-  -webkit-box-flex: 1;
-  width: 20%;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}*/
 
 
 /* toggle hidden menu */
@@ -668,8 +621,32 @@ select {
 }
 
 
+.right-persp-view {
+  position: absolute;
+  z-index: 1400;
+}
+
+.left-persp-view {
+  position: absolute;
+  z-index: 1300;
+}
+
+.front-persp-view {
+  position: absolute;
+  z-index: 1200;
+}
+
 .front-view {
   position: absolute;
+  z-index: 1100;
+}
+
+
+
+
+/*front view section*/
+
+.front-view {
   top: 70px;
   left: 0;
   background-image: url('../images/times_sq_bg_blur_mono.jpg');
@@ -680,19 +657,104 @@ select {
   text-align: center;
 }
 
-.right-persp-view {
-  z-index: 1400;
+.video-wall {
+  background-image: url('../images/video_wall.jpg');
+  width: 1300px;
+  height: 306px;
+  margin: 40px auto 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 120px;
+  border: 1px solid red;
+/*  height: 750px;*/
+  text-align: center;
+/*  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;*/
 }
 
-.left-persp-view {
-  z-index: 1300;
+
+.left-panel, .right-panel {
+  position: relative;
+  width: 260px;
+  height: 306px;
+  background-color: red;
 }
 
-.front-persp-view {
-  z-index: 1200;
+.mid-panel {
+  position: relative;
+  width: 780px;
+  height: 306px;
+  background-color: green;
 }
 
-.front-view {
-  z-index: 1100;
+.right-panel {
+
 }
 
+
+.title-treatment {
+  font-size: 8em;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+.subtext-treatment {
+  font-size: 4em;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+.flexbox-align-center {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+.myClass, .myClass2 {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+}
+
+
+.animateTest {
+}
+
+
+.clearfix {
+  content: '';
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.left {
+  float: left;
+}
