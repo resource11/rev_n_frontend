@@ -102,9 +102,11 @@ $(function() {
     e.preventDefault();
      // hide login container
     loginMenu.slideUp();
-    revList.fadeIn();
+    revList.fadeIn(300).removeClass('hidden');
     messagesContainer.fadeIn(300).removeClass('hidden');
     addRev.fadeIn(300).removeClass('hidden');
+    frontView.fadeIn(300).removeClass('hidden');
+    revInfo.fadeIn(300).removeClass('hidden');
   });
 
   // // logout event handler

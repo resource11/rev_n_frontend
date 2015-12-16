@@ -37,10 +37,12 @@
   <!-- end user messages -->
 
 <!--   begin current rev -->
-  <div class="rev-info">
-    <h5></h5>
+  <div class="rev-info hidden">
+    <h5><!-- dynamic content here --></h5>
   </div>
 <!--   end current rev -->
+
+
 
 
   <!-- begin hero -->
@@ -94,13 +96,6 @@
     </div>
   </section>
   <!-- end login -->
-
-
-  <!-- begin rev info container -->
-  <section class="span_4_of_12">
-    <!-- dynamic content here -->
-  </section>
-  <!-- end rev info container  -->
 
 
   <!-- begin edit rev -->
@@ -164,21 +159,18 @@
         <input name="subtext01" type="text" placeholder="subtext 01">
         <label for="subtext 02">subtext 02:</label>
         <input name="subtext02" type="text" placeholder="subtext 02">
-        <!-- <input name="color_scheme" type="text" placeholder="color scheme"> -->
         <label for="color scheme">color scheme:</label>
         <select name="color_scheme">
           <option value="red">Red</option>
           <option value="green">Green</option>
           <option value="blue">Blue</option>
         </select>
-        <!-- <input name="anim_option" type="text" placeholder="animation option"> -->
         <label for="animation option">animation option:</label>
         <select name="anim_option">
           <option value="circle">Circles</option>
           <option value="square">Squares</option>
           <option value="triangle">Triangles</option>
         </select>
-        <!-- <input name="create" type="submit" value="Create rev" class="top-login-button"> -->
         <button type="">Create</button>
       </form>
     </div>
@@ -187,45 +179,59 @@
 
   <!-- begin user revs list -->
   <section class="span_3_of_12 list-scheme sidebar hidden">
-    <!-- <p class="close-me"><i class="fa fa-times"></i></p> -->
     <div class="rev-list">
       <h3>Your revs</h3>
       <input type="checkbox" id="toggler" />
       <label for="toggler" class="arrow-down"><i class="fa fa-angle-down"></i></label>
+
       <div id="user-revs">
         <!-- dynamic content -->
       </div>
- <!-- <p contenteditable="true"></p> -->
 
-        </div>
+    </div>
   </section>
   <!-- end user revs list -->
 
 
   <!-- begin front view -->
-  <section class="span_12_of_12">
-    <p class="close-me"><i class="fa fa-times"></i></p>
+  <section class="span_12_of_12 front-view hidden">
+    <!-- <p class="close-me"><i class="fa fa-times"></i></p> -->
+   <div class="video-wall">
+
+     <div class="left-panel">
+
+     </div>
+
+     <div class="mid-panel">
+
+     </div>
+
+     <div class="right-panel">
+
+     </div>
+
+   </div>
   </section>
   <!-- end front view -->
 
 
   <!-- begin front persp view -->
-  <section class="span_12_of_12">
-    <p class="close-me"><i class="fa fa-times"></i></p>
+  <section class="span_12_of_12 front-persp-view">
+    <!-- <p class="close-me"><i class="fa fa-times"></i></p> -->
   </section>
   <!-- end front persp view -->
 
 
   <!-- begin left persp view -->
-  <section class="span_12_of_12">
-    <p class="close-me"><i class="fa fa-times"></i></p>
+  <section class="span_12_of_12 left-persp-view">
+    <!-- <p class="close-me"><i class="fa fa-times"></i></p> -->
   </section>
   <!-- end left persp view -->
 
 
   <!-- begin right persp view -->
-  <section class="span_12_of_12">
-    <p class="close-me"><i class="fa fa-times"></i></p>
+  <section class="span_12_of_12 right-persp-view">
+    <!-- <p class="close-me"><i class="fa fa-times"></i></p> -->
   </section>
   <!-- end right persp view -->
 
@@ -235,13 +241,13 @@
   <div class="wrapper">
 
          <!-- begin test anim div -->
-  <div class="myClass">
+<!--   <div class="myClass">
       <button type="" class="animateTest">click me</button>
   </div>
 
   <div class="myClass2">
       <button type="" class="animateTest">click me</button>
-  </div>
+  </div> -->
 
 
   <!-- end test anim div -->
@@ -252,7 +258,7 @@
 <!-- begin footer -->
   <footer class="">
     <div class="">
-      <h1>Rev.n</h1>
+      <p>copyright resource11</p>
     </div>
      <nav>
       <ul class="bot-nav">

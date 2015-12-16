@@ -31,6 +31,9 @@ var closeMeCreate = $('.close-me-create');
 var addRev = $('.add-rev');
 var saveRev = $('.save-rev');
 var messagesContainer = $('.messages-container');
+var frontView = $('.front-view');
+var revList = $('.list-scheme');
+var revInfo = $('.rev-info');
 
 // var userBillboardsList = $('#user-revs');
 
@@ -50,10 +53,6 @@ var listUserBillboardHTML = function (billboard) {
     '</p></div><div class="rev-button"><button class="edit-rev icon-pencil"></button><button href="" class="delete-rev icon-bin"></button><div class="save-rev hidden"><p class="icon-droplet"></p></div></article>'
     );
 };
-
-
-// define jQuery search for user rev list
-var revList = $(".list-scheme");
 
 // create object from form data
 var form2object = function(form) {
