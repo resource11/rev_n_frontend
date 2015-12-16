@@ -5,16 +5,16 @@ var session = {
   token: null,
 };
 
-var billboard = {
-  id: null,
-  name: null,
-  title: null,
-  subtext01: null,
-  subtext02: null,
-  color_scheme: null,
-  anim_option: null,
-  user_id: null
-};
+// var billboard = {
+//   id: null,
+//   name: null,
+//   title: null,
+//   subtext01: null,
+//   subtext02: null,
+//   color_scheme: null,
+//   anim_option: null,
+//   user_id: null
+// };
 
 
 var registerSubmit = $('#register');

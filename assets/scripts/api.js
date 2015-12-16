@@ -93,7 +93,7 @@ var api = {
       }, callback);
   },
 
-  editBillboard: function (id, data, token, callback) {
+  editBillboard: function (id, token, data, callback) {
     this.ajax({
       method: 'PATCH',
       url: this.url + '/billboards/' + id,
