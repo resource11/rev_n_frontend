@@ -130,13 +130,37 @@ $(function() {
 
   // edit billboard handler
   editSideMenu.on('submit', function(e) {
-    var data = wrap('billboard', form2object(this));
+
+    // var data = wrap('billboard', form2object(this));
+    var id = billboard.id;
+
+    var data = {
+      billboard: {
+      id: billboard.id,
+      name: billboard.name,
+      title: billboard.title,
+      subtext01: billboard.subtext01,
+      subtext02: billboard.subtext02,
+      color_scheme: billboard.color_scheme,
+      anim_option: billboard.anim_option
+      }
+    };
+
     console.log("clicked");
     // test to see if the data was wrapped
-    console.log(data.billboard);
+    console.log(JSON.strinigfy(data));
 
     // grab the data-id attr from the form data attr
-    var id = data.billboard.id;
+  //   var id = editForm.attr('data-id');
+
+  //   $('#edit-side').attr('data-pollid', billboard.id);
+
+  // $('.edit-name').val(billboard.name);
+  // $('.edit-title').val(billboard.title);
+  // $('.edit-subtext01').val(billboard.subtext01);
+  // $('.edit-subtext02').val(billboard.subtext02);
+  // $('.edit-color').val(billboard.color_scheme);
+  // $('.edit-anim').val(billboard.anim_option);
 
     console.log('data-id is ' + id);
     // test to see if the session.token is recognized

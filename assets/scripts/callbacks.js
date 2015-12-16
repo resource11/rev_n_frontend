@@ -34,17 +34,6 @@ var closeMe = $('.close-me');
 // };
 
 
-// var listBillboardHTML = function (billboard) {
-//   allBillboardsList.append(
-//     '<article data-id=' + billboard.id +
-//     ' class="billboard-post"><div class="rev-item"><h5>'
-//      + billboard.name + '</h5><p>' + billboard.title +'</p><p>'
-//      + billboard.subtext01 + '</p><p>' + billboard.subtext02 +
-//     '</p></div><div class="rev-button"><button class="edit-rev">edit</button><button class="delete-rev">delete</button></div></article>'
-//     );
-// };
-
-
 var listUserBillboardHTML = function (billboard) {
   userBillboardsList.prepend(
     '<article data-id=' + billboard.id +
@@ -126,13 +115,11 @@ var loginCb = function (error, data) {
   // display current_user status
   data.user.current_user = true;
 
-
-
   // list current user billboards
   api.listUserBillboards(session.token, listUserBillboardsCb);
 
 
-  console.log(JSON.stringify(data, null, 4));
+  // console.log(JSON.stringify(data, null, 4));
 
 }; // end of login callback;
 
@@ -183,8 +170,6 @@ var createBillboardCb = function (error, data) {
     return;
   }
 
-  console.log(data)
-
   var billboard = data.billboard;
   listBillboardHTML(billboard);
   // listUserBillboardHTML(billboard);
@@ -206,11 +191,9 @@ var editBillboardCb = function (error, data) {
     return;
   }
   // console.log test
-  console.log('updated rev is is ' + data);
+  console.log('updated rev is is ' + JSON.stringify(data));
 
   var updatedBillboard = data.billboard;
-
-  console.log('favorite status is' + data.billboard.id);
 
   $(".user-messages").html("<strong>Rev updated!</strong>");
 
@@ -230,29 +213,42 @@ var loadBillboardCb = function (error, data) {
 
 
   // grab billboards from Rails
-  var billboard = data.billboard;
+  // var billboard = data.billboard;
 
-  console.log(JSON.stringify(data));
+  console.log('billboard is: ' + JSON.stringify(data));
+
+  // $('input.edit-form').each(function(){
+  //       var input = $(this);
+  //       if ($(input).data().bind) {
+  //           console.log($(input).data().bind);
+  //       }
+  //   });
+
   // set data attribute of form
-  $('#edit-side').attr('data-pollid', billboard.id);
+
+  // jQuery.data( $('.edit-name'), 'value', 86 );
+  billboard.name = data.billboard.name;
+  billboard.title = data.billboard.title;
+  billboard.subtext01 = billboard.subtext01;
+  billboard.subtext02 = data.billboard.subtext02;
+  billboard.color_scheme = data.billboard.color_scheme;
+  billboard.anim_option = data.billboard.anim_option;
+
+  editSideMenu.fadeIn(300);
+  $('#edit-side').attr('data-id', data.billboard.id);
+
 
   $('.edit-name').val(billboard.name);
   $('.edit-title').val(billboard.title);
-  $('.edit-subtext01').val(billboard.subtext01);
+  $('.edit-subtext01').val(billboard.subtext02);
   $('.edit-subtext02').val(billboard.subtext02);
   $('.edit-color').val(billboard.color_scheme);
   $('.edit-anim').val(billboard.anim_option);
 
 
-// // km changing class references to id refs
-//   $('#option-one').html(data[0].options[0]);
-//   $('#option-two').html(data[0].options[1]);
-//   $('#option-three').html(data[0].options[2]);
-//   $('#option-four').html(data[0].options[3]);
-//   $('#option-five').html(data[0].options[4]);
-//   $('#rendered-poll').attr('data-currentpollid', poll.id);
+  console.log('name is now: ' + $('.edit-name').val());
 
-  editSideMenu.fadeIn(300);
+  // jQuery.data( div, "blah", 86 )
 
 };
 
