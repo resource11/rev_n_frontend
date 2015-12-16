@@ -29,6 +29,19 @@
   </header>
   <!-- end header -->
 
+  <!-- begin user messages -->
+  <div class="messages-container hidden">
+    <h6></h6>
+    <p class="user-messages"></p>
+  </div>
+  <!-- end user messages -->
+
+<!--   begin current rev -->
+  <div class="rev-info">
+    <h5></h5>
+  </div>
+<!--   end current rev -->
+
 
   <!-- begin hero -->
   <section class="span_12_of_12 hero">
@@ -90,42 +103,6 @@
   <!-- end rev info container  -->
 
 
-  <!-- begin create rev side menu -->
-  <section class="span_3_of_12 create-scheme sidebar">
-    <p class="close-me"><i class="fa fa-times"></i></p>
-    <div>
-      <h3>One more rev</h3>
-      <form id="create-side">
-        <label for="name">name:</label>
-        <input name="name" type="text" placeholder="name">
-        <label for="title">title:</label>
-        <input name="title" type="text" placeholder="title">
-        <label for="subtext 01">subtext 01:</label>
-        <input name="subtext01" type="text" placeholder="subtext 01">
-        <label for="subtext 02">subtext 02:</label>
-        <input name="subtext02" type="text" placeholder="subtext 02">
-        <!-- <input name="color_scheme" type="text" placeholder="color scheme"> -->
-        <label for="color scheme">color scheme:</label>
-        <select name="color_scheme">
-          <option value="red">Red</option>
-          <option value="green">Green</option>
-          <option value="blue">Blue</option>
-        </select>
-        <!-- <input name="anim_option" type="text" placeholder="animation option"> -->
-        <label for="animation option">animation option:</label>
-        <select name="anim_option">
-          <option value="circle">Circles</option>
-          <option value="square">Squares</option>
-          <option value="triangle">Triangles</option>
-        </select>
-        <!-- <input name="create" type="submit" value="Create rev" class="top-login-button"> -->
-        <button type="">Create</button>
-      </form>
-    </div>
-  </section>
-  <!-- end create rev side menu -->
-
-
   <!-- begin edit rev -->
   <section class="span_3_of_12 edit-scheme sidebar hidden">
     <p class="close-me"><i class="fa fa-times"></i></p>
@@ -161,56 +138,68 @@
   </section>
   <!-- end edit rev -->
 
+  <!--  begin add rev icon -->
+  <div class="add-rev hidden">
+    <p class="icon-lab"></p>
+  </div>
+  <!--  end add rev icon -->
+
+  <!--  begin save rev icon -->
+  <div class="save-rev hidden">
+    <p class="icon-droplet"></p>
+  </div>
+  <!--  end save rev icon -->
+
+  <!-- begin create rev side menu -->
+  <section class="span_3_of_12 create-scheme sidebar hidden">
+    <p class="close-me-create"><i class="fa fa-times"></i></p>
+    <div>
+      <h3>One more rev</h3>
+      <form id="create-side">
+        <label for="name">name:</label>
+        <input name="name" type="text" placeholder="name">
+        <label for="title">title:</label>
+        <input name="title" type="text" placeholder="title">
+        <label for="subtext 01">subtext 01:</label>
+        <input name="subtext01" type="text" placeholder="subtext 01">
+        <label for="subtext 02">subtext 02:</label>
+        <input name="subtext02" type="text" placeholder="subtext 02">
+        <!-- <input name="color_scheme" type="text" placeholder="color scheme"> -->
+        <label for="color scheme">color scheme:</label>
+        <select name="color_scheme">
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+        </select>
+        <!-- <input name="anim_option" type="text" placeholder="animation option"> -->
+        <label for="animation option">animation option:</label>
+        <select name="anim_option">
+          <option value="circle">Circles</option>
+          <option value="square">Squares</option>
+          <option value="triangle">Triangles</option>
+        </select>
+        <!-- <input name="create" type="submit" value="Create rev" class="top-login-button"> -->
+        <button type="">Create</button>
+      </form>
+    </div>
+  </section>
+  <!-- end create rev side menu -->
 
   <!-- begin user revs list -->
   <section class="span_3_of_12 list-scheme sidebar hidden">
     <!-- <p class="close-me"><i class="fa fa-times"></i></p> -->
     <div class="rev-list">
-          <h3>Your revs</h3>
-
-          <div id="user-revs">
-            <!-- dynamic content -->
-          </div>
-            <input type="checkbox" id="toggler" />
-            <label for="toggler">Toggle the checkbox!</label>
-            <form id="edit-side">
-              <label for="name">name:</label>
-              <input name="name" type="text" placeholder="name">
-              <label for="title">title:</label>
-              <input name="title" type="text" placeholder="title">
-              <label for="subtext 01">subtext 01:</label>
-              <input name="subtext01" type="text" placeholder="subtext 01">
-              <label for="subtext 02">subtext 02:</label>
-              <input name="subtext02" type="text" placeholder="subtext 02">
-              <!-- <input name="color_scheme" type="text" placeholder="color scheme"> -->
-              <label for="color scheme">color scheme:</label>
-              <select name="color_scheme">
-                <option value="red">Red</option>
-                <option value="green">Green</option>
-                <option value="blue">Blue</option>
-              </select>
-              <!-- <input name="anim_option" type="text" placeholder="animation option"> -->
-              <label for="animation option">animation option:</label>
-              <select name="anim_option">
-                <option value="circle">Circles</option>
-                <option value="square">Squares</option>
-                <option value="triangle">Triangles</option>
-              </select>
-              <!-- <input name="create" type="submit" value="Create rev" class="top-login-button"> -->
-              <button type="">Save changes</button>
-            </form>
-
+      <h3>Your revs</h3>
+      <input type="checkbox" id="toggler" />
+      <label for="toggler" class="arrow-down"><i class="fa fa-angle-down"></i></label>
+      <div id="user-revs">
+        <!-- dynamic content -->
+      </div>
+ <!-- <p contenteditable="true"></p> -->
 
         </div>
   </section>
   <!-- end user revs list -->
-
-
-  <!-- begin rev view -->
-  <section class="span_12_of_12">
-    <p class="close-me"><i class="fa fa-times"></i></p>
-  </section>
-  <!-- end rev view -->
 
 
   <!-- begin front view -->
@@ -220,30 +209,25 @@
   <!-- end front view -->
 
 
-  <!-- begin left view -->
+  <!-- begin front persp view -->
   <section class="span_12_of_12">
     <p class="close-me"><i class="fa fa-times"></i></p>
   </section>
-  <!-- end left view -->
+  <!-- end front persp view -->
 
 
-  <!-- begin right view -->
+  <!-- begin left persp view -->
   <section class="span_12_of_12">
     <p class="close-me"><i class="fa fa-times"></i></p>
   </section>
-  <!-- end right view -->
+  <!-- end left persp view -->
 
 
-
-
-
-
-
-<!--   <div class="logins-messages-creators">
-    <div class="messages-container">
-      <h4 class="user-messages">messages here</h4>
-    </div>
-  </div> -->
+  <!-- begin right persp view -->
+  <section class="span_12_of_12">
+    <p class="close-me"><i class="fa fa-times"></i></p>
+  </section>
+  <!-- end right persp view -->
 
 
 

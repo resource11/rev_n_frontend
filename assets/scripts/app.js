@@ -46,6 +46,19 @@ $(function() {
     $(this).closest('section').fadeOut();
   });
 
+    // click hander for closing windows
+  closeMeCreate.on('click', function(){
+    $(this).closest('section').fadeOut();
+    addRev.fadeIn(300);
+  });
+
+  // click handler for showing create menu
+  addRev.on('click', function() {
+    createSideMenu.fadeIn().removeClass('hidden');
+    addRev.fadeOut(300);
+  });
+
+
 
  //  // create-new (poll) button click handler
  //  $('.user-messages').on('click', '.create-new', function() {
@@ -90,6 +103,8 @@ $(function() {
      // hide login container
     loginMenu.slideUp();
     revList.fadeIn();
+    messagesContainer.fadeIn(300).removeClass('hidden');
+    addRev.fadeIn(300).removeClass('hidden');
   });
 
   // // logout event handler
@@ -105,100 +120,108 @@ $(function() {
   // handlers requiring authentication
 
   // create new rev handler
-  createSideMenu.on('submit', function(e) {
+  // always use jQuery vs a var to bind an event for this particular call
+  createSubmit.on('submit', function(e) {
     var data = wrap('billboard', form2object(this));
+
+    console.log(JSON.stringify(data));
 
     api.createBillboard(session.token, data, createBillboardCb);
     // api.createBillboard(data, createBillboardCb);
     e.preventDefault();
     createSideMenu.slideUp(300);
+    addRev.fadeIn(300);
   });
 
 
-  // // open the edit form and send data-id attribute over
-  // userBillboardsList.on('click', '.edit-rev', function(){
-  //   console.log(userBillboardsList);
+  // open the edit form and send data-id attribute over
+  $('#user-revs').on('click', '.edit-rev', function(){
 
-  //   var id = $(this).closest('.billboard-post').attr('data-id');
-  //   console.log('id is ' + id);
+    saveRev.fadeIn(300).removeClass('hidden');
+    console.log(userBillboardsList);
 
-  //   // $( "input[name*='man']" ).val( "has man in it!" );
-  //   api.showBillboard(id, session.token, loadBillboardCb);
+    var id = $(this).closest('.billboard-post').attr('data-id');
+    console.log('id is ' + id);
 
-  // });
+    var editable = $(this).closest('.billboard-post').find('.editable');
 
-
-  // // edit billboard handler
-  // editSideMenu.on('submit', function(e) {
-
-  //   // var data = wrap('billboard', form2object(this));
-  //   var id = billboard.id;
-
-  //   var data = {
-  //     billboard: {
-  //     id: billboard.id,
-  //     name: billboard.name,
-  //     title: billboard.title,
-  //     subtext01: billboard.subtext01,
-  //     subtext02: billboard.subtext02,
-  //     color_scheme: billboard.color_scheme,
-  //     anim_option: billboard.anim_option
-  //     }
-  //   };
-
-  //   console.log("clicked");
-  //   // test to see if the data was wrapped
-  //   console.log(JSON.strinigfy(data));
-
-  //   // grab the data-id attr from the form data attr
-  // //   var id = editForm.attr('data-id');
-
-  // //   $('#edit-side').attr('data-pollid', billboard.id);
-
-  // // $('.edit-name').val(billboard.name);
-  // // $('.edit-title').val(billboard.title);
-  // // $('.edit-subtext01').val(billboard.subtext01);
-  // // $('.edit-subtext02').val(billboard.subtext02);
-  // // $('.edit-color').val(billboard.color_scheme);
-  // // $('.edit-anim').val(billboard.anim_option);
-
-  //   console.log('data-id is ' + id);
-  //   // test to see if the session.token is recognized
-  //   console.log(session.token);
-
-  //   api.editBillboard(id, session.token, data, editBillboardCb);
-  //   e.preventDefault();
-  // });
+    editable.attr('contentEditable', "true");
 
 
+    // api.showBillboard(id, session.token, loadBillboardCb);
 
-  // // delete bike event handler
-  // $('#user-bikes').on('click', '.delete-bike', function() {
-
-  //   console.log("clicked");
-
-  //   // find the bike_id attached to the div
-  //   var thisBikeId = $(this).closest('.bike-posts').attr('id');
-
-  //   // confirmation the bike_id was captured
-  //   console.log(thisBikeId);
-
-  //   // change bg color as a test
-  //   $(this).closest('.bike-posts').css({'background-color': 'purple', 'font-weight': 'bold'});
-
-  //   // do an ajax DELETE request
-  //   api.deleteBike(thisBikeId, session.token, deleteBikeCb);
-
-  //   // update the bike list in the viewport
-  //   $(this).closest('.bike-posts').remove();
+  });
 
 
-  //   // find bike in all bikes listing and remove
-  //   // still debugging this
-  //   var thisBikeInAllBikes = $('#all-bikes').find('.bike-posts').attr(thisBikeId)
-  //   thisBikeInAllBikes.remove();
+  // edit billboard handler
+  // data is not binding
+  $('.edit-scheme').on('submit', function(e) {
 
-  // });
+    // var data = wrap('billboard', form2object(this));
+    var id = billboard.id;
+
+    var data = {
+      billboard: {
+      id: billboard.id,
+      name: billboard.name,
+      title: billboard.title,
+      subtext01: billboard.subtext01,
+      subtext02: billboard.subtext02,
+      color_scheme: billboard.color_scheme,
+      anim_option: billboard.anim_option
+      }
+    };
+
+    console.log("clicked");
+    // test to see if the data was wrapped
+    console.log(JSON.strinigfy(data));
+
+    // grab the data-id attr from the form data attr
+  //   var id = editForm.attr('data-id');
+
+  //   $('#edit-side').attr('data-pollid', billboard.id);
+
+  // $('.edit-name').val(billboard.name);
+  // $('.edit-title').val(billboard.title);
+  // $('.edit-subtext01').val(billboard.subtext01);
+  // $('.edit-subtext02').val(billboard.subtext02);
+  // $('.edit-color').val(billboard.color_scheme);
+  // $('.edit-anim').val(billboard.anim_option);
+
+    console.log('data-id is ' + id);
+    // test to see if the session.token is recognized
+    console.log(session.token);
+
+    api.editBillboard(id, session.token, data, editBillboardCb);
+    e.preventDefault();
+  });
+
+
+
+  // delete bike event handler
+  $('#user-revs').on('click', '.delete-rev', function() {
+
+    console.log("clicked");
+
+    var id = $(this).closest('.billboard-post').attr('data-id');
+    console.log('id is ' + id);
+
+    // change bg color as a test
+    $(this).closest('.billboard-post').css({'background-color': 'purple', 'font-weight': 'bold'});
+
+    // do an ajax DELETE request
+    api.deleteBillboard(id, session.token, deleteBillboardCb);
+
+    // update the bike list in the viewport
+    $(this).closest('.billboard-post').remove();
+
+
+    // // find bike in all bikes listing and remove
+    // // still debugging this
+    // var thisBikeInAllBikes = $('#all-bikes').find('.bike-posts').attr(thisBikeId)
+    // thisBikeInAllBikes.remove();
+
+  });
 
  // create new bike handler
   $('.animateTest').on('click', function() {

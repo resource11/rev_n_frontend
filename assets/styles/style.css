@@ -258,7 +258,7 @@ select {
 
 /* form sections */
 
-.close-me {
+.close-me, .close-me-create {
   position: absolute;
   top: 30px;
   right: 30px;
@@ -266,11 +266,11 @@ select {
   color: rgba(255,255,255, 0.5);
 }
 
-.close-me:hover {
+.close-me:hover, .close-me-create:hover {
   color: rgba(255,255,255, 1);
 }
 
-.close-me:active {
+.close-me:active, .close-me-create:active {
   color: rgba(255,255,255, 0.7);
 }
 
@@ -376,7 +376,7 @@ select {
   margin-bottom: 10px;
 }
 
-.sidebar .close-me {
+.sidebar .close-me, .sidebar .close-me-create {
   top: 15px;
   right: 15px;
   font-size: 1em;
@@ -391,20 +391,45 @@ select {
   width: 100%;
 }
 
-/*.logins-messages-creators {
-  position: fixed;
-  z-index: 10000;
-  top: 50px;
-  right: 0;
-  width: 350px;
+
+.rev-list h3 {
+  font-size: 1.3em;
+}
+
+.add-rev {
+  position: absolute;
+  top: 120px;
+  left: 24%;
+  width: 10px;
+  height: 10px;
+  padding: 10px;
+  /*border: 2px solid rgba(255,255,255, 0);*/
+  border-radius: 50%;
+  /*background: linear-gradient(to bottom, #24a800 0%,#9ecb2d 100%); *//* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  text-align: center;
+}
+
+
+
+
+/*.icon-lab {
+  padding-right: 5px;
 }*/
 
-/*.profile-nav:after {
-  content: " ";
+
+/*.arrow-down {
+  width: 100%;
+  font-size: 2em;
+  float: left;
+}
+
+.arrow-down:after {
+  content: '';
   clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0;
 }*/
-
-
 
 /*.top_nav {
   top: 20px;
@@ -433,34 +458,50 @@ select {
 }*/
 
 
-/*.user-messages {
-  color: #fff;
-}*/
 
 
-/*.messages-container {
-  width: 290px;
-  height: 200px;
-  margin-top: 10px;
+
+.messages-container {
+  position: absolute;
+  top: 0px;
+  right: 100px;
+  width: 150px;
+  height: 75px;
+/*  margin-top: 10px;*/
   padding: 10px;
-  background-color: rgba(87, 138, 7, .8);
+  background: linear-gradient(to bottom, #24a800 0%,#9ecb2d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   overflow: auto;
-}*/
+  z-index: 9100;
+}
 
-/*.current-user, .favorites {
-  padding: 10px;
-}*/
+.messages-container h6 {
+  padding-top: 5px;
+  font-size: 1em;
+}
+
+.user-messages {
+  padding-top: 5px;
+  font-size: 1em;
+  color: #fff;
+}
 
 
-/*.usr-posts {
-  border-left: 5px solid #CE2701;
-}*/
+.rev-info {
+  position: absolute;
+  top: 120px;
+  right: 0;
+  width: 270px;
+  height: 40px;
+  background-color: rgba(0,0,0,0.5);
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;
+  border-right-color: rgba(255,255,255,0);
+}
 
-/*.usr-posts:hover {
-  background-color: #CE2701;
-}*/
+.rev-info h5 {
 
-
+}
 
 
 .myClass, .myClass2 {
@@ -495,9 +536,14 @@ select {
   padding: 10px 5%;
 }
 
-/*.rev-item {
-  float: left;
+/*.billboard-post p {
+  padding-top: 0;
+  padding-bottom: 0;
 }*/
+
+.rev-item p {
+  padding-top: 0px;
+}
 
 .rev-button {
   position: absolute;
@@ -506,6 +552,14 @@ select {
   display: inline;
   width: 15%;
   overflow: auto;
+}
+
+.save-rev {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  padding: 10px;
+  border-radius: 50%;
 }
 
 .billboard-post button {
@@ -570,14 +624,14 @@ select {
   display: none;
 }
 
-#toggler ~ form {
+#toggler ~ #user-revs {
   max-height: 0;
   overflow: hidden;
   background: slategrey;
   transition: max-height 1s;
 }
 
-#toggler:checked ~ form {
+#toggler:checked ~ #user-revs {
   max-height: 100vh;
 }
 
@@ -594,19 +648,21 @@ select {
 }
 
 .create-scheme {
+  top: 120px;
   z-index: 2200;
 }
 
 .edit-scheme {
   position: absolute;
-  top: 70px;
+  top: 120px;
   left: 25%;
   z-index: 2300;
 }
 
 .list-scheme {
   position: absolute;
-  top: 70px;
+  top: 120px;
+  padding-top: 20px;
   left: 0;
   z-index: 2100;
 }

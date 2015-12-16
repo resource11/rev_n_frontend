@@ -22,10 +22,15 @@ var loginSubmit = $('#login');
 var registerMenu = $('.register-scheme');
 var loginMenu = $('.login-scheme');
 var createSideMenu = $('.create-scheme');
+var createSubmit = $('#create-side');
 var editSideMenu = $('.edit-scheme');
 var editForm = $('#edit-side');
 var userBillboardsList = $('#user-revs');
 var closeMe = $('.close-me');
+var closeMeCreate = $('.close-me-create');
+var addRev = $('.add-rev');
+var saveRev = $('.save-rev');
+var messagesContainer = $('.messages-container');
 
 // var userBillboardsList = $('#user-revs');
 
@@ -37,12 +42,12 @@ var closeMe = $('.close-me');
 var listUserBillboardHTML = function (billboard) {
   userBillboardsList.prepend(
     '<article data-id=' + billboard.id +
-    ' class="billboard-post"><div class="rev-item"><h5>'
-     + billboard.name + '</h5><h6>' + billboard.title +'</h6><p>'
-     + billboard.subtext01 + '</p><p>' + billboard.subtext02 +
-    '</p><p>color scheme: ' + billboard.color_scheme +
-    '</p><p>animation option: ' + billboard.anim_option +
-    '</p></div><div class="rev-button"><button class="edit-rev icon-pencil"></button><button href="" class="delete-rev icon-bin"></button></article>'
+    ' class="billboard-post"><div class="rev-item editable"><h5 contentEditable="false">'
+     + billboard.name + '</h5><h6 class="editable" contentEditable="false">' + billboard.title +'</h6><p class="editable" contentEditable="false">'
+     + billboard.subtext01 + '</p><p class="editable" contentEditable="false">' + billboard.subtext02 +
+    '</p><p class="editable" contentEditable="false">color scheme: ' + billboard.color_scheme +
+    '</p><p class="editable" contentEditable="false">animation option: ' + billboard.anim_option +
+    '</p></div><div class="rev-button"><button class="edit-rev icon-pencil"></button><button href="" class="delete-rev icon-bin"></button><div class="save-rev hidden"><p class="icon-droplet"></p></div></article>'
     );
 };
 
@@ -106,7 +111,7 @@ var loginCb = function (error, data) {
   // assign current_user.id and session.token
   session.userId = data.user.id;
   session.token = data.user.token;
-  $('.user-messages').text('Welcome, user #' + session.userId);
+  $('.messages-container h6').text('Welcome, user #' + session.userId);
 
   // show in console for testing purposes
   console.log(session.userId);
@@ -171,9 +176,9 @@ var createBillboardCb = function (error, data) {
   }
 
   var billboard = data.billboard;
-  listBillboardHTML(billboard);
-  // listUserBillboardHTML(billboard);
-  $('.user-messages').text('New rev ' + data.billboard.id + ' created by user ' + data.user.id);
+  // listBillboardHTML(billboard);
+  listUserBillboardHTML(billboard);
+  // $('.user-messages').text('New rev ' + data.billboard.id + ' created by user ' + data.user.id);
 
 };
 // end of createBillboard submit handler
