@@ -407,6 +407,7 @@ select {
   border-radius: 50%;
   /*background: linear-gradient(to bottom, #24a800 0%,#9ecb2d 100%); *//* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   text-align: center;
+  z-index: 2600;
 }
 
 
