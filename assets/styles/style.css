@@ -742,13 +742,21 @@ select {
 
 
 
-.myClass, .myClass2 {
+.myClass1, .myClass2, .myClass3 {
   position: relative;
   top: 0;
   left: 0;
-  width: 100px;
-  height: 100px;
+  width: 30px;
+  height: 30px;
   background-color: purple;
+}
+
+.myClass2 {
+  background-color: limegreen;
+}
+
+.myClass3 {
+ background-color: orangered;
 }
 
 
