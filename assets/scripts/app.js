@@ -195,6 +195,17 @@ $(function() {
   });
 
 
+  // load current rev into view
+    $('#user-revs').on('click', '.load-rev', function(){
+
+    var id = $(this).closest('.billboard-post').attr('data-id');
+    console.log('id is ' + id);
+
+    api.loadBillboard(id, session.token, loadBillboardCb);
+
+  });
+
+
   // edit billboard handler
   // data is not binding
   $('.edit-scheme').on('submit', function(e) {
