@@ -684,7 +684,7 @@ select {
   /*width: 208px;
   height: 245px;*/
   width: 20%;
-  background-color: red;
+  /*background-color: red;*/
   overflow:hidden;
 }
 
@@ -778,4 +778,42 @@ select {
 
 .left {
   float: left;
+}
+
+
+
+/* COLOR SCHEME BACKGROUNDS */
+
+.color-scheme-red {
+  background: linear-gradient(to bottom, #ff3019 0%,#cf0404 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.color-scheme-orange {
+  background: linear-gradient(to bottom, #ea2803 0%, #ff6600 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  /*text-align: center;*/
+}
+
+.color-scheme-gold {
+  background: linear-gradient(to bottom, #f97c00 0%,#ffb405 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.color-scheme-green {
+  background: linear-gradient(to bottom, #24a800 0%,#9ecb2d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.color-scheme-blue {
+  background: linear-gradient(to bottom, #017de1 0%,#0aaefb 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.color-scheme-purple {
+  /*background: purple;*/
+  background: linear-gradient(to bottom, #a80077 0%,#db36a4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.color-scheme-slate {
+  background: linear-gradient(to bottom, #1c1c1c 0%,#595959 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.color-scheme-silver {
+  background: linear-gradient(to bottom, #b5c6d0 0%,#e0eff9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
