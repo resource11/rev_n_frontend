@@ -119,13 +119,67 @@ var rightPanel = $('.right-panel');
 // });
 
 
-$('.change-color').on('click', function(){
-  console.log('clicked');
-  // TweenLite.to([leftPanel, midPanel, rightPanel], 1, {className:"+=colorSchemePurple"}, 0.2);
-  // TweenLite.to(".left-panel", 1, {className:"+=colorSchemePurple"});
-  TweenMax.to([leftPanel, midPanel, rightPanel], 2, {className:'+=color-scheme-purple'}, 0.2);
-  // $('.left-panel').addClass('color-scheme-purple');
-});
+// var currColorScheme = "slate";
+// var prevColorScheme;
+
+// // prevColorScheme = currColorScheme;
+// // currColorScheme = colorScheme;
+
+// prevColorScheme = currColorScheme;
+// currColorScheme = '+=color-scheme-' + colorScheme;
+
+// var rule = $('.mid-panel');
+
+// TweenLite.to(rule, 1, {cssRule:{backgroundColor:"#600", color:"white"}});
+
+
+// var colorScheme = data.billboard.color_scheme;
+
+// switch (colorScheme) {
+//   case "red":
+//     currColorScheme = '+=color-scheme-' + colorScheme;
+//     // color2 = "#ff3019";
+//     break;
+//   case "orange":
+//     color1 = "#ea2803";
+//     color2 = "#ff6600";
+//     break;
+//   case "gold":
+//     color1 = "#f97c00";
+//     color2 = "#ffb405";
+//     break;
+//   case "green":
+//     color1 = "#24a800";
+//     color2 = "#9ecb2d";
+//     break;
+//   case "blue":
+//     color1 = "#017de1";
+//     color2 = "#0aaefb";
+//     break;
+//   case "purple":
+//     color1 = "#a80077";
+//     color2 = "#db36a4";
+//     break;
+//   case "slate":
+//     color1 = "#1c1c1c";
+//     color2 = "#595959";
+//     break;
+//   default:
+//     break;
+// }
+
+
+// $('.change-color').on('click', function(){
+//   console.log('clicked');
+//   // TweenLite.to([leftPanel, midPanel, rightPanel], 1, {className:"+=colorSchemePurple"}, 0.2);
+//   // TweenLite.to(".left-panel", 1, {className:"+=colorSchemePurple"});
+//   // TweenMax.to([leftPanel, midPanel, rightPanel], 2, {className:'+=color-scheme-purple'}, 0.2);
+
+//   $('.mid-panel').css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
+
+//   // TweenLite.to(rule, 1, {cssRule:{backgroundColor:"#600", color:"white"}});
+//   // $('.left-panel').addClass('color-scheme-purple');
+// });
 
 
  // // button test animation handler

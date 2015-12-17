@@ -79,7 +79,6 @@ header{
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9000;
   min-height: 70px;
   overflow: auto;
   background-color: #fff;
@@ -91,7 +90,6 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 8999;
   height: 40px;
   overflow: auto;
   background-color: #fff;
@@ -407,7 +405,6 @@ select {
   border-radius: 50%;
   /*background: linear-gradient(to bottom, #24a800 0%,#9ecb2d 100%); *//* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   text-align: center;
-  z-index: 2600;
 }
 
 
@@ -596,6 +593,24 @@ select {
 
 /* set z-index structure */
 
+header{
+  z-index: 9000;
+}
+
+footer {
+  z-index: 8999;
+}
+
+
+.buttons-container {
+  position: absolute;
+  z-index: 2700;
+}
+
+.add-rev {
+  z-index: 2600;
+}
+
 .rev-info {
   z-index: 2500;
 }
@@ -670,7 +685,7 @@ select {
   height: 306px;*/
   width: 1300px;
   height: 306px;
-  margin: 40px auto;
+  margin: 120px auto 0;
   background-repeat: no-repeat;
   /*padding-top: 120px;*/
   border: 1px solid red;
@@ -707,7 +722,7 @@ select {
 }
 
 
-.subtext-treatment {
+.subtext-treatment01, .subtext-treatment02 {
   font-size: 4em;
   text-align: center;
   margin: 0 auto;
@@ -737,7 +752,19 @@ select {
 }
 
 
+.buttons-container {
+  position: absolute;
+  float: right;
+  z-index: 2700;
+}
 
+.buttons-container:after {
+  content: '';
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0;
+}
 
 
 

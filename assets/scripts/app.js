@@ -60,31 +60,6 @@ $(function() {
 
 
 
- //  // create-new (poll) button click handler
- //  $('.user-messages').on('click', '.create-new', function() {
-
- //    $('#poll-creation-container').fadeIn().removeClass('hidden');
-
- //  });
-
- //  // or
-
- // $('#create-edit-del-button-dashboard').on('click', '.create-new', function() {
- //    console.log('clicked');
- //    $('#poll-creation-container').fadeIn();
- //  });
-
-
-
- //  // edit poll button click handler
- //  $('#create-edit-del-button-dashboard').on('click', '#edit', function() {
- //    console.log('clicked');
- //    $('#poll-edit-container').fadeIn().removeClass('hidden');
- //  });
-
-
-
-
   // register event handler
   registerSubmit.on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
@@ -93,6 +68,7 @@ $(function() {
      // hide register container
     registerMenu.slideUp();
   });
+
 
   // login event handler
   loginSubmit.on('submit', function(e) {
@@ -196,12 +172,12 @@ $(function() {
 
 
   // load current rev into view
-    $('#user-revs').on('click', '.load-rev', function(){
+    $('#user-revs').on('click', '.view-rev', function(){
 
     var id = $(this).closest('.billboard-post').attr('data-id');
     console.log('id is ' + id);
 
-    api.loadBillboard(id, session.token, loadBillboardCb);
+    api.showBillboard(id, session.token, loadBillboardCb);
 
   });
 
@@ -269,24 +245,9 @@ $(function() {
     $(this).closest('.billboard-post').remove();
 
 
-    // // find bike in all bikes listing and remove
-    // // still debugging this
-    // var thisBikeInAllBikes = $('#all-bikes').find('.bike-posts').attr(thisBikeId)
-    // thisBikeInAllBikes.remove();
-
   });
 
- // // create new bike handler
- //  $('.animateTest').on('click', function() {
- //    var myClass = $('.myClass');
- //    var myClass2 = $('.myClass2');
- //    console.log('clicked');
- //    // $(".myClass").animate({top:100, left:200}, 3000);
- //    // $(".myClass").animate({top:100, left:200}, {duration:3000, easing:"easeOutStrong"});
- //    // TweenMax.to(".myClass", 2, {top:100, left:200});
- //    TweenMax.to([myClass, myClass2], 2, {top:100, left:200});
 
- //  });
 
 
 

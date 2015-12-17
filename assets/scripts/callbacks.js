@@ -5,18 +5,6 @@ var session = {
   token: null,
 };
 
-// var billboard = {
-//   id: null,
-//   name: null,
-//   title: null,
-//   subtext01: null,
-//   subtext02: null,
-//   color_scheme: null,
-//   anim_option: null,
-//   user_id: null
-// };
-
-
 var registerSubmit = $('#register');
 var loginSubmit = $('#login');
 var registerMenu = $('.register-scheme');
@@ -29,6 +17,7 @@ var userBillboardsList = $('#user-revs');
 var closeMe = $('.close-me');
 var closeMeCreate = $('.close-me-create');
 var addRev = $('.add-rev');
+var viewRev = $('.view-rev');
 var editRev = $('.edit-rev');
 var saveRev = $('.save-rev');
 var messagesContainer = $('.messages-container');
@@ -36,11 +25,18 @@ var frontView = $('.front-view');
 var revList = $('.list-scheme');
 var revInfo = $('.rev-info');
 
-// var userBillboardsList = $('#user-revs');
+var leftPanel = $('.left-panel');
+var midPanel = $('.mid-panel');
+var rightPanel = $('.right-panel');
 
-// var removeBillboard = function(data, location1, location2) {
-//   location1.find.location2.remove();
-// };
+var animOption;
+
+
+var color1;
+var color2;
+
+
+var colorScheme;
 
 
 var listUserBillboardHTML = function (billboard) {
@@ -51,7 +47,7 @@ var listUserBillboardHTML = function (billboard) {
      + billboard.subtext01 + '</p><p class="editable rev-subtext01" contentEditable="false">' + billboard.subtext02 +
     '</p><p class="editable rev-color" contentEditable="false">' + billboard.color_scheme +
     '</p><p class="editable rev-anim" contentEditable="false">' + billboard.anim_option +
-    '</p></div><div class="rev-button"><button class="save-rev icon-droplet"> save</button><button class="edit-rev icon-pencil"> edit</button><button href="" class="delete-rev icon-bin"> delete</button></article>'
+    '</p></div><div class="rev-button"><button class="view-rev icon-eye"> view</button><button class="edit-rev icon-pencil"> edit</button><button class="save-rev icon-cloud-check"> save</button><button href="" class="delete-rev icon-bin"> delete</button></article>'
     );
 };
 
@@ -214,42 +210,69 @@ var loadBillboardCb = function (error, data) {
 
 
   // grab billboards from Rails
-  // var billboard = data.billboard;
-
   console.log('billboard is: ' + JSON.stringify(data));
 
-  // $('input.edit-form').each(function(){
-  //       var input = $(this);
-  //       if ($(input).data().bind) {
-  //           console.log($(input).data().bind);
-  //       }
-  //   });
+  // set data attributes of video wall elements
 
-  // set data attribute of form
-
-  // jQuery.data( $('.edit-name'), 'value', 86 );
   billboard.name = data.billboard.name;
   billboard.title = data.billboard.title;
-  billboard.subtext01 = billboard.subtext01;
+  billboard.subtext01 = data.billboard.subtext01;
   billboard.subtext02 = data.billboard.subtext02;
   billboard.color_scheme = data.billboard.color_scheme;
   billboard.anim_option = data.billboard.anim_option;
 
-  editSideMenu.fadeIn(300);
-  $('#edit-side').attr('data-id', data.billboard.id);
 
 
-  $('.edit-name').val(billboard.name);
-  $('.edit-title').val(billboard.title);
-  $('.edit-subtext01').val(billboard.subtext02);
-  $('.edit-subtext02').val(billboard.subtext02);
-  $('.edit-color').val(billboard.color_scheme);
-  $('.edit-anim').val(billboard.anim_option);
+  // colorScheme = '+=color-scheme-' + billboard.color_scheme;
+
+  $('.video-wall').attr('data-id', data.billboard.id);
 
 
-  console.log('name is now: ' + $('.edit-name').val());
+  $('.rev-info h5').html(billboard.name);
+  $('.title-treatment').html(billboard.title);
+  $('.subtext-treatment01').html(billboard.subtext01);
+  $('.subtext-treatment02').html(billboard.subtext02);
 
-  // jQuery.data( div, "blah", 86 )
+  // TweenMax.to([leftPanel, midPanel, rightPanel], 2, {className:'+=color-scheme-purple'}, 0.2);
+  // TweenMax.to([leftPanel, midPanel, rightPanel], 0.5, {className:colorScheme}, 0.2);
+
+  colorScheme = data.billboard.color_scheme;
+
+
+  switch (colorScheme) {
+  case "red":
+    color1 = "#ff3019";
+    color2 = "#ff3019";
+    break;
+  case "orange":
+    color1 = "#ea2803";
+    color2 = "#ff6600";
+    break;
+  case "gold":
+    color1 = "#f97c00";
+    color2 = "#ffb405";
+    break;
+  case "green":
+    color1 = "#24a800";
+    color2 = "#9ecb2d";
+    break;
+  case "blue":
+    color1 = "#017de1";
+    color2 = "#0aaefb";
+    break;
+  case "purple":
+    color1 = "#a80077";
+    color2 = "#db36a4";
+    break;
+  case "slate":
+    color1 = "#1c1c1c";
+    color2 = "#595959";
+    break;
+  default:
+    break;
+}
+
+$('.mid-panel').css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
 
 };
 
@@ -262,8 +285,6 @@ var deleteBillboardCb = function (error, data) {
     $(".user-messages").html("<strong>Error! Rev deletion fail!</strong>");
     return;
   }
-
-  // find div by data-id, delete that div in user-rev then in current billboard view
 
   $(".user-messages").html("<strong>Rev deletion success!</strong>");
 
