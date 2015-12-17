@@ -637,8 +637,10 @@ select {
 }
 
 .front-view {
-  position: absolute;
-  z-index: 1100;
+  padding: 0;
+  margin: 0;
+/*  position: absolute;*/
+/*  z-index: 1100;*/
 }
 
 
@@ -647,8 +649,8 @@ select {
 /*front view section*/
 
 .front-view {
-  top: 70px;
-  left: 0;
+/*  top: 70px;
+  left: 0;*/
   background-image: url('../images/times_sq_bg_blur_mono.jpg');
   background-size: cover;
   background-position: center;
@@ -658,36 +660,35 @@ select {
 }
 
 .video-wall {
-  background-image: url('../images/video_wall.jpg');
+  position: relative;
+/*  background-image: url('../images/video_wall.jpg');
+  width: 1300px;
+  height: 306px;*/
   width: 1300px;
   height: 306px;
-  margin: 40px auto 0;
-  background-position: center;
-  background-size: cover;
+  margin: 40px auto;
   background-repeat: no-repeat;
-  padding-top: 120px;
+  /*padding-top: 120px;*/
   border: 1px solid red;
-/*  height: 750px;*/
   text-align: center;
-/*  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;*/
+  overflow: auto;
 }
 
 
 .left-panel, .right-panel {
   position: relative;
-  width: 260px;
-  height: 306px;
+  /*width: 208px;
+  height: 245px;*/
+  width: 20%;
   background-color: red;
+  overflow:hidden;
 }
 
 .mid-panel {
   position: relative;
-  width: 780px;
-  height: 306px;
+  width:60%;
   background-color: green;
+  overflow: hidden;
 }
 
 .right-panel {
@@ -723,7 +724,13 @@ select {
 
 
 
+.flexbox-stretch-vertical {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
 
+  align-content: stretch;
+}
 
 
 
@@ -733,6 +740,8 @@ select {
 
 .myClass, .myClass2 {
   position: relative;
+  top: 0;
+  left: 0;
   width: 100px;
   height: 100px;
   background-color: purple;
