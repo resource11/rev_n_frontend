@@ -528,7 +528,7 @@ select {
   top: 3px;
   right: 3px;
   display: inline;
-  width: 15%;
+  width: 25%;
   overflow: auto;
 }
 
@@ -537,26 +537,29 @@ select {
   width: 10px;
   height: 10px;
   padding: 10px;
-  border-radius: 50%;
+  /*border-radius: 50%;*/
 }
 
 .billboard-post button {
-  width: 25px;
+  width: 75px;
   height: 25px;
   margin: 3px;
   padding: 3px;
-  font-size: .8em;
+  font-size: .7em;
   border: 0;
-  border-radius: 50%;
-  text-align: center;
+  border-left: 3px solid rgba(0,0,0,0);
+  /*border-radius: 50%;*/
+  text-align: left;
 }
 
 .billboard-post button:hover {
-  background-color: limegreen;
+  border-left: 3px solid limegreen;
+  /*background-color: limegreen;*/
 }
 
 .billboard-post button:active {
-  background-color: orangered;
+  border-left: 3px solid orangered;
+  /*background-color: orangered;*/
 }
 
 

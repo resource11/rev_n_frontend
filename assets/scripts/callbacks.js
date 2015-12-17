@@ -29,6 +29,7 @@ var userBillboardsList = $('#user-revs');
 var closeMe = $('.close-me');
 var closeMeCreate = $('.close-me-create');
 var addRev = $('.add-rev');
+var editRev = $('.edit-rev');
 var saveRev = $('.save-rev');
 var messagesContainer = $('.messages-container');
 var frontView = $('.front-view');
@@ -45,12 +46,12 @@ var revInfo = $('.rev-info');
 var listUserBillboardHTML = function (billboard) {
   userBillboardsList.prepend(
     '<article data-id=' + billboard.id +
-    ' class="billboard-post"><div class="rev-item editable"><h5 contentEditable="false">'
-     + billboard.name + '</h5><h6 class="editable" contentEditable="false">' + billboard.title +'</h6><p class="editable" contentEditable="false">'
-     + billboard.subtext01 + '</p><p class="editable" contentEditable="false">' + billboard.subtext02 +
-    '</p><p class="editable" contentEditable="false">color scheme: ' + billboard.color_scheme +
-    '</p><p class="editable" contentEditable="false">animation option: ' + billboard.anim_option +
-    '</p></div><div class="rev-button"><button class="edit-rev icon-pencil"></button><button href="" class="delete-rev icon-bin"></button><div class="save-rev hidden"><p class="icon-droplet"></p></div></article>'
+    ' class="billboard-post"><div class="rev-item editable rev-name"><h5 contentEditable="false">'
+     + billboard.name + '</h5><h6 class="editable rev-title" contentEditable="false">' + billboard.title +'</h6><p class="editable rev-subtext01" contentEditable="false">'
+     + billboard.subtext01 + '</p><p class="editable rev-subtext01" contentEditable="false">' + billboard.subtext02 +
+    '</p><p class="editable rev-color" contentEditable="false">' + billboard.color_scheme +
+    '</p><p class="editable rev-anim" contentEditable="false">' + billboard.anim_option +
+    '</p></div><div class="rev-button"><button class="save-rev icon-droplet"> save</button><button class="edit-rev icon-pencil"> edit</button><button href="" class="delete-rev icon-bin"> delete</button></article>'
     );
 };
 
@@ -194,10 +195,6 @@ var editBillboardCb = function (error, data) {
     $(".user-messages").html("<strong>Error! Rev update fail!</strong>");
     return;
   }
-  // console.log test
-  console.log('updated rev is is ' + JSON.stringify(data));
-
-  var updatedBillboard = data.billboard;
 
   $(".user-messages").html("<strong>Rev updated!</strong>");
 

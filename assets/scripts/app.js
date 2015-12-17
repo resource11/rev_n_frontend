@@ -136,11 +136,8 @@ $(function() {
   });
 
 
-  // open the edit form and send data-id attribute over
+  // make the text on a user rev editable
   $('#user-revs').on('click', '.edit-rev', function(){
-
-    saveRev.fadeIn(300).removeClass('hidden');
-    console.log(userBillboardsList);
 
     var id = $(this).closest('.billboard-post').attr('data-id');
     console.log('id is ' + id);
@@ -151,6 +148,49 @@ $(function() {
 
 
     // api.showBillboard(id, session.token, loadBillboardCb);
+
+  });
+
+
+  // save edited user rev handler
+  $('#user-revs').on('click', '.save-rev', function(){
+
+    var id = $(this).closest('.billboard-post').attr('data-id');
+    console.log('id is still ' + id);
+
+    var editable = $(this).closest('.billboard-post').find('.editable');
+
+    editable.attr('contentEditable', "false");
+
+    // somehow, h5 and h6 are considered the first and second children of the div
+    // we start at nth-child(3) to grab the correct data
+    var name = $(this).closest('.billboard-post').find('h5').html();
+    var title = $(this).closest('.billboard-post').find('h6').html();
+    var subtext01 = $(this).closest('.billboard-post').find('p:nth-child(3)').html();
+    var subtext02 = $(this).closest('.billboard-post').find('p:nth-child(4)').html();
+    var color_scheme = $(this).closest('.billboard-post').find('p:nth-child(5)').html();
+    var anim_option = $(this).closest('.billboard-post').find('p:nth-child(6)').html();
+
+    var data = {
+      billboard: {
+      // id: id,
+      name: name,
+      title: title,
+      subtext01: subtext01,
+      subtext02: subtext02,
+      color_scheme: color_scheme,
+      anim_option: anim_option
+      }
+    };
+
+    console.log("clicked");
+    // test to see if the data was wrapped
+    console.log('data sending is: ' + JSON.stringify(data));
+
+
+
+    api.editBillboard(id, session.token, data, editBillboardCb);
+
 
   });
 
