@@ -814,8 +814,22 @@ footer {
   background-blend-mode: color-dodge;
 }
 
-.animateTest {
+
+.myClass1 {
+  width: 400px;
+  height: 400px;
+  left: 150px;
 }
+
+.myClass3 {
+  top:60px;
+  left: 70px;
+}
+
+
+
+
+
 
 
 .clearfix {

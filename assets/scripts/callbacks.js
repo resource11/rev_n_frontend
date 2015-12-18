@@ -29,14 +29,13 @@ var leftPanel = $('.left-panel');
 var midPanel = $('.mid-panel');
 var rightPanel = $('.right-panel');
 
-var animOption;
-
 
 var color1;
 var color2;
 
 
 var colorScheme;
+var animOption;
 
 
 var listUserBillboardHTML = function (billboard) {
@@ -137,28 +136,38 @@ var loginCb = function (error, data) {
 
 
   setInterval(function() {
-  $(".box")
+  $(".myClass2")
+    .velocity("transition.slideDownBigIn", { stagger: 250 })
+    .delay(750)
+    .velocity({ opacity: 0 }, 750)
+  }, 20);
+
+
+ setInterval(function() {
+  $(".myClass3")
     .velocity("transition.slideLeftIn", { stagger: 250 })
     .delay(750)
     .velocity({ opacity: 0 }, 750)
-}, 2000);
+  }, 2000);
 
-  $(".box").velocity(
+ setInterval(function() {
+  $(".myClass1")
+    .velocity("transition.slideUpBigIn", { stagger: 250 })
+    .delay(750)
+    .velocity({ opacity: 0 }, 750)
+  }, 2000);
+
+  $(".myClass1 .myClass2 .myClass3").velocity(
   {
-    scale: 1.2
+    translateZ: 0, // Force HA by animating a 3D property
+    translateX: "200px",
+    rotateZ: "45deg"
   },
   {
     duration: 2000,
     loop: 10 // Loop one time (animate scale to 1.5 then back to its original value).
   });
 
-
-$("div").velocity({
-  scale: 1.5,
-  translateX: 150
-}, 2000);
-
-  // console.log(JSON.stringify(data, null, 4));
 
 }; // end of login callback;
 
@@ -256,8 +265,8 @@ var loadBillboardCb = function (error, data) {
   billboard.title = data.billboard.title;
   billboard.subtext01 = data.billboard.subtext01;
   billboard.subtext02 = data.billboard.subtext02;
-  billboard.color_scheme = data.billboard.color_scheme;
-  billboard.anim_option = data.billboard.anim_option;
+  colorScheme = data.billboard.color_scheme;
+  animOption = data.billboard.anim_option;
 
 
 
@@ -274,7 +283,7 @@ var loadBillboardCb = function (error, data) {
   // TweenMax.to([leftPanel, midPanel, rightPanel], 2, {className:'+=color-scheme-purple'}, 0.2);
   // TweenMax.to([leftPanel, midPanel, rightPanel], 0.5, {className:colorScheme}, 0.2);
 
-  colorScheme = data.billboard.color_scheme;
+
 
 
   switch (colorScheme) {
@@ -317,6 +326,8 @@ var loadBillboardCb = function (error, data) {
 leftPanel.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
 midPanel.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
 rightPanel.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
+
+
 
 };
 
