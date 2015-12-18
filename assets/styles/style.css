@@ -244,7 +244,7 @@ select {
 .hero-intro {
   /*position:relative;*/
   margin: 0 auto;
-  padding: 80px 30px 0px;
+  padding: 40px 30px 0px;
 }
 
 .hero p {
@@ -262,7 +262,7 @@ select {
 
 .bot-arrow {
   position: relative;
-  top: 110px;
+  top: 60px;
   margin: 0px auto;
   font-size: 4em;
 }
@@ -1010,4 +1010,37 @@ canvas {
   0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
   50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
   100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+
+
+/*clipping paths*/
+
+.front-view-clip {
+  -webkit-clip-path: polygon(3% 37%, 98% 37%, 98% 59%, 3% 59%);
+  clip-path: polygon(3% 37%, 98% 37%, 98% 59%, 3% 59%);
+/*  height:100%;*/
+}
+
+
+.left-persp-front {
+  -webkit-clip-path: polygon(47% 6%, 84% 61%, 83% 84%, 36% 71%);
+  clip-path: polygon(47% 6%, 84% 61%, 83% 84%, 36% 71%);
+}
+
+.left-persp-left {
+  -webkit-clip-path: polygon(47% 6%, 37% 71%, 0 76%, 15% 22%);
+  clip-path: polygon(47% 6%, 37% 71%, 0 76%, 15% 22%);
+}
+
+
+
+.right-persp-right {
+  -webkit-clip-path: polygon(70% 5%, 83% 42%, 100% 53%, 85% 24%);
+  clip-path: polygon(70% 5%, 83% 42%, 100% 53%, 85% 24%);
+}
+
+
+.right-persp-front {
+  -webkit-clip-path: polygon(70% 5%, 83% 42%, 3% 61%, 14% 39%);
+  clip-path: polygon(70% 5%, 83% 42%, 3% 61%, 14% 39%);
 }
