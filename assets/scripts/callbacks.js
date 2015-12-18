@@ -231,7 +231,7 @@ var createBillboardCb = function (error, data) {
 
 
 
-// updateFavBike callback
+// editBillboard callback
 var editBillboardCb = function (error, data) {
   if (error) {
     console.error(error);
@@ -277,8 +277,8 @@ var loadBillboardCb = function (error, data) {
 
   $('.rev-info h5').html(billboard.name);
   $('.title-treatment').html(billboard.title);
-  $('.subtext-treatment01').html(billboard.subtext01);
-  $('.subtext-treatment02').html(billboard.subtext02);
+  $('.subtext01-treatment').html(billboard.subtext01);
+  $('.subtext02-treatment').html(billboard.subtext02);
 
   // TweenMax.to([leftPanel, midPanel, rightPanel], 2, {className:'+=color-scheme-purple'}, 0.2);
   // TweenMax.to([leftPanel, midPanel, rightPanel], 0.5, {className:colorScheme}, 0.2);
