@@ -647,11 +647,31 @@ footer {
 .right-persp-view {
   position: absolute;
   z-index: 1400;
+  top: 1560px;
+  height: 780px;
+  background: url('../images/billboard_rt_persp.jpg');
+  background-size: cover;
+  background-position: center;
+  border-top: 4px solid white;
+}
+
+.left-persp-front {
+  z-index: 1350;
+}
+
+.left-persp-left {
+  z-index: 1325;
 }
 
 .left-persp-view {
   position: absolute;
   z-index: 1300;
+  top: 780px;
+  height: 780px;
+  background: url('../images/billboard_lft_persp.jpg');
+  background-size: cover;
+  background-position: center;
+  border-top: 4px solid white;
 }
 
 
@@ -673,11 +693,11 @@ footer {
 .front-persp-view {
   position: absolute;
   z-index: 1200;
-  top: 780px;
+/*  top: 780px;
   height: 780px;
   background: url('../images/billboard_lft_persp.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center;*/
 }
 
 
@@ -1028,11 +1048,14 @@ canvas {
 
 
 .left-persp-front {
+  position: absolute;
+  top: 780px;
   -webkit-clip-path: polygon(47% 6%, 84% 61%, 83% 84%, 36% 71%);
   clip-path: polygon(47% 6%, 84% 61%, 83% 84%, 36% 71%);
 }
 
 .left-persp-left {
+  position: absolute;
   -webkit-clip-path: polygon(47% 6%, 37% 71%, 0 76%, 15% 22%);
   clip-path: polygon(47% 6%, 37% 71%, 0 76%, 15% 22%);
 }
