@@ -5,18 +5,6 @@ var session = {
   token: null,
 };
 
-// var billboard = {
-//   id: null,
-//   name: null,
-//   title: null,
-//   subtext01: null,
-//   subtext02: null,
-//   color_scheme: null,
-//   anim_option: null,
-//   user_id: null
-// };
-
-
 var registerSubmit = $('#register');
 var loginSubmit = $('#login');
 var registerMenu = $('.register-scheme');
@@ -29,6 +17,7 @@ var userBillboardsList = $('#user-revs');
 var closeMe = $('.close-me');
 var closeMeCreate = $('.close-me-create');
 var addRev = $('.add-rev');
+var viewRev = $('.view-rev');
 var editRev = $('.edit-rev');
 var saveRev = $('.save-rev');
 var messagesContainer = $('.messages-container');
@@ -36,11 +25,17 @@ var frontView = $('.front-view');
 var revList = $('.list-scheme');
 var revInfo = $('.rev-info');
 
-// var userBillboardsList = $('#user-revs');
+var leftPanel = $('.left-panel');
+var midPanel = $('.mid-panel');
+var rightPanel = $('.right-panel');
 
-// var removeBillboard = function(data, location1, location2) {
-//   location1.find.location2.remove();
-// };
+
+var color1;
+var color2;
+
+
+var colorScheme;
+var animOption;
 
 
 var listUserBillboardHTML = function (billboard) {
@@ -51,7 +46,7 @@ var listUserBillboardHTML = function (billboard) {
      + billboard.subtext01 + '</p><p class="editable rev-subtext01" contentEditable="false">' + billboard.subtext02 +
     '</p><p class="editable rev-color" contentEditable="false">' + billboard.color_scheme +
     '</p><p class="editable rev-anim" contentEditable="false">' + billboard.anim_option +
-    '</p></div><div class="rev-button"><button class="save-rev icon-droplet"> save</button><button class="edit-rev icon-pencil"> edit</button><button href="" class="delete-rev icon-bin"> delete</button></article>'
+    '</p></div><div class="rev-button"><button class="view-rev icon-eye"> view</button><button class="edit-rev icon-pencil"> edit</button><button class="save-rev icon-cloud-check"> save</button><button href="" class="delete-rev icon-bin"> delete</button></article>'
     );
 };
 
@@ -104,6 +99,7 @@ var regCb = function (error, data) {
 var loginCb = function (error, data) {
   if (error) {
     console.error(error);
+
     $(".user-messages").html("<strong>Error! Login fail!</strong>");
     return;
   }
@@ -112,7 +108,7 @@ var loginCb = function (error, data) {
   session.userId = data.user.id;
   session.token = data.user.token;
   $('.messages-container h6').text('Welcome, user #' + session.userId);
-
+  loginMenu.slideUp();
   // show in console for testing purposes
   console.log(session.userId);
   console.log(session.token);
@@ -122,9 +118,56 @@ var loginCb = function (error, data) {
 
   // list current user billboards
   api.listUserBillboards(session.token, listUserBillboardsCb);
+  loginMenu.slideUp();
+  revList.delay(600).fadeIn(300).removeClass('hidden');
+  messagesContainer.fadeIn(300).removeClass('hidden');
+  addRev.fadeIn(300).removeClass('hidden');
+  frontView.fadeIn(300).removeClass('hidden');
+  revInfo.fadeIn(300).removeClass('hidden');
+  $('.title-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
+    $(this).remove('animated zoomIn');
+  });
+  $('.subtext01-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
+    $(this).remove('animated zoomIn');
+  });
+  $('.subtext02-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
+    $(this).remove('animated zoomIn');
+  });
 
 
-  // console.log(JSON.stringify(data, null, 4));
+  setInterval(function() {
+  $(".myClass2")
+    .velocity("transition.slideDownBigIn", { stagger: 250 })
+    .delay(750)
+    .velocity({ opacity: 0 }, 750)
+  }, 20);
+
+
+ setInterval(function() {
+  $(".myClass3")
+    .velocity("transition.slideLeftIn", { stagger: 250 })
+    .delay(750)
+    .velocity({ opacity: 0 }, 750)
+  }, 2000);
+
+ setInterval(function() {
+  $(".myClass1")
+    .velocity("transition.slideUpBigIn", { stagger: 250 })
+    .delay(750)
+    .velocity({ opacity: 0 }, 750)
+  }, 2000);
+
+  $(".myClass1 .myClass2 .myClass3").velocity(
+  {
+    translateZ: 0, // Force HA by animating a 3D property
+    translateX: "200px",
+    rotateZ: "45deg"
+  },
+  {
+    duration: 2000,
+    loop: 10 // Loop one time (animate scale to 1.5 then back to its original value).
+  });
+
 
 }; // end of login callback;
 
@@ -214,42 +257,77 @@ var loadBillboardCb = function (error, data) {
 
 
   // grab billboards from Rails
-  // var billboard = data.billboard;
-
   console.log('billboard is: ' + JSON.stringify(data));
 
-  // $('input.edit-form').each(function(){
-  //       var input = $(this);
-  //       if ($(input).data().bind) {
-  //           console.log($(input).data().bind);
-  //       }
-  //   });
+  // set data attributes of video wall elements
 
-  // set data attribute of form
-
-  // jQuery.data( $('.edit-name'), 'value', 86 );
   billboard.name = data.billboard.name;
   billboard.title = data.billboard.title;
-  billboard.subtext01 = billboard.subtext01;
+  billboard.subtext01 = data.billboard.subtext01;
   billboard.subtext02 = data.billboard.subtext02;
-  billboard.color_scheme = data.billboard.color_scheme;
-  billboard.anim_option = data.billboard.anim_option;
-
-  editSideMenu.fadeIn(300);
-  $('#edit-side').attr('data-id', data.billboard.id);
+  colorScheme = data.billboard.color_scheme;
+  animOption = data.billboard.anim_option;
 
 
-  $('.edit-name').val(billboard.name);
-  $('.edit-title').val(billboard.title);
-  $('.edit-subtext01').val(billboard.subtext02);
-  $('.edit-subtext02').val(billboard.subtext02);
-  $('.edit-color').val(billboard.color_scheme);
-  $('.edit-anim').val(billboard.anim_option);
+
+  // colorScheme = '+=color-scheme-' + billboard.color_scheme;
+
+  $('.video-wall').attr('data-id', data.billboard.id);
 
 
-  console.log('name is now: ' + $('.edit-name').val());
+  $('.rev-info h5').html(billboard.name);
+  $('.title-treatment').html(billboard.title);
+  $('.subtext-treatment01').html(billboard.subtext01);
+  $('.subtext-treatment02').html(billboard.subtext02);
 
-  // jQuery.data( div, "blah", 86 )
+  // TweenMax.to([leftPanel, midPanel, rightPanel], 2, {className:'+=color-scheme-purple'}, 0.2);
+  // TweenMax.to([leftPanel, midPanel, rightPanel], 0.5, {className:colorScheme}, 0.2);
+
+
+
+
+  switch (colorScheme) {
+  case "red":
+    color1 = "#8f0222";
+    color2 = "#db0444";
+    break;
+  case "orange":
+    color1 = "#ea2803";
+    color2 = "#ff6600";
+    break;
+  case "gold":
+    color1 = "#ea5507";
+    color2 = "#f9a600";
+    break;
+  case "green":
+    color1 = "#0F9401";
+    color2 = "#9FF732";
+    break;
+  case "blue":
+    color1 = "#017de1";
+    color2 = "#0aaefb";
+    break;
+  case "purple":
+    color1 = "#96007f";
+    color2 = "#de47ac";
+    break;
+  case "pink":
+    color1 = "#ef017c";
+    color2 = "#ff5db1";
+    break;
+  case "slate":
+    color1 = "#1c1c1c";
+    color2 = "#595959";
+    break;
+  default:
+    break;
+}
+
+leftPanel.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
+midPanel.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
+rightPanel.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
+
+
 
 };
 
@@ -262,8 +340,6 @@ var deleteBillboardCb = function (error, data) {
     $(".user-messages").html("<strong>Error! Rev deletion fail!</strong>");
     return;
   }
-
-  // find div by data-id, delete that div in user-rev then in current billboard view
 
   $(".user-messages").html("<strong>Rev deletion success!</strong>");
 

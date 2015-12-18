@@ -15,6 +15,9 @@ var billboard = {
   anim_option: null
 };
 
+var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+
+
 //$(document).ready(...
 $(function() {
 
@@ -60,31 +63,6 @@ $(function() {
 
 
 
- //  // create-new (poll) button click handler
- //  $('.user-messages').on('click', '.create-new', function() {
-
- //    $('#poll-creation-container').fadeIn().removeClass('hidden');
-
- //  });
-
- //  // or
-
- // $('#create-edit-del-button-dashboard').on('click', '.create-new', function() {
- //    console.log('clicked');
- //    $('#poll-creation-container').fadeIn();
- //  });
-
-
-
- //  // edit poll button click handler
- //  $('#create-edit-del-button-dashboard').on('click', '#edit', function() {
- //    console.log('clicked');
- //    $('#poll-edit-container').fadeIn().removeClass('hidden');
- //  });
-
-
-
-
   // register event handler
   registerSubmit.on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
@@ -94,6 +72,7 @@ $(function() {
     registerMenu.slideUp();
   });
 
+
   // login event handler
   loginSubmit.on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
@@ -101,12 +80,21 @@ $(function() {
     api.login(credentials, loginCb);
     e.preventDefault();
      // hide login container
-    loginMenu.slideUp();
-    revList.fadeIn(300).removeClass('hidden');
-    messagesContainer.fadeIn(300).removeClass('hidden');
-    addRev.fadeIn(300).removeClass('hidden');
-    frontView.fadeIn(300).removeClass('hidden');
-    revInfo.fadeIn(300).removeClass('hidden');
+    // loginMenu.slideUp();
+    // revList.delay(600).fadeIn(300).removeClass('hidden');
+    // messagesContainer.fadeIn(300).removeClass('hidden');
+    // addRev.fadeIn(300).removeClass('hidden');
+    // frontView.fadeIn(300).removeClass('hidden');
+    // revInfo.fadeIn(300).removeClass('hidden');
+    // $('.title-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
+    //   $(this).remove('animated zoomIn');
+    // });
+    // $('.subtext01-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
+    //   $(this).remove('animated zoomIn');
+    // });
+    // $('.subtext02-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
+    //   $(this).remove('animated zoomIn');
+    // });
   });
 
   // // logout event handler
@@ -195,47 +183,15 @@ $(function() {
   });
 
 
-  // edit billboard handler
-  // data is not binding
-  $('.edit-scheme').on('submit', function(e) {
 
-    // var data = wrap('billboard', form2object(this));
-    var id = billboard.id;
+  // load current rev into view
+    $('#user-revs').on('click', '.view-rev', function(){
 
-    var data = {
-      billboard: {
-      id: billboard.id,
-      name: billboard.name,
-      title: billboard.title,
-      subtext01: billboard.subtext01,
-      subtext02: billboard.subtext02,
-      color_scheme: billboard.color_scheme,
-      anim_option: billboard.anim_option
-      }
-    };
+    var id = $(this).closest('.billboard-post').attr('data-id');
+    console.log('id is ' + id);
 
-    console.log("clicked");
-    // test to see if the data was wrapped
-    console.log(JSON.strinigfy(data));
+    api.showBillboard(id, session.token, loadBillboardCb);
 
-    // grab the data-id attr from the form data attr
-  //   var id = editForm.attr('data-id');
-
-  //   $('#edit-side').attr('data-pollid', billboard.id);
-
-  // $('.edit-name').val(billboard.name);
-  // $('.edit-title').val(billboard.title);
-  // $('.edit-subtext01').val(billboard.subtext01);
-  // $('.edit-subtext02').val(billboard.subtext02);
-  // $('.edit-color').val(billboard.color_scheme);
-  // $('.edit-anim').val(billboard.anim_option);
-
-    console.log('data-id is ' + id);
-    // test to see if the session.token is recognized
-    console.log(session.token);
-
-    api.editBillboard(id, session.token, data, editBillboardCb);
-    e.preventDefault();
   });
 
 
@@ -258,24 +214,9 @@ $(function() {
     $(this).closest('.billboard-post').remove();
 
 
-    // // find bike in all bikes listing and remove
-    // // still debugging this
-    // var thisBikeInAllBikes = $('#all-bikes').find('.bike-posts').attr(thisBikeId)
-    // thisBikeInAllBikes.remove();
-
   });
 
- // create new bike handler
-  $('.animateTest').on('click', function() {
-    var myClass = $('.myClass');
-    var myClass2 = $('.myClass2');
-    console.log('clicked');
-    // $(".myClass").animate({top:100, left:200}, 3000);
-    // $(".myClass").animate({top:100, left:200}, {duration:3000, easing:"easeOutStrong"});
-    // TweenMax.to(".myClass", 2, {top:100, left:200});
-    TweenMax.to([myClass, myClass2], 2, {top:100, left:200});
 
-  });
 
 
 
