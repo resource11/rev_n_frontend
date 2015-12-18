@@ -100,6 +100,7 @@ var regCb = function (error, data) {
 var loginCb = function (error, data) {
   if (error) {
     console.error(error);
+
     $(".user-messages").html("<strong>Error! Login fail!</strong>");
     return;
   }
@@ -108,7 +109,7 @@ var loginCb = function (error, data) {
   session.userId = data.user.id;
   session.token = data.user.token;
   $('.messages-container h6').text('Welcome, user #' + session.userId);
-
+  loginMenu.slideUp();
   // show in console for testing purposes
   console.log(session.userId);
   console.log(session.token);
@@ -118,7 +119,44 @@ var loginCb = function (error, data) {
 
   // list current user billboards
   api.listUserBillboards(session.token, listUserBillboardsCb);
+  loginMenu.slideUp();
+  revList.delay(600).fadeIn(300).removeClass('hidden');
+  messagesContainer.fadeIn(300).removeClass('hidden');
+  addRev.fadeIn(300).removeClass('hidden');
+  frontView.fadeIn(300).removeClass('hidden');
+  revInfo.fadeIn(300).removeClass('hidden');
+  $('.title-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
+    $(this).remove('animated zoomIn');
+  });
+  $('.subtext01-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
+    $(this).remove('animated zoomIn');
+  });
+  $('.subtext02-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
+    $(this).remove('animated zoomIn');
+  });
 
+
+  setInterval(function() {
+  $(".box")
+    .velocity("transition.slideLeftIn", { stagger: 250 })
+    .delay(750)
+    .velocity({ opacity: 0 }, 750)
+}, 2000);
+
+  $(".box").velocity(
+  {
+    scale: 1.2
+  },
+  {
+    duration: 2000,
+    loop: 10 // Loop one time (animate scale to 1.5 then back to its original value).
+  });
+
+
+$("div").velocity({
+  scale: 1.5,
+  translateX: 150
+}, 2000);
 
   // console.log(JSON.stringify(data, null, 4));
 
@@ -241,28 +279,32 @@ var loadBillboardCb = function (error, data) {
 
   switch (colorScheme) {
   case "red":
-    color1 = "#ff3019";
-    color2 = "#ff3019";
+    color1 = "#8f0222";
+    color2 = "#db0444";
     break;
   case "orange":
     color1 = "#ea2803";
     color2 = "#ff6600";
     break;
   case "gold":
-    color1 = "#f97c00";
-    color2 = "#ffb405";
+    color1 = "#ea5507";
+    color2 = "#f9a600";
     break;
   case "green":
-    color1 = "#24a800";
-    color2 = "#9ecb2d";
+    color1 = "#0F9401";
+    color2 = "#9FF732";
     break;
   case "blue":
     color1 = "#017de1";
     color2 = "#0aaefb";
     break;
   case "purple":
-    color1 = "#a80077";
-    color2 = "#db36a4";
+    color1 = "#96007f";
+    color2 = "#de47ac";
+    break;
+  case "pink":
+    color1 = "#ef017c";
+    color2 = "#ff5db1";
     break;
   case "slate":
     color1 = "#1c1c1c";
@@ -272,7 +314,9 @@ var loadBillboardCb = function (error, data) {
     break;
 }
 
-$('.mid-panel').css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
+leftPanel.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
+midPanel.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
+rightPanel.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
 
 };
 

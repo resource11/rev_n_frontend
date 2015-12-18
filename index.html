@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="assets/styles/MyFontsWebfontsKit.css">
   <link rel="stylesheet" type="text/css" href="assets/styles/animate.css">
   <link rel="stylesheet" type="text/css" href="assets/styles/responsive.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/component.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
 </head>
@@ -44,7 +45,7 @@
     <div class="span_6_of_12 hero-intro">
       <h2>Rev(n)</h2>
       <h3>iteration nirvana.</h3>
-      <button type="" class="span_4_of_12 login-a">sign in</button>
+      <button type="" class="span_4_of_12 login-a ">sign in</button>
       <p>Need an account? <a class="register-a">Register</a>.</p>
       <p class="span_2_of_12 bot-arrow"><i class="fa fa-angle-down"></i></p>
     </div>
@@ -55,7 +56,7 @@
   <!-- begin register -->
   <section class="span_12_of_12 register-scheme hidden">
     <p class="close-me"><i class="fa fa-times"></i></p>
-    <div class="span_4_of_12">
+    <div class="span_4_of_12 register-bucket">
       <h3>Sign up</h3>
       <form id="register">
         <label for="email">email:</label>
@@ -76,7 +77,7 @@
   <!-- begin login -->
   <section class="span_12_of_12 login-scheme hidden">
     <p class="close-me"><i class="fa fa-times"></i></p>
-    <div class="span_4_of_12">
+    <div class="span_4_of_12 login-bucket">
       <h3>Sign in</h3>
       <form id="login">
         <label for="email">email:</label>
@@ -90,42 +91,6 @@
     </div>
   </section>
   <!-- end login -->
-
-
-  <!-- begin edit rev -->
-  <section class="span_3_of_12 edit-scheme sidebar hidden">
-    <p class="close-me"><i class="fa fa-times"></i></p>
-    <div class="" >
-      <h3>Edit rev</h3>
-      <form id="edit-side" data-id="">
-        <label for="name">name:</label>
-        <input class="edit-name" name="name" type="text" placeholder="name">
-        <label for="title">title:</label>
-        <input class="edit-title" name="title" type="text" placeholder="title">
-        <label for="subtext 01">subtext 01:</label>
-        <input class="edit-subtext01" name="subtext01" type="text" placeholder="subtext 01">
-        <label for="subtext 02">subtext 02:</label>
-        <input class="edit-subtext02" name="subtext02" type="text" placeholder="subtext 02">
-        <!-- <input name="color_scheme" type="text" placeholder="color scheme"> -->
-        <label for="color scheme">color scheme:</label>
-        <select class="edit-color" name="color_scheme">
-          <option value="red">Red</option>
-          <option value="green">Green</option>
-          <option value="blue">Blue</option>
-        </select>
-        <!-- <input name="anim_option" type="text" placeholder="animation option"> -->
-        <label for="animation option">animation option:</label>
-        <select class="edit-anim" name="anim_option">
-          <option value="circle">Circles</option>
-          <option value="square">Squares</option>
-          <option value="triangle">Triangles</option>
-        </select>
-        <!-- <input name="edit-side" type="submit" value="Create rev" class="top-login-button"> -->
-        <button type="">Save changes</button>
-      </form>
-    </div>
-  </section>
-  <!-- end edit rev -->
 
   <!--  begin add rev icon -->
   <div class="add-rev hidden">
@@ -156,8 +121,13 @@
         <label for="color scheme">color scheme:</label>
         <select name="color_scheme">
           <option value="red">Red</option>
+          <option value="orange">Orange</option>
+          <option value="gold">Yellow</option>
           <option value="green">Green</option>
           <option value="blue">Blue</option>
+          <option value="purple">Purple</option>
+          <option value="pink">Pink</option>
+          <option value="slate">Slate</option>
         </select>
         <label for="animation option">animation option:</label>
         <select name="anim_option">
@@ -200,39 +170,30 @@
     <!-- <p class="close-me"><i class="fa fa-times"></i></p> -->
    <div class="video-wall span_10_of_12 flexbox-stretch-vertical">
 
+
+<!-- <canvas class=" sketch" height="281" width="733"></canvas> -->
+<!-- <audio preload="auto" crossorigin="anonymous" controls="" src="http://crossorigin.me/https://s3-us-west-2.amazonaws.com/s.cdpn.io/1715/the_xx_-_intro.mp3"></audio> -->
+
+<!-- <canvas class=" sketch" height="281" width="948"></canvas> -->
+
      <div class="left-panel flexbox-align-center left">
-      <p class="subtext-treatment01">subtext 01</p>
+      <p class="subtext01-treatment box">subtext 01</p>
 
               <!-- begin test anim div -->
-        <div class="myClass1">
-            <!-- <button type="" class="animateTest">click me</button> -->
+        <div class="myClass2 box">
+
         </div>
 
-        <div class="myClass2">
-            <!-- <button type="" class="animateTest">click me</button> -->
-        </div>
-
-        <div class="myClass3">
-            <!-- <button type="" class="animateTest">click me</button> -->
-        </div>
         <!-- end test anim div -->
 
      </div>
 
      <div class="mid-panel flexbox-align-center left">
-     <p class="title-treatment">title</p>
+     <p class="title-treatment box">title</p>
 
              <!-- begin test anim div -->
-        <div class="myClass1">
-            <!-- <button type="" class="animateTest">click me</button> -->
-        </div>
+        <div class="myClass1 box">
 
-        <div class="myClass2">
-            <!-- <button type="" class="animateTest">click me</button> -->
-        </div>
-
-        <div class="myClass3">
-            <!-- <button type="" class="animateTest">click me</button> -->
         </div>
         <!-- end test anim div -->
 
@@ -240,36 +201,27 @@
 
      <div class="right-panel flexbox-align-center left">
       <!-- begin test anim div -->
-        <div class="myClass1">
-            <!-- <button type="" class="animateTest">click me</button> -->
-        </div>
-
-        <div class="myClass2">
-            <!-- <button type="" class="animateTest">click me</button> -->
-        </div>
-
         <div class="myClass3">
-            <!-- <button type="" class="animateTest">click me</button> -->
+
         </div>
         <!-- end test anim div -->
-      <p class="subtext-treatment02">subtext 02</p>
+      <p class="subtext01-treatment box">subtext 02</p>
      </div>
 
+    </div>
 
 
+    <div class="buttons-container span_6_of_12">
+    <button class=".play-anim">play</button>
+<!--     <button id="pause">pause</button>
+    <button id="reverse">reverse</button>
+    <button id="resume">resume</button>
+    <button id="restart">restart</button> -->
+    </div>
 
-   </div>
-<div class="buttons-container">   <button type="" class="animateTest play-anim">play</button>
-   <button type="" class="animateTest pause-anim">pause</button>
-   <button type="" class="animateTest resume-anim">resume</button>
-   <button type="" class="animateTest reverse-anim">reverse</button>
-   <button type="" class="animateTest restart-anim">restart</button>
-   <button type="" class="animateTest change-name">change name</button>
-   <button type="" class="animateTest change-title">change title</button>
-   <button type="" class="animateTest change-subtext01">change subtext 01</button>
-   <button type="" class="animateTest change-subtext02">change subtext0 2</button>
-   <button type="" class="animateTest change-color">change color</button>
-   <button type="" class="animateTest change-anim">change anim</button></div>
+    <div id="sliderWrapper span_6_of_12">
+    <div id="slider"></div>
+
   </section>
   <!-- end front view -->
 
@@ -319,10 +271,9 @@
 
 <!-- begin scripts -->
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-  <!--CDN link for  TweenMax-->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
-<!--<script src="assets/scripts/greensock-js/src/minified/TweenMax.min.js"></script>
-<script src="assets/scripts/greensock-js/src/minified/jquery.gsap.min.js"></script>-->
+  <script src="assets/scripts/velocity.min.js"></script>
+  <script src="assets/scripts/velocity.ui.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
   <script src="assets/scripts/api.js" type="text/javascript" defer charset="utf-8"></script>
   <script src="assets/scripts/callbacks.js" type="text/javascript" defer charset="utf-8"></script>
   <script src="assets/scripts/animations.js" type="text/javascript" defer charset="utf-8"></script>
