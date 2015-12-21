@@ -8,7 +8,7 @@ Rev(n) is an app designed to shorten the design/development iteration cycles tha
 
 This app allows the user(s) to review a digital display design and make real-time edits to copy, artwork and animation styles with the goal of arriving at a decision point for next steps in the deliverable production timeline.
 
-The front-end is hosted [here](http://resource11.github.io/rev_n_frontend/) and the back end is hosted [here](https://stormy-oasis-7808.herokuapp.com/), ** integrating 4 Restful APIs and JS animation libraries**. A link to the back-end repo is [here](https://github.com/resource11/rev_n_api)).
+The front-end is hosted [here](http://resource11.github.io/rev_n_frontend/) and the back end is hosted [here](https://stormy-oasis-7808.herokuapp.com/), **integrating 4 Restful APIs and JS animation libraries**. A link to the back-end repo is [here](https://github.com/resource11/rev_n_api)).
 
 ## HIGH-LEVEL PROJECT GOALS
 - **Build a single-page application (SPA)** with **basic user authentication** that interacts with a **custom API built by me**
