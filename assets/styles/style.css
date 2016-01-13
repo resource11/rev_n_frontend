@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
 
-/*MAIN*/
+/* MAIN */
 
 body {
   /*font-family: 'Lato', sans-serif;
@@ -15,27 +15,22 @@ body {
    box-sizing: border-box;
 }
 
-/* Custom CSS */
+/* CUSTOM CSS */
 
 img{max-width: 100%;}
 
 p{margin: 0 0 10px 0; line-height: 1;}
 
-h2, h5, h6 {
+h1, h2, h5, h6 {
   font-family: SoinSansPro-Bold;
   font-weight: normal;
   font-style: normal;
 }
 
 h1 {
-    /*background-image: url('assets/images/ss_bike.png');*/
-    background-size: contain;
-    width: 50px;
-    height: 50px;
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
     float: left;
+    font-size: 2em;
+    color: #333;
 }
 
 h2 {
@@ -70,6 +65,31 @@ h6 {
 
 
 
+/* LINKS */
+a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+}
+
+a:link, a:visited {
+  color: #fff;
+}
+
+a:hover {
+  border-bottom: 2px solid orange;
+}
+
+a:active {
+  border-bottom: 2px solid limegreen;
+}
+
+
+
+
+/* MAIN SECTIONS */
+
+
 .wrapper{
   margin: 0 auto;
   width: 100%;
@@ -99,29 +119,15 @@ footer {
 }
 
 
-a {
-  color: #fff;
-  text-decoration: none;
-  padding: 5px;
-}
 
-a:link, a:visited {
-  color: #fff;
-}
 
-a:hover {
-  border-bottom: 2px solid orange;
-}
-
-a:active {
-  border-bottom: 2px solid limegreen;
-}
 
 /*NAVIGATION*/
 
-nav{
-  max-width: 100%;
+nav {
+  /*width: 75%;*/
   margin: 0 auto;
+  margin-right: 5%;
 }
 
 nav ul{
@@ -129,10 +135,11 @@ nav ul{
 }
 nav ul li{
   display: inline;
-  line-height: 0px;
+  color: #333;
+  float: right;
 }
 nav ul li a{
-  color: #333;
+  color: #666;
   text-decoration: none;
 }
 
@@ -140,23 +147,76 @@ nav ul li a:hover{
   border-bottom: 1px solid #333;
 }
 
+nav:after {
+  content: '';
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0;
+}
+
+.top-nav {
+  position: relative;
+}
+
+
+.top-nav li {
+  border: 1px solid #666;
+  line-height: 1.6;
+  border-radius: 15px;
+  padding: 5px 10px 0;
+  text-transform: uppercase;
+  font-family: SoinSansPro-Bold;
+  font-weight: normal;
+  font-style: normal;
+  font-size: .9em
+}
+
+
+.top-nav li:hover {
+  color: rgba(255,255,255, 1);
+  background-color: rgba(87, 138, 7, 1);
+  border: 1px solid white;
+}
+
+.top-nav li:active {
+  color: rgba(255,255,255, 1);
+  background-color: rgba(170,21,5,1);
+  border: 1px solid white;
+}
+
+
+.bot-nav {
+  margin-left: 5%;
+}
+
 
 .bot-nav li {
   float: right;
-  padding-right: 20px;
-  padding-top: 3px;
+  padding-top: 2px;
+  padding-left: 20px;
   color: #333;
   font-size: 1.5em;
 }
 
-.credit {
+.brand {
+  width: 15%;
+  margin-left: 5%;
   float: left;
-  color: #888;
-  padding: 8px 20px;
 }
 
 
-/* buttons and inputs */
+.credit {
+  float: left;
+  margin-left: 5%;
+  color: #888;
+  padding: 8px 0;
+}
+
+
+
+
+/* BUTTONS & INPUTS */
 
 button {
   border: 2px solid white;
@@ -227,10 +287,10 @@ select {
 
 
 
-/* hero section */
+/* HERO SECTION */
 
 .hero {
-  position: absolute;
+  position: relative;
   top: 70px;
   left: 0;
   background-image: url('../images/times_sq_bg_blur_dk.jpg');
@@ -271,7 +331,7 @@ select {
 
 
 
-/* form sections */
+/* FORM SECTIONS */
 
 .close-me, .close-me-create {
   position: absolute;
@@ -440,7 +500,7 @@ select {
 
 
 
-
+/* MESSAGES */
 
 .messages-container {
   position: fixed;
@@ -488,7 +548,7 @@ select {
 
 
 
-/* rev container */
+/* REV LIST CONTAINER */
 
 .billboard-post {
   position: relative;
@@ -556,7 +616,9 @@ select {
 
 
 
-/* toggle hidden menu */
+
+
+/* TOGGLE HIDDEN MENU */
 
 #toggler {
   display: none;
@@ -585,14 +647,18 @@ select {
 }*/
 
 
-/* set z-index structure */
+
+
+
+
+/* Z-INDEX STRUCTURE */
 
 header{
-  z-index: 9000;
+  z-index: 8950;
 }
 
 footer {
-  z-index: 8999;
+  z-index: 8900;
 }
 
 
@@ -645,9 +711,9 @@ footer {
 
 
 .right-persp-view {
-  position: absolute;
+  position: relative;
   z-index: 1400;
-  top: 1560px;
+  /*top: 1560px;*/
   height: 780px;
   background: url('../images/billboard_rt_persp.jpg');
   background-size: cover;
@@ -656,17 +722,19 @@ footer {
 }
 
 .left-persp-front {
+  position: relative;
   z-index: 1350;
 }
 
 .left-persp-left {
+  position: relative;
   z-index: 1325;
 }
 
 .left-persp-view {
-  position: absolute;
+  position: relative;
   z-index: 1300;
-  top: 780px;
+  /*top: 780px;*/
   height: 780px;
   background: url('../images/billboard_lft_persp.jpg');
   background-size: cover;
@@ -691,11 +759,11 @@ footer {
 }
 
 .front-persp-view {
-  position: absolute;
-  z-index: 1200;
-/*  top: 780px;
+  position: relative;
+  /*z-index: 1200;*/
+  /*top: 780px;*/
   height: 780px;
-  background: url('../images/billboard_lft_persp.jpg');
+/*  background: url('../images/billboard_lft_persp.jpg');
   background-size: cover;
   background-position: center;*/
 }
@@ -717,14 +785,17 @@ footer {
 .front-view {
   padding: 0;
   margin: 0;
-  position: absolute;
-  z-index: 1100;
+  position: relative;
+  /*z-index: 1100;*/
 }
 
 
 
 
-/*front view section*/
+
+
+
+/* FRONT/CONTENT VIEW SECTION */
 
 .front-view {
 /*  top: 70px;
@@ -759,6 +830,7 @@ footer {
   /*width: 208px;
   height: 245px;*/
   width: 20%;
+  border: 5px solid green;
   /*background-color: red;*/
   overflow:hidden;
 }
@@ -766,6 +838,7 @@ footer {
 .mid-panel {
   position: relative;
   width:60%;
+  border: 3px solid red;
   /*background-color: green;*/
   overflow: hidden;
 }
@@ -812,6 +885,10 @@ footer {
 
 
 
+
+/* FLEXBOX */
+
+
 .flexbox-align-center {
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -856,6 +933,7 @@ footer {
 
 
 
+/* ANIMATION OVERLAY BOXES */
 
 .myClass1, .myClass2, .myClass3 {
   position: absolute;
@@ -883,7 +961,7 @@ footer {
 
 
 
-
+/* MISC CLASSES */
 
 .clearfix {
   content: '';
@@ -900,6 +978,8 @@ footer {
 .left {
   float: left;
 }
+
+
 
 
 
@@ -949,7 +1029,7 @@ footer {
 
 
 
-/* velocity particles */
+/* VELOCITY PARTICLES */
 
 
 /** {
@@ -1033,16 +1113,22 @@ canvas {
 }
 
 
-/*clipping paths*/
+
+
+
+
+
+
+/* CLIPPING PATHS */
 
 .front-view-clip {
   position: absolute;
   top: 240px;
-  left:5%;
+  left:4.3%;
   width: 1300px;
   height: 306px;
-  -webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 80% 100%);
-  clip-path: polygon(0 100%, 0 0, 100% 0, 80% 100%);
+  -webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
+  clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
 /*  height:100%;*/
 }
 
