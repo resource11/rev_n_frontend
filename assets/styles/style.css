@@ -827,8 +827,8 @@ footer {
 
 .left-panel, .right-panel {
   position: relative;
-  /*width: 208px;
-  height: 245px;*/
+  width: 260px;
+  height: 306px;
   width: 20%;
   border: 5px solid green;
   /*background-color: red;*/
@@ -837,7 +837,8 @@ footer {
 
 .mid-panel {
   position: relative;
-  width:60%;
+  width: 780px;
+  height: 306px;
   border: 3px solid red;
   /*background-color: green;*/
   overflow: hidden;
@@ -1157,4 +1158,92 @@ canvas {
 .right-persp-front {
   -webkit-clip-path: polygon(70% 5%, 83% 42%, 3% 61%, 14% 39%);
   clip-path: polygon(70% 5%, 83% 42%, 3% 61%, 14% 39%);
+}
+
+
+
+
+/* PERSPECTIVE */
+
+
+.container {
+  position: relative;
+  z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+
+.persp-holder {
+  position: relative;
+  -webkit-perspective: 150px; /* Chrome, Safari, Opera */
+  -webkit-perspective-origin: 10% 10%; /* Chrome, Safari, Opera */
+  perspective: 317px;
+  perspective-origin: 49% 75%;
+}
+
+.bar {
+  /*font-size: 1em;*/
+  position: relative;
+  /*width: 2em;*/
+  /*padding: 1em;*/
+  -webkit-transition: -webkit-transform 2s linear;
+  transition: -webkit-transform 2s linear;
+  transition: transform 2s linear;
+  transition: transform 2s linear, -webkit-transform 2s linear;
+  -webkit-transform: rotateX(-4deg) rotateY(-75deg) rotateZ(4deg);
+          transform: rotateX(0deg) rotateY(66deg) rotateZ(10deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+
+.bar .face {
+  position: relative;
+  bottom: 0;
+  width: 2em;
+  height: 2em;
+  background-position: center center;
+}
+.bar .side-0,
+.bar .side-1 {
+  overflow: hidden;
+  height: 10em;
+}
+.bar .side-0 {
+  -webkit-transform: rotateY(210deg) translateZ(1em);
+          transform: rotateY(210deg) translateZ(1em);
+  background-color: rgba(241, 241, 241, 0.8);
+}
+
+.bar .side-1 {
+  -webkit-transform: rotateY(180deg) translateY(-10em) translateZ(1em);
+          transform: rotateY(180deg) translateY(-10em) translateZ(1em);
+  background-color: rgba(216, 216, 216, 0.8);
+}
+
+.bar .top {
+  -webkit-transform: rotateX(90deg) translateZ(21em);
+          transform: rotateX(90deg) translateZ(21em);
+  text-align: center;
+  background-color: rgba(254, 254, 254, 0.8);
+}
+.bar .floor {
+  -webkit-transform: rotateX(-90deg) translateY(0em) translateZ(-13em) rotate(180deg);
+          transform: rotateX(-90deg) translateY(0em) translateZ(-13em) rotate(180deg);
+  text-align: center;
+  background-color: transparent;
+  box-shadow: 0 0 0.6em rgba(0, 0, 0, 0.3), 0.6em -1em 3em rgba(0, 0, 0, 0.3), 1em 1em 10em rgba(254, 254, 254, 0.8);
 }
