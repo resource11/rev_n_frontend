@@ -196,7 +196,7 @@ var listUserBillboardsCb = function (error, data) {
 
 
   // hide hero intro and show rev list
-  $('.hero-intro').fadeOut(200);
+  $('.hero').fadeOut(200);
   // show user rev list
   revList.delay(600).fadeIn().removeClass('hidden');
 
