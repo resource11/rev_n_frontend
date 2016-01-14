@@ -61,6 +61,12 @@ $(function() {
     addRev.fadeOut(300);
   });
 
+  // click handler for showing create menu
+  $('#create-rev').on('click', function() {
+    createSideMenu.fadeIn().removeClass('hidden');
+    addRev.fadeOut(300);
+  });
+
 
 
   // register event handler

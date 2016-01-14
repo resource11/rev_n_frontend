@@ -485,7 +485,7 @@ select {
 }
 
 .add-rev {
-  position: absolute;
+  position: fixed;
   top: 120px;
   left: 24%;
   width: 10px;
@@ -504,7 +504,7 @@ select {
 
 .messages-container {
   position: fixed;
-  top: 0px;
+  top: 70px;
   right: 100px;
   width: 150px;
   height: 75px;
@@ -529,7 +529,7 @@ select {
 
 .rev-info {
   position: fixed;
-  top: 120px;
+  top: 190px;
   right: 0;
   width: 270px;
   height: 40px;
@@ -702,7 +702,7 @@ footer {
 }
 
 .list-scheme {
-  position: absolute;
+  position: fixed;
   top: 120px;
   padding-top: 20px;
   left: 0;
@@ -713,6 +713,7 @@ footer {
 .right-persp-view {
   position: relative;
   z-index: 1400;
+  width: 1170px;
   /*top: 1560px;*/
   height: 780px;
   background: url('../images/billboard_rt_persp.jpg');
@@ -787,7 +788,7 @@ footer {
   padding: 0;
   margin: 0;
   position: relative;
-  /*z-index: 1100;*/
+  z-index: 1100;
 }
 
 
@@ -801,6 +802,7 @@ footer {
 .front-view {
 /*  top: 70px;
   left: 0;*/
+  /*width: 1170px;*/
   background-image: url('../images/times_sq_bg_blur_mono.jpg');
   background-size: cover;
   background-position: center;
@@ -814,13 +816,13 @@ footer {
 /*  background-image: url('../images/video_wall.jpg');
   width: 1300px;
   height: 306px;*/
-  width: 1300px;
-  height: 306px;
-  margin: 120px auto 0;
+  width: 1070px;
+  height: 252px;
+  margin: 250px auto 0;
   background-repeat: no-repeat;
   /*padding-top: 120px;*/
   text-align: center;
-  overflow: auto;
+  overflow: hidden;
   background: linear-gradient(to bottom, #1c1c1c 0%, #595959 100%);
   box-shadow: 6px 10px 8px rgba(0,0,0,0.5);
 }
@@ -828,18 +830,22 @@ footer {
 
 .left-panel, .right-panel {
   position: relative;
-  width: 260px;
-  height: 306px;
+  top: 0px;
+  /*width: 172px;*/
+  width: 13.23%;
+  height: 252px;
   width: 20%;
-  border: 5px solid green;
+  /*border: 5px solid green;*/
   overflow:hidden;
 }
 
 .mid-panel {
   position: relative;
-  width: 780px;
+  /*width: 956px;*/
+  top: 0px;
+  width: 73.53%;
   height: 306px;
-  border: 3px solid red;
+  /*border: 3px solid red;*/
   /*background-color: green;*/
   overflow: hidden;
 }
@@ -847,23 +853,22 @@ footer {
 
 
 .title-treatment {
-  position: absolute;
+  position: relative;
   font-family: SoinSansPro-Bold;
   font-weight: normal;
   font-style: normal;
   font-size: 8em;
   text-align: center;
-  margin: 100px 27%;
+  margin: auto;
   text-shadow: 0 5px 2px rgba(0,0,0,0.3)
 }
 
 
 .subtext01-treatment, .subtext02-treatment {
-  position: absolute;
-  font-size: 4em;
+  position: relative;
+  font-size: 2.3em;
   text-align: center;
-  margin: 80px auto;
-  padding: 0 40px;
+  margin: auto;
   text-shadow: 0 5px 2px rgba(0,0,0,0.3)
 }
 
@@ -1076,14 +1081,14 @@ canvas {
 
 .snow{
   background: none;
-  font-family: Androgyne;
+  /*font-family: Androgyne;*/
   background-image: url('http://www.wearewebstars.dk/codepen/img/s1.png'), url('http://www.wearewebstars.dk/codepen/img//s2.png'), url('http://www.wearewebstars.dk/codepen/img//s3.png');
   height: 100%;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
-  z-index:1;
+  z-index:100;
   -webkit-animation: snow 10s linear infinite;
   -moz-animation: snow 10s linear infinite;
   -ms-animation: snow 10s linear infinite;
@@ -1134,14 +1139,20 @@ canvas {
 .left-persp-front {
   position: absolute;
   top: 780px;
-  -webkit-clip-path: polygon(47% 6%, 84% 61%, 83% 84%, 36% 71%);
-  clip-path: polygon(47% 6%, 84% 61%, 83% 84%, 36% 71%);
+  -webkit-clip-path: polygon(2% 100%, 8% 6%, 99% 6%, 102% 100%);
+  clip-path: polygon(2% 100%, 8% 6%, 99% 6%, 102% 100%);
 }
 
 .left-persp-left {
   position: absolute;
-  -webkit-clip-path: polygon(47% 6%, 37% 71%, 0 76%, 15% 22%);
-  clip-path: polygon(47% 6%, 37% 71%, 0 76%, 15% 22%);
+  -webkit-clip-path: polygon(-10% 107%, 5% 0%, -19% -23%, 100% 25%, 101% 100%);
+  clip-path: polygon(-10% 107%, 5% 0%, -19% -23%, 100% 25%, 101% 100%);
+}
+
+.left-persp-clip {
+  position: absolute;
+  -webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
+  clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%))\;
 }
 
 
@@ -1190,7 +1201,7 @@ canvas {
   height: 306px;
   top: 260px;
   left: -106px;
-  border: 3px solid red;
+  /*border: 3px solid red;*/
   /*background-color: green;*/
   overflow: hidden;
 }
@@ -1198,41 +1209,19 @@ canvas {
 
 .left-panel-lft-persp {
   position: relative;
+  z-index: 10;
   width: 172px;
   height: 306px;
-  top: 237px;
-  left: 67px;
-  border: 3px solid green;
-  /*background-color: green;*/
+  top: 232px;
+  left: 57px;
+  /*border: 3px solid green;
+*/  /*background-color: green;*/
   overflow: hidden;
 }
 
 
 
-.persp-holder-lft-left {
-  position: relative;
-  -webkit-perspective: 435px; /* Chrome, Safari, Opera */
-  -webkit-perspective-origin: 9% 86%; /* Chrome, Safari, Opera */
-  perspective: 435px;
-  perspective-origin: 9% 86%;
-}
 
-.panel-persp-l-lft {
-  position: relative;
-
-
-  -webkit-transition: -webkit-transform 2s linear;
-  transition: -webkit-transform 2s linear;
-  transition: transform 2s linear;
-  transition: transform 2s linear, -webkit-transform 2s linear;
-  -webkit-transform: rotateX(0deg) rotateY(30.5deg) rotateZ(0deg) translateX(1em) translateY(0em);
-          transform: rotateX(11deg) rotateY(-25.5deg) rotateZ(11deg) translateX(1em) translateY(0em);
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -ms-transform-origin: 61% 0%; /* IE 9 */
-  -webkit-transform-origin: 61% 0%; /* Chrome, Safari, Opera */
-  transform-origin: -179% 9%;
-}
 
 
 
@@ -1244,7 +1233,26 @@ canvas {
   perspective-origin: 9% 86%;
 }
 
-.panel-persp-l-mid {
+.panel-persp-l-lft {
+  position: relative;
+  width: 172px;
+  height: 306px;
+  z-index:40;
+
+
+  -webkit-transition: -webkit-transform 2s linear;
+  transition: -webkit-transform 2s linear;
+  transition: transform 2s linear;
+  transition: transform 2s linear, -webkit-transform 2s linear;
+  -webkit-transform: rotateX(0deg) rotateY(25.5deg) rotateZ(0deg) translateX(1em) translateY(0em);
+          transform: rotateX(11deg) rotateY(-25.5deg) rotateZ(11deg) translateX(1em) translateY(0em);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -ms-transform-origin: -193% 35%; /* IE 9 */
+  -webkit-transform-origin: -193% 35%; /* Chrome, Safari, Opera */
+  transform-origin: -193% 35%;
+
+}.panel-persp-l-mid {
   position: relative;
 
 
@@ -1259,5 +1267,14 @@ canvas {
   -ms-transform-origin: 49.7% 0%; /* IE 9 */
   -webkit-transform-origin: 49.7% 0%; /* Chrome, Safari, Opera */
   transform-origin: 49.7% 0%;
+}
+
+
+.persp-holder-lft-left {
+  position: relative;
+  -webkit-perspective: 435px; /* Chrome, Safari, Opera */
+  -webkit-perspective-origin: 9% 86%; /* Chrome, Safari, Opera */
+  perspective: 435px;
+  perspective-origin: 9% 86%;
 }
 
