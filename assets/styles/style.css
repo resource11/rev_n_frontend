@@ -832,7 +832,6 @@ footer {
   height: 306px;
   width: 20%;
   border: 5px solid green;
-  /*background-color: red;*/
   overflow:hidden;
 }
 
@@ -844,18 +843,6 @@ footer {
   /*background-color: green;*/
   overflow: hidden;
 }
-
-.mid-panel-lft-persp {
-  position: relative;
-  width: 780px;
-  height: 306px;
-  top: 270px;
-  left: -170px;
-  border: 3px solid red;
-  /*background-color: green;*/
-  overflow: hidden;
-}
-
 
 
 
@@ -1196,76 +1183,81 @@ canvas {
 }
 
 
-.persp-holder {
+
+.mid-panel-lft-persp {
   position: relative;
-  -webkit-perspective: 150px; /* Chrome, Safari, Opera */
-  -webkit-perspective-origin: 10% 10%; /* Chrome, Safari, Opera */
-  perspective: 570px;
-  perspective-origin: 0% 90%;
+  width: 956px;
+  height: 306px;
+  top: 260px;
+  left: -106px;
+  border: 3px solid red;
+  /*background-color: green;*/
+  overflow: hidden;
 }
 
-.bar {
-  /*font-size: 1em;*/
-  position: relative;
-  /*width: 2em;*/
-  /*padding: 1em;*/
 
-  -ms-transform: rotate(45deg); /* IE 9 */
-    -ms-transform-origin: 20% 40%; /* IE 9 */
-    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-    -webkit-transform-origin: 20% 40%; /* Chrome, Safari, Opera */
-    transform: rotate(45deg);
-    transform-origin: 20% 40%;
+.left-panel-lft-persp {
+  position: relative;
+  width: 172px;
+  height: 306px;
+  top: 237px;
+  left: 67px;
+  border: 3px solid green;
+  /*background-color: green;*/
+  overflow: hidden;
+}
+
+
+
+.persp-holder-lft-left {
+  position: relative;
+  -webkit-perspective: 435px; /* Chrome, Safari, Opera */
+  -webkit-perspective-origin: 9% 86%; /* Chrome, Safari, Opera */
+  perspective: 435px;
+  perspective-origin: 9% 86%;
+}
+
+.panel-persp-l-lft {
+  position: relative;
 
 
   -webkit-transition: -webkit-transform 2s linear;
   transition: -webkit-transform 2s linear;
   transition: transform 2s linear;
   transition: transform 2s linear, -webkit-transform 2s linear;
-  -webkit-transform: rotateX(-4deg) rotateY(-75deg) rotateZ(4deg);
-          transform: rotateX(0deg) rotateY(31deg) rotateZ(0deg);
+  -webkit-transform: rotateX(0deg) rotateY(30.5deg) rotateZ(0deg) translateX(1em) translateY(0em);
+          transform: rotateX(11deg) rotateY(-25.5deg) rotateZ(11deg) translateX(1em) translateY(0em);
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  -ms-transform-origin: 20% 40%; /* IE 9 */
-  -webkit-transform-origin: 20% 40%; /* Chrome, Safari, Opera */
-  transform-origin: 60% 0%;
+  -ms-transform-origin: 61% 0%; /* IE 9 */
+  -webkit-transform-origin: 61% 0%; /* Chrome, Safari, Opera */
+  transform-origin: -179% 9%;
 }
 
 
-.bar .face {
+
+.persp-holder-lft-md {
   position: relative;
-  bottom: 0;
-  width: 2em;
-  height: 2em;
-  background-position: center center;
-}
-.bar .side-0,
-.bar .side-1 {
-  overflow: hidden;
-  height: 10em;
-}
-.bar .side-0 {
-  -webkit-transform: rotateY(210deg) translateZ(1em);
-          transform: rotateY(210deg) translateZ(1em);
-  background-color: rgba(241, 241, 241, 0.8);
+  -webkit-perspective: 435px; /* Chrome, Safari, Opera */
+  -webkit-perspective-origin: 9% 86%; /* Chrome, Safari, Opera */
+  perspective: 435px;
+  perspective-origin: 9% 86%;
 }
 
-.bar .side-1 {
-  -webkit-transform: rotateY(180deg) translateY(-10em) translateZ(1em);
-          transform: rotateY(180deg) translateY(-10em) translateZ(1em);
-  background-color: rgba(216, 216, 216, 0.8);
+.panel-persp-l-mid {
+  position: relative;
+
+
+  -webkit-transition: -webkit-transform 2s linear;
+  transition: -webkit-transform 2s linear;
+  transition: transform 2s linear;
+  transition: transform 2s linear, -webkit-transform 2s linear;
+  -webkit-transform: transform: rotateX(-3deg) rotateY(32.3deg) rotateZ(0deg) translateX(0em) translateY(0em);
+          transform: rotateX(-3deg) rotateY(32.3deg) rotateZ(0deg) translateX(0em) translateY(0em);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -ms-transform-origin: 49.7% 0%; /* IE 9 */
+  -webkit-transform-origin: 49.7% 0%; /* Chrome, Safari, Opera */
+  transform-origin: 49.7% 0%;
 }
 
-.bar .top {
-  -webkit-transform: rotateX(90deg) translateZ(21em);
-          transform: rotateX(90deg) translateZ(21em);
-  text-align: center;
-  background-color: rgba(254, 254, 254, 0.8);
-}
-.bar .floor {
-  -webkit-transform: rotateX(-90deg) translateY(0em) translateZ(-13em) rotate(180deg);
-          transform: rotateX(-90deg) translateY(0em) translateZ(-13em) rotate(180deg);
-  text-align: center;
-  background-color: transparent;
-  box-shadow: 0 0 0.6em rgba(0, 0, 0, 0.3), 0.6em -1em 3em rgba(0, 0, 0, 0.3), 1em 1em 10em rgba(254, 254, 254, 0.8);
-}
