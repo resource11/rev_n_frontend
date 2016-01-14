@@ -734,6 +734,7 @@ footer {
 .left-persp-view {
   position: relative;
   z-index: 1300;
+  width: 1170px;
   /*top: 780px;*/
   height: 780px;
   background: url('../images/billboard_lft_persp.jpg');
@@ -844,9 +845,18 @@ footer {
   overflow: hidden;
 }
 
-.right-panel {
-
+.mid-panel-lft-persp {
+  position: relative;
+  width: 780px;
+  height: 306px;
+  top: 270px;
+  left: -170px;
+  border: 3px solid red;
+  /*background-color: green;*/
+  overflow: hidden;
 }
+
+
 
 
 .title-treatment {
@@ -1190,8 +1200,8 @@ canvas {
   position: relative;
   -webkit-perspective: 150px; /* Chrome, Safari, Opera */
   -webkit-perspective-origin: 10% 10%; /* Chrome, Safari, Opera */
-  perspective: 317px;
-  perspective-origin: 49% 75%;
+  perspective: 570px;
+  perspective-origin: 0% 90%;
 }
 
 .bar {
@@ -1199,14 +1209,26 @@ canvas {
   position: relative;
   /*width: 2em;*/
   /*padding: 1em;*/
+
+  -ms-transform: rotate(45deg); /* IE 9 */
+    -ms-transform-origin: 20% 40%; /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 20% 40%; /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+    transform-origin: 20% 40%;
+
+
   -webkit-transition: -webkit-transform 2s linear;
   transition: -webkit-transform 2s linear;
   transition: transform 2s linear;
   transition: transform 2s linear, -webkit-transform 2s linear;
   -webkit-transform: rotateX(-4deg) rotateY(-75deg) rotateZ(4deg);
-          transform: rotateX(0deg) rotateY(66deg) rotateZ(10deg);
+          transform: rotateX(0deg) rotateY(31deg) rotateZ(0deg);
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
+  -ms-transform-origin: 20% 40%; /* IE 9 */
+  -webkit-transform-origin: 20% 40%; /* Chrome, Safari, Opera */
+  transform-origin: 60% 0%;
 }
 
 
