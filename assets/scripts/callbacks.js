@@ -29,6 +29,12 @@ var leftPanel = $('.left-panel');
 var midPanel = $('.mid-panel');
 var rightPanel = $('.right-panel');
 
+var leftPanelLftPrsp = $('.left-panel-lft-persp');
+var midPanelLftPrsp = $('.mid-panel-lft-persp');
+
+var midPanelRtPrsp = $('.mid-panel-rt-persp');
+var rightPanelRtPrsp = $('.right-panel-rt-persp');
+
 
 var color1;
 var color2;
@@ -133,6 +139,8 @@ var loginCb = function (error, data) {
   $('.subtext02-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
     $(this).remove('animated zoomIn');
   });
+
+  $('#create-rev').fadeIn(300).removeClass('hidden');
 
 
   setInterval(function() {
@@ -327,6 +335,11 @@ leftPanel.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ colo
 midPanel.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
 rightPanel.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
 
+leftPanelLftPrsp.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
+midPanelLftPrsp.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
+
+midPanelRtPrsp.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
+rightPanelRtPrsp.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
 
 
 };
