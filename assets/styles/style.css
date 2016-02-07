@@ -710,17 +710,7 @@ footer {
 }
 
 
-.right-persp-view {
-  position: relative;
-  z-index: 1400;
-  width: 1170px;
-  /*top: 1560px;*/
-  height: 780px;
-  background: url('../images/billboard_rt_persp.jpg');
-  background-size: cover;
-  background-position: center;
-  border-top: 4px solid white;
-}
+
 
 .left-persp-front {
   position: relative;
@@ -745,10 +735,22 @@ footer {
 }
 
 
+.right-persp-view {
+  position: relative;
+  z-index: 1400;
+  width: 1170px;
+  /*top: 1560px;*/
+  height: 780px;
+  background: url('../images/billboard_rt_persp.jpg');
+  background-size: cover;
+  background-position: center;
+  border-top: 4px solid white;
+}
 
 
 
-.title-treatment {
+
+/*.title-treatment {
 
 }
 
@@ -758,7 +760,7 @@ footer {
 
 .subtext02-treatment {
 
-}
+}*/
 
 .front-persp-view {
   position: relative;
@@ -785,8 +787,6 @@ footer {
 }
 
 .front-view {
-  padding: 0;
-  margin: 0;
   position: relative;
   z-index: 1100;
 }
@@ -806,6 +806,8 @@ footer {
   background-image: url('../images/times_sq_bg_blur_mono.jpg');
   background-size: cover;
   background-position: center;
+/*  padding: 0;*/
+  margin: 0;
   padding-top: 120px;
   height: 780px;
   text-align: center;
@@ -1151,7 +1153,7 @@ canvas {
   clip-path: polygon(-10% 107%, 5% 0%, -19% -23%, 100% 25%, 101% 100%);
 }*/
 
-.left-persp-left {
+/*.left-persp-left {
   position: absolute;
   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   clip-path: polygon(-10% 107%, 5% 0%, -19% -23%, 100% 25%, 101% 100%);
@@ -1162,26 +1164,33 @@ canvas {
   position: absolute;
   -webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
   clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
-}
+}*/
 
 
 
-.right-persp-right {
+/*.right-persp-right {
   -webkit-clip-path: polygon(70% 5%, 83% 42%, 100% 53%, 85% 24%);
   clip-path: polygon(70% 5%, 83% 42%, 100% 53%, 85% 24%);
 }
 
 
 .right-persp-front {
+  position: absolute;
+  top: 780px;
   -webkit-clip-path: polygon(70% 5%, 83% 42%, 3% 61%, 14% 39%);
   clip-path: polygon(70% 5%, 83% 42%, 3% 61%, 14% 39%);
-}
+}*/
 
 
 
 
 /* PERSPECTIVE */
 
+
+.cube-frt-rt {
+  transform-style: preserve-3d;
+  transform: rotateX(27deg) rotateY(-32deg) rotateZ(-7deg);
+}
 
 .container {
   position: relative;
@@ -1219,16 +1228,41 @@ canvas {
 .left-panel-lft-persp {
   position: relative;
   z-index: 10;
-  width: 172px;
-  height: 252px;
-  top: 231px;
-  left: -614px;
+  /*width: 172px;
+  height: 306px;*/
+  top: 232px;
+  left: -624px;
   /*border: 3px solid green;*/
   /*background: linear-gradient(to bottom, #ff00ff 0%, #aa00aa 100%);*/
   background-color: purple;
   overflow: hidden;
 }
 
+
+.mid-panel-rt-persp {
+  position: relative;
+  width: 702px;
+  height: 252px;
+  top: 359px;
+  left: 31px;
+  /*border: 3px solid red;*/
+  background-color: green;
+  overflow: hidden;
+}
+
+
+.right-panel-rt-persp {
+  position: relative;
+  z-index: 10;
+  /*width: 172px;
+  height: 306px;*/
+  top: 232px;
+  left: -624px;
+  /*border: 3px solid green;*/
+  /*background: linear-gradient(to bottom, #ff00ff 0%, #aa00aa 100%);*/
+  background-color: purple;
+  overflow: hidden;
+}
 
 
 
@@ -1249,14 +1283,12 @@ canvas {
   width: 154px;
   height: 306px;
   z-index:40;
-
-
-  -webkit-transition: -webkit-transform 2s linear;
+/*  -webkit-transition: -webkit-transform 2s linear;
   transition: -webkit-transform 2s linear;
   transition: transform 2s linear;
-  transition: transform 2s linear, -webkit-transform 2s linear;
-  -webkit-transform: rotateX(11deg) rotateY(-23deg) rotateZ(10deg) translateX(42em) translateY(0em);
-          transform: rotateX(11deg) rotateY(-23deg) rotateZ(10deg) translateX(42em) translateY(0em);
+  transition: transform 2s linear, -webkit-transform 2s linear;*/
+  -webkit-transform: rotateX(12.2deg) rotateY(-22deg) rotateZ(10deg) translateX(42.5em) translateY(0em);
+          transform: rotateX(12.2deg) rotateY(-22deg) rotateZ(10deg) translateX(42.5em) translateY(0em);
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -ms-transform-origin: bottom right; /* IE 9 */
@@ -1267,12 +1299,10 @@ canvas {
 
 .panel-persp-l-mid {
   position: relative;
-
-
-  -webkit-transition: -webkit-transform 2s linear;
+/*  -webkit-transition: -webkit-transform 2s linear;
   transition: -webkit-transform 2s linear;
   transition: transform 2s linear;
-  transition: transform 2s linear, -webkit-transform 2s linear;
+  transition: transform 2s linear, -webkit-transform 2s linear;*/
   -webkit-transform: rotateX(-2deg) rotateY(31.6deg) rotateZ(0deg) translateX(-31.5em) translateY(0em);
           transform: rotateX(-2deg) rotateY(31.6deg) rotateZ(0deg) translateX(-31.5em) translateY(0em);
   -webkit-transform-style: preserve-3d;
@@ -1283,11 +1313,77 @@ canvas {
 }
 
 
-.persp-holder-lft-left {
+.persp-holder-rt-md {
   position: relative;
-  -webkit-perspective: 435px; /* Chrome, Safari, Opera */
-  -webkit-perspective-origin: 9% 86%; /* Chrome, Safari, Opera */
-  perspective: 435px;
-  perspective-origin: 9% 86%;
+/*  -webkit-perspective: 435px;*/ /* Chrome, Safari, Opera */
+/*  -webkit-perspective-origin: 9% 86%;*/ /* Chrome, Safari, Opera */
+  /*perspective: 435px;*/
+  perspective: 663px;
+  /*perspective-origin: 9% 86%;*/
 }
 
+.panel-persp-r-rt {
+  position: relative;
+  width: 154px;
+  height: 306px;
+  z-index:40;
+
+/*  -webkit-transform: rotateX(12.2deg) rotateY(-22deg) rotateZ(10deg) translateX(42.5em) translateY(0em);
+          transform: rotateX(12.2deg) rotateY(-22deg) rotateZ(10deg) translateX(42.5em) translateY(0em);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;*/
+  transform: rotateY(-90deg)  translateZ(1em);
+
+}
+
+.panel-persp-r-mid {
+  position: relative;
+
+
+/*  -webkit-transform: rotateX(-2deg) rotateY(31.6deg) rotateZ(0deg) translateX(-31.5em) translateY(0em);
+          transform: rotateX(-2deg) rotateY(31.6deg) rotateZ(0deg) translateX(-31.5em) translateY(0em);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -ms-transform-origin: top right;
+  -webkit-transform-origin: top right;*/
+/*  transform-origin: top right;*/
+  transform:                  translateZ(10em);
+}
+
+
+/*.front  { transform:                  translateZ(1em); }*/
+/*.top    { transform: rotateX( 90deg)  translateZ(1em); }
+.right  { transform: rotateY( 90deg)  translateZ(1em); }*/
+/*.left   { transform: rotateY(-90deg)  translateZ(1em); }*/
+
+
+/*.panel-persp-r-rt {
+  position: relative;
+  width: 154px;
+  height: 306px;
+  z-index:40;
+
+  -webkit-transform: rotateX(12.2deg) rotateY(-22deg) rotateZ(10deg) translateX(42.5em) translateY(0em);
+          transform: rotateX(12.2deg) rotateY(-22deg) rotateZ(10deg) translateX(42.5em) translateY(0em);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+
+}
+
+.panel-persp-r-mid {
+  position: relative;
+
+  -webkit-transform: rotateX(-2deg) rotateY(31.6deg) rotateZ(0deg) translateX(-31.5em) translateY(0em);
+          transform: rotateX(-2deg) rotateY(31.6deg) rotateZ(0deg) translateX(-31.5em) translateY(0em);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -ms-transform-origin: top right;
+  -webkit-transform-origin: top right;
+  transform-origin: top right;
+}*/
