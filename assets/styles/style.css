@@ -823,7 +823,8 @@ footer {
   /*padding-top: 120px;*/
   text-align: center;
   overflow: hidden;
-  background: linear-gradient(to bottom, #1c1c1c 0%, #595959 100%);
+  /*background: linear-gradient(to bottom, #1c1c1c 0%, #595959 100%);*/
+  background: linear-gradient(to bottom, #ff00ff 0%, #aa00aa 100%);
   box-shadow: 6px 10px 8px rgba(0,0,0,0.5);
 }
 
@@ -832,10 +833,10 @@ footer {
   position: relative;
   top: 0px;
   /*width: 172px;*/
-  width: 13.23%;
+  /*width: 13.23%;*/
   height: 252px;
-  width: 20%;
-  /*border: 5px solid green;*/
+  width: 17%;
+  border: 5px solid green;
   overflow:hidden;
 }
 
@@ -843,9 +844,9 @@ footer {
   position: relative;
   /*width: 956px;*/
   top: 0px;
-  width: 73.53%;
-  height: 306px;
-  /*border: 3px solid red;*/
+  width: 66%;
+  height: 252px;
+  border: 3px solid red;
   /*background-color: green;*/
   overflow: hidden;
 }
@@ -1126,10 +1127,11 @@ canvas {
 
 .front-view-clip {
   position: absolute;
-  top: 240px;
-  left:4.3%;
-  width: 1300px;
-  height: 306px;
+  top: 370px;
+  left:2%;
+  /*width: 1300px;*/
+  width: 1070px;
+  height: 252px;
   -webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
   clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
 /*  height:100%;*/
@@ -1139,20 +1141,27 @@ canvas {
 .left-persp-front {
   position: absolute;
   top: 780px;
-  -webkit-clip-path: polygon(2% 100%, 8% 6%, 99% 6%, 102% 100%);
-  clip-path: polygon(2% 100%, 8% 6%, 99% 6%, 102% 100%);
+  -webkit-clip-path: polygon(0 100%, 6% 0, 93% 3%, 100% 100%);
+  clip-path: polygon(0 100%, 6% 0, 93% 3%, 100% 100%);
 }
 
-.left-persp-left {
+/*.left-persp-left {
   position: absolute;
   -webkit-clip-path: polygon(-10% 107%, 5% 0%, -19% -23%, 100% 25%, 101% 100%);
   clip-path: polygon(-10% 107%, 5% 0%, -19% -23%, 100% 25%, 101% 100%);
+}*/
+
+.left-persp-left {
+  position: absolute;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(-10% 107%, 5% 0%, -19% -23%, 100% 25%, 101% 100%);
 }
+
 
 .left-persp-clip {
   position: absolute;
   -webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
-  clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%))\;
+  clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
 }
 
 
@@ -1197,12 +1206,12 @@ canvas {
 
 .mid-panel-lft-persp {
   position: relative;
-  width: 956px;
-  height: 306px;
-  top: 260px;
-  left: -106px;
+  width: 720px;
+  height: 252px;
+  top: 336px;
+  left: 427px;
   /*border: 3px solid red;*/
-  /*background-color: green;*/
+  background-color: green;
   overflow: hidden;
 }
 
@@ -1211,11 +1220,12 @@ canvas {
   position: relative;
   z-index: 10;
   width: 172px;
-  height: 306px;
-  top: 232px;
-  left: 57px;
-  /*border: 3px solid green;
-*/  /*background-color: green;*/
+  height: 252px;
+  top: 231px;
+  left: -614px;
+  /*border: 3px solid green;*/
+  /*background: linear-gradient(to bottom, #ff00ff 0%, #aa00aa 100%);*/
+  background-color: purple;
   overflow: hidden;
 }
 
@@ -1235,7 +1245,8 @@ canvas {
 
 .panel-persp-l-lft {
   position: relative;
-  width: 172px;
+  /*width: 172px;*/
+  width: 154px;
   height: 306px;
   z-index:40;
 
@@ -1244,15 +1255,17 @@ canvas {
   transition: -webkit-transform 2s linear;
   transition: transform 2s linear;
   transition: transform 2s linear, -webkit-transform 2s linear;
-  -webkit-transform: rotateX(0deg) rotateY(25.5deg) rotateZ(0deg) translateX(1em) translateY(0em);
-          transform: rotateX(11deg) rotateY(-25.5deg) rotateZ(11deg) translateX(1em) translateY(0em);
+  -webkit-transform: rotateX(11deg) rotateY(-23deg) rotateZ(10deg) translateX(42em) translateY(0em);
+          transform: rotateX(11deg) rotateY(-23deg) rotateZ(10deg) translateX(42em) translateY(0em);
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  -ms-transform-origin: -193% 35%; /* IE 9 */
-  -webkit-transform-origin: -193% 35%; /* Chrome, Safari, Opera */
-  transform-origin: -193% 35%;
+  -ms-transform-origin: bottom right; /* IE 9 */
+  -webkit-transform-origin: bottom right; /* Chrome, Safari, Opera */
+  transform-origin: bottom right;
 
-}.panel-persp-l-mid {
+}
+
+.panel-persp-l-mid {
   position: relative;
 
 
@@ -1260,13 +1273,13 @@ canvas {
   transition: -webkit-transform 2s linear;
   transition: transform 2s linear;
   transition: transform 2s linear, -webkit-transform 2s linear;
-  -webkit-transform: transform: rotateX(-3deg) rotateY(32.3deg) rotateZ(0deg) translateX(0em) translateY(0em);
-          transform: rotateX(-3deg) rotateY(32.3deg) rotateZ(0deg) translateX(0em) translateY(0em);
+  -webkit-transform: rotateX(-2deg) rotateY(31.6deg) rotateZ(0deg) translateX(-31.5em) translateY(0em);
+          transform: rotateX(-2deg) rotateY(31.6deg) rotateZ(0deg) translateX(-31.5em) translateY(0em);
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  -ms-transform-origin: 49.7% 0%; /* IE 9 */
-  -webkit-transform-origin: 49.7% 0%; /* Chrome, Safari, Opera */
-  transform-origin: 49.7% 0%;
+  -ms-transform-origin: bottom left; /* IE 9 */
+  -webkit-transform-origin: bottom left; /* Chrome, Safari, Opera */
+  transform-origin: bottom left;
 }
 
 
