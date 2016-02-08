@@ -21,6 +21,7 @@ var viewRev = $('.view-rev');
 var editRev = $('.edit-rev');
 var saveRev = $('.save-rev');
 var messagesContainer = $('.messages-container');
+var userMessages = $('.user-messages');
 var frontView = $('.front-view');
 var revList = $('.list-scheme');
 var revInfo = $('.rev-info');
@@ -34,6 +35,8 @@ var midPanelLftPrsp = $('.mid-panel-lft-persp');
 
 var midPanelRtPrsp = $('.mid-panel-rt-persp');
 var rightPanelRtPrsp = $('.right-panel-rt-persp');
+
+var bulletNav = $('.bullet-nav');
 
 
 var color1;
@@ -114,6 +117,7 @@ var loginCb = function (error, data) {
   session.userId = data.user.id;
   session.token = data.user.token;
   $('.messages-container h6').text('Welcome, user #' + session.userId);
+  $('.user-messages').text('Create a rev or show the list of saved revs');
   loginMenu.slideUp();
   // show in console for testing purposes
   console.log(session.userId);
@@ -125,11 +129,11 @@ var loginCb = function (error, data) {
   // list current user billboards
   api.listUserBillboards(session.token, listUserBillboardsCb);
   loginMenu.slideUp();
-  revList.delay(600).fadeIn(300).removeClass('hidden');
+  // revList.delay(600).fadeIn(300).removeClass('hidden');
   messagesContainer.fadeIn(300).removeClass('hidden');
   addRev.fadeIn(300).removeClass('hidden');
   frontView.fadeIn(300).removeClass('hidden');
-  revInfo.fadeIn(300).removeClass('hidden');
+  bulletNav.fadeIn(300).removeClass('hidden');
   $('.title-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
     $(this).remove('animated zoomIn');
   });
@@ -140,7 +144,7 @@ var loginCb = function (error, data) {
     $(this).remove('animated zoomIn');
   });
 
-  $('#create-rev').fadeIn(300).removeClass('hidden');
+  $('.top-nav').fadeIn(300).removeClass('hidden');
 
 
   setInterval(function() {
@@ -283,7 +287,7 @@ var loadBillboardCb = function (error, data) {
   $('.video-wall').attr('data-id', data.billboard.id);
 
 
-  $('.rev-info h5').html(billboard.name);
+  $('.user-messages').html('You are viewing rev: </br><strong>' + billboard.name + '</strong>');
   $('.title-treatment').html(billboard.title);
   $('.subtext01-treatment').html(billboard.subtext01);
   $('.subtext02-treatment').html(billboard.subtext02);
