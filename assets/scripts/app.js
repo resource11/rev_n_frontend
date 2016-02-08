@@ -67,7 +67,11 @@ $(function() {
     addRev.fadeOut(300);
   });
 
-
+  // click handler for showing show rev list menu
+  $('#show-rev-list').on('click', function() {
+    revList.delay(600).fadeIn(300).removeClass('hidden');
+    $(this).fadeOut(300);
+  });
 
   // register event handler
   registerSubmit.on('submit', function(e) {
