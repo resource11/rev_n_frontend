@@ -27,20 +27,24 @@ $(function() {
   // animate on register/login containers
   $('.register-a').on('click', function() {
     registerMenu.fadeIn().removeClass('hidden');
+    $(".register-messages").fadeIn(300).html(" ");
   });
 
   $('.login-a').on('click', function() {
     loginMenu.fadeIn().removeClass('hidden');
+    $(".login-messages").fadeIn(300).html(" ");
   });
 
   $('.register-a2').on('click', function() {
     loginMenu.slideUp(300);
     registerMenu.delay(600).slideDown(300).removeClass('hidden');
+    $(".register-messages").fadeIn(300).html(" ");
   });
 
   $('.login-a2').on('click', function() {
     registerMenu.slideUp(300);
     loginMenu.delay(600).slideDown(300).removeClass('hidden');
+    $(".login-messages").fadeIn(300).html(" ");
   });
 
 
@@ -56,20 +60,30 @@ $(function() {
   });
 
   // click handler for showing create menu
-  addRev.on('click', function() {
+  // addRev.on('click', function() {
+  //   createSideMenu.fadeIn().removeClass('hidden');
+  //   addRev.fadeOut(300);
+  // });
+
+  // click handler for showing create menu
+  $('#create-rev').on('click', function() {
     createSideMenu.fadeIn().removeClass('hidden');
-    addRev.fadeOut(300);
+    // addRev.fadeOut(300);
   });
 
-
+  // click handler for showing show rev list menu
+  $('#show-rev-list').on('click', function() {
+    revList.fadeIn(300).removeClass('hidden');
+    // addRev.fadeIn(300).removeClass('hidden');
+    $(this).delay(600).fadeOut(300);
+  });
 
   // register event handler
   registerSubmit.on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
+    $('.register-messages').delay(600).fadeIn(300).text('registering...');
     api.register(credentials, regCb);
     e.preventDefault();
-     // hide register container
-    registerMenu.slideUp();
   });
 
 
@@ -77,6 +91,8 @@ $(function() {
   loginSubmit.on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
     console.log(credentials);
+    $(".login-messages").fadeIn(300).html(" - ");
+    $('.login-messages').delay(600).fadeIn(300).text('logging in...');
     api.login(credentials, loginCb);
     e.preventDefault();
      // hide login container
@@ -178,6 +194,7 @@ $(function() {
 
 
     api.editBillboard(id, session.token, data, editBillboardCb);
+    api.showBillboard(id, session.token, loadBillboardCb);
 
 
   });

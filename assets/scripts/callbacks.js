@@ -21,6 +21,7 @@ var viewRev = $('.view-rev');
 var editRev = $('.edit-rev');
 var saveRev = $('.save-rev');
 var messagesContainer = $('.messages-container');
+var userMessages = $('.user-messages');
 var frontView = $('.front-view');
 var revList = $('.list-scheme');
 var revInfo = $('.rev-info');
@@ -29,9 +30,16 @@ var leftPanel = $('.left-panel');
 var midPanel = $('.mid-panel');
 var rightPanel = $('.right-panel');
 
+var leftPanelLftPrsp = $('.left-panel-lft-persp');
+var midPanelLftPrsp = $('.mid-panel-lft-persp');
 
-var color1;
-var color2;
+var midPanelRtPrsp = $('.mid-panel-rt-persp');
+var rightPanelRtPrsp = $('.right-panel-rt-persp');
+
+var bulletNav = $('.bullet-nav');
+
+
+var color1, color2, bgColor;
 
 
 var colorScheme;
@@ -86,11 +94,13 @@ var callback = function callback(error, data) {
 var regCb = function (error, data) {
   if (error) {
     console.error(error);
-    $(".user-messages").html("<strong>Error! Registration fail!</strong>");
+    $(".register-messages").html("<strong>Error! Registration fail!</strong>");
     return;
   }
   console.log(JSON.stringify(data, null, 4));
-    $('.user-messages').text('Welcome,  new user #' + data.user.id);
+    $('.register-messages').text('Welcome,  new user #' + data.user.id);
+       // hide register container
+  registerMenu.slideUp();
 };
 
 
@@ -100,14 +110,13 @@ var loginCb = function (error, data) {
   if (error) {
     console.error(error);
 
-    $(".user-messages").html("<strong>Error! Login fail!</strong>");
+    $(".login-messages").delay(600).fadeIn(300).html("<strong>Error! Login fail!</strong>");
     return;
   }
 
   // assign current_user.id and session.token
   session.userId = data.user.id;
   session.token = data.user.token;
-  $('.messages-container h6').text('Welcome, user #' + session.userId);
   loginMenu.slideUp();
   // show in console for testing purposes
   console.log(session.userId);
@@ -119,11 +128,13 @@ var loginCb = function (error, data) {
   // list current user billboards
   api.listUserBillboards(session.token, listUserBillboardsCb);
   loginMenu.slideUp();
-  revList.delay(600).fadeIn(300).removeClass('hidden');
+  // revList.delay(600).fadeIn(300).removeClass('hidden');
   messagesContainer.fadeIn(300).removeClass('hidden');
-  addRev.fadeIn(300).removeClass('hidden');
+  $('.messages-container h6').text('Welcome, user #' + session.userId);
+  $('.user-messages').delay(600).fadeIn(300).text('Create a rev or show the list of saved revs');
+  // addRev.fadeIn(300).removeClass('hidden');
   frontView.fadeIn(300).removeClass('hidden');
-  revInfo.fadeIn(300).removeClass('hidden');
+  bulletNav.fadeIn(300).removeClass('hidden');
   $('.title-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
     $(this).remove('animated zoomIn');
   });
@@ -133,6 +144,8 @@ var loginCb = function (error, data) {
   $('.subtext02-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
     $(this).remove('animated zoomIn');
   });
+
+  $('.top-nav').fadeIn(300).removeClass('hidden');
 
 
   setInterval(function() {
@@ -196,9 +209,9 @@ var listUserBillboardsCb = function (error, data) {
 
 
   // hide hero intro and show rev list
-  $('.hero-intro').fadeOut(200);
+  $('.hero').fadeOut(200);
   // show user rev list
-  revList.delay(600).fadeIn().removeClass('hidden');
+  // revList.delay(600).fadeIn().removeClass('hidden');
 
   // grab billboards from Rails
   var billboards = data.billboards;
@@ -223,6 +236,25 @@ var createBillboardCb = function (error, data) {
   listUserBillboardHTML(billboard);
   // $('.user-messages').text('New rev ' + data.billboard.id + ' created by user ' + data.user.id);
 
+  billboard.name = data.billboard.name;
+  billboard.title = data.billboard.title;
+  billboard.subtext01 = data.billboard.subtext01;
+  billboard.subtext02 = data.billboard.subtext02;
+  colorScheme = data.billboard.color_scheme;
+  animOption = data.billboard.anim_option;
+
+
+
+  // colorScheme = '+=color-scheme-' + billboard.color_scheme;
+
+  $('.video-wall').attr('data-id', data.billboard.id);
+
+
+  $('.user-messages').html('You are viewing rev: </br><strong>' + billboard.name + '</strong>');
+  $('.title-treatment').html(billboard.title);
+  $('.subtext01-treatment').html(billboard.subtext01);
+  $('.subtext02-treatment').html(billboard.subtext02);
+
 };
 // end of createBillboard submit handler
 
@@ -239,7 +271,8 @@ var editBillboardCb = function (error, data) {
     return;
   }
 
-  $(".user-messages").html("<strong>Rev updated!</strong>");
+  $(".user-messages").html("<strong>Rev " + billboard.name + " updated!</strong>");
+
 
 };
 // end of editBillboard submit handler
@@ -275,7 +308,7 @@ var loadBillboardCb = function (error, data) {
   $('.video-wall').attr('data-id', data.billboard.id);
 
 
-  $('.rev-info h5').html(billboard.name);
+  $('.user-messages').html('You are viewing rev: </br><strong>' + billboard.name + '</strong>');
   $('.title-treatment').html(billboard.title);
   $('.subtext01-treatment').html(billboard.subtext01);
   $('.subtext02-treatment').html(billboard.subtext02);
@@ -294,6 +327,7 @@ var loadBillboardCb = function (error, data) {
   case "orange":
     color1 = "#ea2803";
     color2 = "#ff6600";
+    // bgColor = "grad-orange.svg";
     break;
   case "gold":
     color1 = "#ea5507";
@@ -327,6 +361,28 @@ leftPanel.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ colo
 midPanel.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
 rightPanel.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
 
+leftPanelLftPrsp.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
+midPanelLftPrsp.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
+
+midPanelRtPrsp.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
+rightPanelRtPrsp.css("background","linear-gradient(to bottom, " + color1 + " 0%,"+ color2 + " 100%)");
+
+// leftPanel.css("background","url(../assets/images/" + bgColor + ")");
+// leftPanel.css("background-size","contain");
+// midPanel.css("background","url(../assets/images/" + bgColor + ")");
+// midPanel.css("background-size","contain");
+// rightPanel.css("background","url(../assets/images/" + bgColor + ")");
+// rightPanel.css("background-size","contain");
+
+// leftPanelLftPrsp.css("background","url(../assets/images/" + bgColor + ")");
+// leftPanelLftPrsp.css("background-size","contain");
+// midPanelLftPrsp.css("background","url(../assets/images/" + bgColor + ")");
+// midPanelLftPrsp.css("background-size","contain");
+
+// midPanelRtPrsp.css("background","url(../assets/images/" + bgColor + ")");
+// midPanelRtPrsp.css("background-size","contain");
+// rightPanelRtPrsp.css("background","url(../assets/images/" + bgColor + ")");
+// rightPanelRtPrsp.css("background-size","contain");
 
 
 };
