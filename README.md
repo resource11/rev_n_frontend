@@ -39,12 +39,11 @@ The features of this app will address the following user stories.
 * My fourth challenge was learning the correct syntax for using the [Greensock Animation library (GSAP)](https://greensock.com/).
 * My fifth challenge was descoping animations and leveraging [Velocity.js](http://julian.com/research/velocity/) as an animation tool while I was debugging issues with GSAP.
 * My sixth challenge was gathering the data from the back end successfully and structuring my controllers and serializers to achieve this goal.
-
 * My seventh challenge was figuring out the most efficient way to add perspective views of each panel -- it's not as straigtforward as manipulating an element in a 3D-specific software program.
+* My eighth challenge was solving for css-generated gradients continuously repaint on the page when a div has a 3d transform property applied. Discovered a conflict with the snow.js animation
 
 ##Unsolved Issues
 * GSAP has a bit of a learning curve, I'm working on integrating better animations for the panel contents and overall UX.
-* Css-generated gradients continuously repaint on the page when a div has a 3d transform property applied.
 
 ##Upcoming versions
 * More complex animations to come.
