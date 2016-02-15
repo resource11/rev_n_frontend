@@ -1106,7 +1106,8 @@ footer {
 }
 
 .color-scheme-orange {
-  background: linear-gradient(to bottom, #ea2803 0%, #ff6600 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background-image: '../images/grad-orange.svg';
+  /*background: linear-gradient(to bottom, #ea2803 0%, #ff6600 100%);*/ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   /*text-align: center;*/
 }
 
@@ -1251,12 +1252,15 @@ canvas {
 
 .left-persp-clip {
   position: relative;
-  border: 2px solid red;
-  /*top: 780px;*/
-  /*-webkit-clip-path: polygon(0 100%, 6% 0, 93% 3%, 100% 100%);
-  clip-path: polygon(0 100%, 6% 0, 93% 3%, 100% 100%);*/
-  -webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
-  clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
+  -webkit-clip-path: polygon(24% 100%, -4% 23%, 0% 0%, 100% 0%, 100% 100%);
+  clip-path: polygon(24% 100%, -4% 23%, 0% 0%, 100% 0%, 100% 100%);
+}
+
+
+.right-persp-clip {
+  position: relative;
+  -webkit-clip-path: polygon(24% 100%, 4% 22%, 0% 0%, 100% 0%, 100% 100%);
+  clip-path: polygon(24% 100%, 4% 22%, 0% 0%, 100% 0%, 100% 100%);
 }
 
 
@@ -1268,6 +1272,8 @@ canvas {
   transform-style: preserve-3d;
   -webkit-transform: rotateX(9deg) rotateY(75deg) rotateZ(6deg);
   transform: rotateX(9deg) rotateY(75deg) rotateZ(6deg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .cube-frt-rt {
@@ -1302,9 +1308,9 @@ canvas {
   position: relative;
   width: 702px;
   height: 252px;
-  top: 330px;
-  left: -196px;
-  b/*ackground-color: green;*/
+  top: 329px;
+  left: -145px;
+  /*background-color: green;*/
   overflow: hidden;
 }
 
@@ -1312,8 +1318,8 @@ canvas {
 .left-panel-lft-persp {
   position: relative;
   z-index: 10;
-  top: 329px;
-  left: -282px;
+  top: 341px;
+  left: -253px;
   /*background-color: purple;*/
   overflow: hidden;
 }
@@ -1323,7 +1329,7 @@ canvas {
   position: relative;
   width: 702px;
   height: 252px;
-  top: 359px;
+  top: 358px;
   left: 31px;
   /*background-color: green;*/
   overflow: hidden;
@@ -1351,18 +1357,18 @@ canvas {
 
 .panel-persp-l-lft {
   position: relative;
-  width: 234px;
-  height: 252px;
+  width: 214px;
+  height: 242px;
   z-index:40;
-  -webkit-transform: rotateY(-102deg) translateX(-8.1em) translateZ(-13em);
-  transform: rotateY(-102deg) translateX(-8.1em) translateZ(-13em);
+  -webkit-transform: rotateY(-107deg) translateX(-8.1em) translateZ(-13em);
+  transform: rotateY(-107deg) translateX(-8.1em) translateZ(-13em);
 
 }
 
 .panel-persp-l-mid {
   position: relative;
-  -webkit-transform:  translateZ(2em);
-  transform:  translateZ(2em);
+  -webkit-transform: translateZ(2em);
+  transform: translateZ(2em);
 }
 
 
@@ -1386,7 +1392,6 @@ canvas {
 
 .panel-persp-r-mid {
   position: relative;
-  -webkit-transform:  translateZ(10em);
-  transform:  translateZ(10em);
+  -webkit-transform: translateZ(10em);
+  transform: translateZ(10em);
 }
-

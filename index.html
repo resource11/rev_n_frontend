@@ -47,7 +47,7 @@
       <h2>Rev(n)</h2>
       <h3>iteration nirvana.</h3>
       <button type="" class="span_4_of_12 login-a ">sign in</button>
-      <p>Need an account? <a class="register-a">Register</a>.</p>
+      <p>Need an account? <a class="register-a">Register.</a></p>
       <p class="span_2_of_12 bot-arrow"><i class="fa fa-angle-down"></i></p>
     </div>
   </section>
@@ -69,7 +69,7 @@
         <!-- <input name="register" type="submit" value="Register" class="top-reg-button"> -->
         <button type="" class="">Register</button>
       </form>
-      <p>Already signed up? <a class="login-a2">Sign in</a>.</p>
+      <p>Already signed up? <a class="login-a2">Sign in.</a></p>
       <p class="register-messages"></p>
     </div>
   </section>
@@ -89,7 +89,7 @@
         <!-- <input name="login" type="submit" value="Login" class="top-login-button"> -->
         <button type="" class="">Log in</button>
       </form>
-      <p>Need an account? <a class="register-a2">Register</a>.</p>
+      <p>Need an account? <a class="register-a2">Register.</a></p>
       <p class="login-messages"></p>
     </div>
   </section>
@@ -220,6 +220,7 @@
         <p class="panel-label span_7_of_12">center panel</p>
         <p class="panel-label span_2_of_12">right panel</p>
       </div>
+<!--       <button id="particlesBtn">tl.play("particles")</button> -->
   </section>
   <!-- end front view -->
 
@@ -230,7 +231,7 @@
 
   <div class="cube-frt-lft">
 
-    <div class="left-panel-lft-persp flexbox-align-center left panel-persp-l-lft snow">
+    <div class="left-panel-lft-persp flexbox-align-center left panel-persp-l-lft left-persp-clip">
 
       <p class="subtext01-treatment box">subtext 01</p>
 
@@ -238,7 +239,7 @@
 
     </div>
 
-    <div class="mid-panel-lft-persp flexbox-align-center left panel-persp-l-mid snow">
+    <div class="mid-panel-lft-persp flexbox-align-center left panel-persp-l-mid">
 
       <p class="title-treatment box">title</p>
 
@@ -247,6 +248,9 @@
     </div>
 
   </div>
+
+  <div id="dotContainer"></div>
+  <div class="snow span_10_of_12 "></div>
 
 
   </section>
@@ -260,8 +264,7 @@
    <section class="span_12_of_12 right-persp-view persp-holder-rt-md" id="billboard-right-view">
 
     <div class="cube-frt-rt">
-
-      <div class="mid-panel-rt-persp flexbox-align-center left panel-persp-r-mid snow">
+      <div class="mid-panel-rt-persp flexbox-align-center left panel-persp-r-mid right-persp-clip">
 
         <p class="title-treatment box">title</p>
 
@@ -269,7 +272,7 @@
 
        </div>
 
-       <div class="right-panel-rt-persp flexbox-align-center left panel-persp-r-rt snow">
+       <div class="right-panel-rt-persp flexbox-align-center left panel-persp-r-rt">
 
         <p class="myClass3 box"></p>
 
@@ -315,14 +318,13 @@
   <!-- end footer -->
 
 <!-- begin scripts -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
   <script src="assets/scripts/velocity.min.js"></script>
   <script src="assets/scripts/velocity.ui.js" type="text/javascript" charset="utf-8" defer></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
   <script src="assets/scripts/api.js" type="text/javascript" defer charset="utf-8"></script>
   <script src="assets/scripts/callbacks.js" type="text/javascript" defer charset="utf-8"></script>
   <script src="assets/scripts/animations.js" type="text/javascript" defer charset="utf-8"></script>
-  <script src="assets/scripts/noframework.waypoints.min.js"></script>
   <script src="assets/scripts/scrolling.js" type="text/javascript" defer charset="utf-8"></script>
   <script src="assets/scripts/app.js" type="text/javascript" defer charset="utf-8"></script>
 
