@@ -967,12 +967,15 @@ footer {
 
 .title-treatment {
   position: relative;
+  margin: auto;
+  padding-top:36px;
   font-family: SoinSansPro-Bold;
   font-weight: normal;
   font-style: normal;
   font-size: 8em;
   text-align: center;
-  margin: auto;
+  line-height: .8em;
+
   text-shadow: 0 5px 2px rgba(0,0,0,0.3)
 }
 

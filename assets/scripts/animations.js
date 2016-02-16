@@ -1,147 +1,166 @@
-// 'use strict';
+'use strict';
+
+/*
+See http://www.greensock.com/splittext/ for details.
+This demo uses SplitText which is a membership benefit of Club GreenSock, http://www.greensock.com/club/
+*/
+
+var titleText = document.getElementsByClassName("title-treatment"),
+    subtxtText01 = document.getElementsByClassName("subtext01-treatment"),
+    subtxtText02 = document.getElementsByClassName("subtext02-treatment"),
+    titleSplitText = new SplitText(titleText, {type:"chars,words"}),
+    subtxtSplitText01 = new SplitText(subtxtText01, {type:"chars,words"}),
+    subtxtSplitText02 = new SplitText(subtxtText02, {type:"chars,words"}),
+    tl = new TimelineMax({delay:0.5, repeat:-1, repeatDelay:1}),
+    titleNumWords = titleSplitText.words.length,
+    titleNumChars = titleSplitText.chars.length,
+    subtxtNumWords01 = subtxtSplitText01.words.length,
+    subtxtNumChars01 = subtxtSplitText01.chars.length,
+    subtxtNumWords02 = subtxtSplitText02.words.length,
+    subtxtNumChars02 = subtxtSplitText02.chars.length;
+
+//prep the titleText div for 3D goodness
+TweenLite.set(titleText, {transformPerspective:600, perspective:300, transformStyle:"preserve-3d", autoAlpha:1});
+
+//prep the subtxtText01 div for 3D goodness
+TweenLite.set(subtxtText01, {transformPerspective:600, perspective:300, transformStyle:"preserve-3d", autoAlpha:1});
+
+//prep the subtxtText02 div for 3D goodness
+TweenLite.set(subtxtText02, {transformPerspective:600, perspective:300, transformStyle:"preserve-3d", autoAlpha:1});
+
+//intro sequence, title
+for(var i = 0; i < titleNumWords; i++){
+  tl.from(titleSplitText.words[i], 1.5, {z:randomNumber(-500,300), opacity:0, rotationX:randomNumber(-80, 20)}, Math.random()*1.5);
+}
+tl.from(titleText, tl.duration(), {rotationX:180, transformOrigin:"75% 50% 50", ease:Power2.easeOut}, 0);
 
 
 
-// $(window).load(function() {
-//   var skew = $("#skew"),
-//     logos = $(".logo"),
-//       dotContainer = $("#dotContainer"),
-//     skewBtn = $("#skewBtn"),
-//     staggerBtn = $("#staggerBtn"),
-//     particlesBtn = $("#particlesBtn"),
-//     tl = new TimelineLite();
+//intro sequence, subtext01
+for(var i = 0; i < subtxtNumWords01; i++){
+  tl.from(subtxtSplitText01.words[i], 1.5, {z:randomNumber(500,-300), opacity:0, rotationY:randomNumber(-40, 40)}, Math.random()*1.5);
+  // tl.from(titleSplitText.chars[i], 1.5, {z:randomNumber(-500,300), opacity:0, rotationY:randomNumber(-40, 40)}, Math.random()*1.5);
+}
+tl.from(subtxtText01, tl.duration(), {rotationY:-180, transformOrigin:"50% 75% 100", ease:Power2.easeOut}, 0);
 
-//   // functions for building nested timelines
 
-//   function getSkewAnimation() {
-//     var skewTimeline = new TimelineLite();
-//     skewTimeline.from(skew, 0.3, {alpha:0})
-//           .to(skew, 0.5, {skewX:45})
-//           .to(skew, 0.8, {skewX:-45})
-//           .to(skew, 0.5, {skewX:5, skewY:-10})
-//           .to(skew, 0.5, {skewX:20, skewY:5})
-//           .to(skew, 0.5, {alpha:0});
-//     return skewTimeline;
-//   }
 
-//   function getStaggerAnimation() {
-//     var staggerTimeline = new TimelineLite();
-//     staggerTimeline.from(logos, 0.2, {opacity:0})
-//              .staggerFrom(logos, 0.6, {top:-60, left:"-=50px", rotation:"-90deg", ease:Back.easeOut}, 0.1)
-//              .to(logos, 1, {opacity:0});
-//     return staggerTimeline;
-//   }
-
-//   function getParticlesAnimation() {
-//     var particlesTimeline = new TimelineLite(),
-//       i = 300,
-//       radius = 450,
-//       centerX= 360,
-//       centerY = 30,
-//       dots = [],
-//       rawDots = [];
-
-//     while (--i > -1) {
-//       dot = document.createElement("img");
-//       dot.src = "img/dot.png";
-//       dot.id = "dot" + i;
-//       dotContainer.append(dot);
-//       dot.style.cssText = "position:absolute; left:" + centerX + "px; top:" + centerY + "px; width:1px; height:1px;"
-//       var angle = Math.random() * Math.PI * 2,
-//         insertionTime = i * 0.015;
-
-//       particlesTimeline.from(dot, 0.05, {opacity:0, immediateRender:true}, insertionTime);
-
-//       particlesTimeline.to(dot, .7, {left:Math.cos(angle) * radius + centerX,
-//           top:Math.sin(angle) * radius + centerY,
-//           width:32,
-//           height:32,
-//         ease:Cubic.easeIn
-//       }, insertionTime);
-
-//     }
-//     return particlesTimeline;
-//   }
-
-//   // build timeline
-
-//   tl.add("skew") // adds a new label
-//     .add( getSkewAnimation() ) // method returns a TimelineLite instance that gets nested at the end
-//       .add( getStaggerAnimation(), "stagger") //creates new label and adds animation there
-//       .add( getParticlesAnimation(), "particles")
-
-//     //controls
-
-//   skewBtn.click(function() {
-//     tl.play('skew');
-//   });
-
-//   staggerBtn.click(function() {
-//     tl.play('stagger');
-//   });
-
-//   particlesBtn.click(function() {
-//     tl.play('particles');
-//   });
-
-//   //show the demoBackground div after DOM is ready and all images loaded
-//   TweenLite.set($("#demoBackground"), {visibility:"visible"});
-// });
+//intro sequence, subtext02
+for(var i = 0; i < subtxtNumWords02; i++){
+  tl.from(subtxtSplitText02.words[i], 1.5, {z:randomNumber(-500,300), opacity:0, rotationY:randomNumber(-40, 40)}, Math.random()*1.5);
+  // tl.from(titleSplitText.chars[i], 1.5, {z:randomNumber(-500,300), opacity:0, rotationY:randomNumber(-40, 40)}, Math.random()*1.5);
+}
+tl.from(subtxtText02, tl.duration(), {rotationY:-180, transformOrigin:"50% 75% 100", ease:Power2.easeOut}, 0);
 
 
 
 
+//randomly change z of each word, map opacity to z depth and rotate titleText on y axis
+for(var i = 0; i < titleNumWords; i++){
+  var z = randomNumber(-50,50)
+  tl.to(titleSplitText.words[i], 0.5, {z:z, opacity:rangeToPercent(z, -50, 50)}, "pulse");
+}
+tl.to(titleText, 0.5, {x:-100, y:-30, rotationY:80}, "pulse");
 
 
 
-//   var myClass1 = $('.myClass1');
-//   var myClass2 = $('.myClass2');
-//   var myClass3 = $('.myClass3');
-//   // var myClass4 = $('.myClass4');
-//   // var myClass5 = $('.myClass5');
-//   // var myClass6 = $('.myClass6');
-//   // var myClass7 = $('.myClass7');
-//   // var myClass8 = $('.myClass8');
-//   // var myClass9 = $('.myClass9');
+//randomly change z of each word, map opacity to z depth and rotate titleText on xy axis
+for(var i = 0; i < titleNumWords; i++){
+  var z = randomNumber(-100,100)
+  tl.to(titleSplitText.words[i], 0.5, {z:z, opacity:rangeToPercent(z, -100, 100)}, "pulse2");
+}
+tl.to(titleText, 0.5, {x:0, y:0, rotationX:-35, rotationY:0}, "pulse2");
 
-//   // test play/pause using Tweenlite
-//   var element = $('.myClass1');
+//reset the titleText to normal position
+tl.to(titleSplitText.words, 0.5, {z:0, opacity:1}, "reset")
+tl.to(titleText, 0.5, {rotationY:0, rotationX:0}, "reset");
 
-//   var leftPanel = $('.left-panel');
-//   var midPanel = $('.mid-panel');
-//   var rightPanel = $('.right-panel');
+//add explode label 2 seconds after reset animation is done
+tl.add("explode", "+=1")
+//add explode effect
+for(var i = 0; i < titleNumWords; i++){
+  tl.to(titleSplitText.words[i], 0.6, {z:randomNumber(100, 500), opacity:0, rotationX:randomNumber(-360, 360)}, "explode+=" + Math.random()*0.2);
+}
+
+
+
+
+//randomly change z of each word, map opacity to z depth and rotate subtxtText01 on y axis
+for(var i = 0; i < subtxtNumWords01; i++){
+  var z = randomNumber(-50,50)
+  tl.to(subtxtSplitText01.words[i], 0.5, {z:z, opacity:rangeToPercent(z, -50, 50)}, "pulse");
+}
+tl.to(subtxtText01, 0.5, {rotationY:80}, "pulse");
+
+//randomly change z of each word, map opacity to z depth and rotate subtxtText01on xy axis
+for(var i = 0; i < subtxtNumWords01; i++){
+  var z = randomNumber(-100,100)
+  tl.to(subtxtSplitText01.words[i], 0.5, {z:z, opacity:rangeToPercent(z, -100, 100)}, "pulse2");
+}
+tl.to(subtxtText01, 0.5, {x:0, y:0, rotationX:-35, rotationY:0}, "pulse2");
+
+
+//reset the titleText to normal position
+tl.to(subtxtSplitText01.words, 0.5, {z:0, opacity:1}, "reset")
+tl.to(subtxtText01, 0.5, {rotationY:0, rotationX:0}, "reset");
+
+//add explode label 2 seconds after reset animation is done
+tl.add("explode", "+=0")
+//add explode effect
+for(var i = 0; i < subtxtNumWords01; i++){
+  tl.to(subtxtSplitText01.words[i], 0.6, {z:randomNumber(100, 500), opacity:0, rotationX:randomNumber(-360, 360)}, "explode+=" + Math.random()*0.2);
+}
+
+
+
+
+//randomly change z of each word, map opacity to z depth and rotate subtxtText02 on y axis
+for(var i = 0; i < subtxtNumWords02; i++){
+  var z = randomNumber(-50,50)
+  tl.to(subtxtSplitText02.words[i], 0.5, {z:z, opacity:rangeToPercent(z, -50, 50)}, "pulse");
+}
+tl.to(subtxtText02, 0.5, {rotationY:80}, "pulse");
+
+//randomly change z of each word, map opacity to z depth and rotate subtxtText01on xy axis
+for(var i = 0; i < subtxtNumWords02; i++){
+  var z = randomNumber(-100,100)
+  tl.to(subtxtSplitText02.words[i], 0.5, {z:z, opacity:rangeToPercent(z, -100, 100)}, "pulse2");
+}
+tl.to(subtxtText02, 0.5, {x:0, y:0, rotationX:-35, rotationY:0}, "pulse2");
+
+
+//reset the titleText to normal position
+tl.to(subtxtSplitText02.words, 0.5, {z:0, opacity:1}, "reset")
+tl.to(subtxtText02, 0.5, {rotationY:0, rotationX:0}, "reset");
+
+//add explode label 2 seconds after reset animation is done
+tl.add("explode", "+=0")
+//add explode effect
+for(var i = 0; i < subtxtNumWords02; i++){
+  tl.to(subtxtSplitText02.words[i], 0.6, {z:randomNumber(100, 500), opacity:0, rotationX:randomNumber(-360, 360)}, "explode+=" + Math.random()*0.2);
+}
+
+
+
+//TRY THIS FOR SUPER-SLOW-MO
+//tl.timeScale(0.2);
+
+
+
+//some helper functions
+function randomNumber(min, max){
+  return Math.floor(Math.random() * (1 + max - min) + min);
+}
+
+function rangeToPercent(number, min, max){
+    return ((number - min) / (max - min));
+}
 
 
 
 
 // //$(document).ready(...
 // $(function() {
-
-
-
-
-
-
-
-// // button test animation handler
-// $('.play-anim').on('click', function() {
-//   console.log('clicked');
-//   tl.play();
-//   // TweenLite.to([myClass1, myClass2, myClass3], .5, {scale:0.2, opacity:0.3});
-
-//   //   TweenLite.to([el1, el2, el3], 2, {left:"440px", ease:Bounce.easeOut});
-// });
-
-
-
-
-
-
-
-
-
-
-
 
 
 

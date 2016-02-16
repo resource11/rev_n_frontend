@@ -26,6 +26,7 @@ jQuery(document).ready(function( $ ) {
         }, 600, "swing");
         return false;
         $id.velocity("scroll", { axis: "x" });
+        // TweenLite.to(id, 2, {scrollTo:{y:400, autoKill:false}, ease:Power2.easeOut});
     });
 
     var toNumber = function (numeric, fallback) {
@@ -34,3 +35,6 @@ jQuery(document).ready(function( $ ) {
 
 
 });
+
+
+

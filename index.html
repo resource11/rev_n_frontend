@@ -192,7 +192,7 @@
      </div>
 
      <div class="mid-panel flexbox-align-center left">
-     <p class="title-treatment box">title</p>
+     <p id="quote" class="title-treatment box">title</p>
 
              <!-- begin test anim div -->
         <div class="myClass1 box">
@@ -216,7 +216,7 @@
     <div class="snow span_10_of_12 front-view-clip"></div>
 
       <div class="span_12_of_12 panel-label-container">
-        <p class="panel-label span_2_of_12">Left panel</p>
+        <div class="panel-label span_2_of_12">Left panel</div>
         <p class="panel-label span_7_of_12">center panel</p>
         <p class="panel-label span_2_of_12">right panel</p>
       </div>
@@ -318,28 +318,38 @@
   <!-- end footer -->
 
 <!-- begin scripts -->
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/jquery.gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/utils/Draggable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/ColorPropsPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/CSSRulePlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/EaselPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/TextPlugin.min.js"></script>
+  <script src="assets/scripts/greensock-js/utils/SplitText.min.js"></script>
   <script src="assets/scripts/velocity.min.js"></script>
   <script src="assets/scripts/velocity.ui.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="assets/scripts/api.js" type="text/javascript" defer charset="utf-8"></script>
   <script src="assets/scripts/callbacks.js" type="text/javascript" defer charset="utf-8"></script>
   <script src="assets/scripts/animations.js" type="text/javascript" defer charset="utf-8"></script>
+  <script src="assets/scripts/noframework.waypoints.min.js" type="text/javascript" defer charset="utf-8"></script>
   <script src="assets/scripts/scrolling.js" type="text/javascript" defer charset="utf-8"></script>
   <script src="assets/scripts/app.js" type="text/javascript" defer charset="utf-8"></script>
 
   <script type='text/javascript' src='bower_components/blizzard-builder/canvas-snow.min.js'></script>
-    <script>
+  <script>
 
-        //Timeout is required as we have Masonry on the page positioning the images
-        setTimeout(function() {
-            var options = {
-                flakeDensity: 3,
-                fallingSpeed: 3
-            };
-            var falling = new Blizzard('snowParent', options);
-        }, 100);
-    </script>
+      //Timeout is required as we have Masonry on the page positioning the images
+      setTimeout(function() {
+          var options = {
+              flakeDensity: 3,
+              fallingSpeed: 3
+          };
+          var falling = new Blizzard('snowParent', options);
+      }, 100);
+  </script>
 
   <!-- end scripts -->
 </body>
