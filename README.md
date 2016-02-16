@@ -43,10 +43,10 @@ The features of this app will address the following user stories.
 * My eighth challenge was solving for css-generated gradients continuously repaint on the page when a div has a 3d transform property applied. Discovered a conflict with the snow.js animation
 
 ##Unsolved Issues
-* GSAP has a bit of a learning curve, I'm working on integrating better animations for the panel contents and overall UX.
+* GSAP has a bit of a learning curve, I'm working on integrating better animations for the panel contents and overall UX. Initial GSAP motions added to billobard text.
 
 ##Upcoming versions
-* More complex animations to come.
+* More complex text and background animations to come in future builds.
 
 [License](LICENSE)
 ------------------
