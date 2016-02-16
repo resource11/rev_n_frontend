@@ -90,7 +90,6 @@ $(function() {
   // login event handler
   loginSubmit.on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
-    console.log(credentials);
     $(".login-messages").fadeIn(300).html(" - ");
     $('.login-messages').delay(600).fadeIn(300).text('logging in...');
     api.login(credentials, loginCb);
@@ -115,8 +114,6 @@ $(function() {
   createSubmit.on('submit', function(e) {
     var data = wrap('billboard', form2object(this));
 
-    console.log(JSON.stringify(data));
-
     api.createBillboard(session.token, data, createBillboardCb);
     // api.createBillboard(data, createBillboardCb);
     e.preventDefault();
@@ -129,7 +126,6 @@ $(function() {
   $('#user-revs').on('click', '.edit-rev', function(){
 
     var id = $(this).closest('.billboard-post').attr('data-id');
-    console.log('id is ' + id);
 
     var editable = $(this).closest('.billboard-post').find('.editable');
 
@@ -145,7 +141,6 @@ $(function() {
   $('#user-revs').on('click', '.save-rev', function(){
 
     var id = $(this).closest('.billboard-post').attr('data-id');
-    console.log('id is still ' + id);
 
     var editable = $(this).closest('.billboard-post').find('.editable');
 
@@ -172,11 +167,6 @@ $(function() {
       }
     };
 
-    console.log("clicked");
-    // test to see if the data was wrapped
-    console.log('data sending is: ' + JSON.stringify(data));
-
-
 
     api.editBillboard(id, session.token, data, editBillboardCb);
     api.showBillboard(id, session.token, loadBillboardCb);
@@ -190,7 +180,6 @@ $(function() {
     $('#user-revs').on('click', '.view-rev', function(){
 
     var id = $(this).closest('.billboard-post').attr('data-id');
-    console.log('id is ' + id);
 
     api.showBillboard(id, session.token, loadBillboardCb);
 
@@ -201,10 +190,7 @@ $(function() {
   // delete bike event handler
   $('#user-revs').on('click', '.delete-rev', function() {
 
-    console.log("clicked");
-
     var id = $(this).closest('.billboard-post').attr('data-id');
-    console.log('id is ' + id);
 
     // change bg color as a test
     $(this).closest('.billboard-post').css({'background-color': 'purple', 'font-weight': 'bold'});
