@@ -160,7 +160,6 @@ var regCb = function (error, data) {
     $(".register-messages").html("<strong>Error! Registration fail!</strong>");
     return;
   }
-  console.log(JSON.stringify(data, null, 4));
     $('.register-messages').text('Welcome,  new user #' + data.user.id);
        // hide register container
   registerMenu.slideUp();
@@ -181,9 +180,6 @@ var loginCb = function (error, data) {
   session.userId = data.user.id;
   session.token = data.user.token;
   loginMenu.slideUp();
-  // show in console for testing purposes
-  console.log(session.userId);
-  console.log(session.token);
 
   // display current_user status
   data.user.current_user = true;
@@ -273,8 +269,6 @@ var listUserBillboardsCb = function (error, data) {
 
   // hide hero intro and show rev list
   $('.hero').fadeOut(200);
-  // show user rev list
-  // revList.delay(600).fadeIn().removeClass('hidden');
 
   // grab billboards from Rails
   var billboards = data.billboards;
@@ -354,11 +348,6 @@ var loadBillboardCb = function (error, data) {
     $(".user-messages").html("<strong>Error! Rev load fail!</strong>");
     return;
   }
-
-
-
-  // grab billboards from Rails
-  console.log('billboard is: ' + JSON.stringify(data));
 
   // set data attributes of video wall elements
 
