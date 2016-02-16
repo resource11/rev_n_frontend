@@ -46,6 +46,69 @@ var colorScheme;
 var animOption;
 
 
+var switchBackground = function switchBackground(colorScheme) {
+
+  switch (colorScheme) {
+  case "red":
+    color1 = "#db0444";
+    color2 = "#8f0222";
+    color3 = "#6D0019";
+    break;
+  case "orange":
+    color1 = "#ff6600";
+    color2 = "#ea2803";
+    color3 = "#C72903";
+    // bgColor = "grad-orange.svg";
+    bgColor = "color-scheme-orange";
+    break;
+  case "gold":
+    color1 = "#f9a600";
+    color2 = "#ea5507";
+    color3 = "#B63F00";
+    break;
+  case "green":
+    color1 = "#98C92B";
+    color2 = "#0D7F01";
+    color3 = "#095F00";
+    break;
+  case "blue":
+    color1 = "#0ABBFB";
+    color2 = "#0370C9";
+    color3 = "#006CC3";
+    break;
+  case "purple":
+    color1 = "#de47ac";
+    color2 = "#96007F";
+    color3 = "#5F0150";
+    break;
+  case "pink":
+    color1 = "#ff5db1";
+    color2 = "#ef017c";
+    color3 = "#BB0061";
+    break;
+  case "slate":
+    color1 = "#595959";
+    color2 = "#1c1c1c";
+    color3 = "#0c0c0c";
+    break;
+  default:
+    break;
+  };
+
+  leftPanel.css("background","radial-gradient(" + color1 + " 0%,"+ color2 + " 100%)");
+  midPanel.css("background","radial-gradient(" + color1 + " 0%,"+ color2 + " 100%)");
+  rightPanel.css("background","radial-gradient(" + color1 + " 0%,"+ color2 + " 100%)");
+
+  leftPanelLftPrsp.css("background","radial-gradient(" + color1 + " 0%,"+ color2 + " 78%," + color3 + " 100%)");
+  // leftPanelLftPrsp.addClass(bgColor);
+  midPanelLftPrsp.css("background","radial-gradient(" + color1 + " 0%,"+ color2 + " 100%)");
+
+  midPanelRtPrsp.css("background","radial-gradient(" + color1 + " 0%,"+ color2 + " 100%)");
+  rightPanelRtPrsp.css("background","radial-gradient(" + color1 + " 0%,"+ color2 + " 78%," + color3 + " 100%)");
+
+};
+
+
 var listUserBillboardHTML = function (billboard) {
   userBillboardsList.prepend(
     '<article data-id=' + billboard.id +
@@ -255,6 +318,9 @@ var createBillboardCb = function (error, data) {
   $('.subtext01-treatment').html(billboard.subtext01);
   $('.subtext02-treatment').html(billboard.subtext02);
 
+  switchBackground(colorScheme);
+
+
 };
 // end of createBillboard submit handler
 
@@ -274,6 +340,7 @@ var editBillboardCb = function (error, data) {
   $(".user-messages").html("<strong>Rev " + billboard.name + " updated!</strong>");
 
     // api.showBillboard(id, session.token, loadBillboardCb);
+    switchBackground(colorScheme);
 
 };
 // end of editBillboard submit handler
@@ -317,66 +384,7 @@ var loadBillboardCb = function (error, data) {
   // TweenMax.to([leftPanel, midPanel, rightPanel], 2, {className:'+=color-scheme-purple'}, 0.2);
   // TweenMax.to([leftPanel, midPanel, rightPanel], 0.5, {className:colorScheme}, 0.2);
 
-
-
-
-  switch (colorScheme) {
-  case "red":
-    color1 = "#db0444";
-    color2 = "#8f0222";
-    color3 = "#6D0019";
-    break;
-  case "orange":
-    color1 = "#ff6600";
-    color2 = "#ea2803";
-    color3 = "#C72903";
-    // bgColor = "grad-orange.svg";
-    bgColor = "color-scheme-orange";
-    break;
-  case "gold":
-    color1 = "#f9a600";
-    color2 = "#ea5507";
-    color3 = "#B63F00";
-    break;
-  case "green":
-    color1 = "#98C92B";
-    color2 = "#0D7F01";
-    color3 = "#095F00";
-    break;
-  case "blue":
-    color1 = "#0ABBFB";
-    color2 = "#0370C9";
-    color3 = "#006CC3";
-    break;
-  case "purple":
-    color1 = "#de47ac";
-    color2 = "#96007F";
-    color3 = "#5F0150";
-    break;
-  case "pink":
-    color1 = "#ff5db1";
-    color2 = "#ef017c";
-    color3 = "#BB0061";
-    break;
-  case "slate":
-    color1 = "#595959";
-    color2 = "#1c1c1c";
-    color3 = "#0c0c0c";
-    break;
-  default:
-    break;
-}
-
-leftPanel.css("background","radial-gradient(" + color1 + " 0%,"+ color2 + " 100%)");
-midPanel.css("background","radial-gradient(" + color1 + " 0%,"+ color2 + " 100%)");
-rightPanel.css("background","radial-gradient(" + color1 + " 0%,"+ color2 + " 100%)");
-
-leftPanelLftPrsp.css("background","radial-gradient(" + color1 + " 0%,"+ color2 + " 78%," + color3 + " 100%)");
-// leftPanelLftPrsp.addClass(bgColor);
-midPanelLftPrsp.css("background","radial-gradient(" + color1 + " 0%,"+ color2 + " 100%)");
-
-midPanelRtPrsp.css("background","radial-gradient(" + color1 + " 0%,"+ color2 + " 100%)");
-rightPanelRtPrsp.css("background","radial-gradient(" + color1 + " 0%,"+ color2 + " 78%," + color3 + " 100%)");
+  switchBackground(colorScheme);
 
 
 };

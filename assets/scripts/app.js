@@ -95,22 +95,7 @@ $(function() {
     $('.login-messages').delay(600).fadeIn(300).text('logging in...');
     api.login(credentials, loginCb);
     e.preventDefault();
-     // hide login container
-    // loginMenu.slideUp();
-    // revList.delay(600).fadeIn(300).removeClass('hidden');
-    // messagesContainer.fadeIn(300).removeClass('hidden');
-    // addRev.fadeIn(300).removeClass('hidden');
-    // frontView.fadeIn(300).removeClass('hidden');
-    // revInfo.fadeIn(300).removeClass('hidden');
-    // $('.title-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
-    //   $(this).remove('animated zoomIn');
-    // });
-    // $('.subtext01-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
-    //   $(this).remove('animated zoomIn');
-    // });
-    // $('.subtext02-treatment').delay(600).addClass('animated zoomIn').one('animationEnd', function(){
-    //   $(this).remove('animated zoomIn');
-    // });
+
   });
 
   // // logout event handler
