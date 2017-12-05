@@ -15,13 +15,14 @@ The [deployed front-end](http://resource11.github.io/rev_n_frontend/) leverages 
 
 ## User stories
 The users in this scenario are individuals seeking to create a digital billboard revision (a rev). The features of this app will address the following user stories.
-* Users can
-** Register an account.
-** Log in.
-** Create a new billboard rev.
-** Load a billboard rev into the viewport.
-** Edit and save a billboard's rev.
-** Delete a billboard rev.
+
+**Users can**
+- Register an account.
+- Log in.
+- Create a new billboard rev.
+- Load a billboard rev into the viewport.
+- Edit and save a billboard's rev.
+- Delete a billboard rev.
 
 
 ## Wireframes
