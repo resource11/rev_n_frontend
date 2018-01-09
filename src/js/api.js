@@ -5,7 +5,8 @@
 var api = {
   billboardWatcher: null,
   // url: 'https://mighty-lowlands-8515.herokuapp.com',
-  url: 'https://stormy-oasis-7808.herokuapp.com/',
+  // url: 'https://stormy-oasis-7808.herokuapp.com/',
+  url: 'http://localhost:3000/',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -57,7 +58,7 @@ var api = {
     }, callback);
   },
 
-  createBillboard: function (token, data, callback) {
+  createBillboard: function(token, data, callback) {
     this.ajax({
       method: 'POST',
       url: this.url + '/billboards',
@@ -71,7 +72,7 @@ var api = {
   },
 
 
-  showBillboard: function (id, token, callback) {
+  showBillboard: function(id, token, callback) {
     this.ajax({
       method: 'GET',
       url: this.url + '/billboards/' + id,
@@ -82,7 +83,7 @@ var api = {
     }, callback);
   },
 
-  listUserBillboards: function (token, callback) {
+  listUserBillboards: function(token, callback) {
     this.ajax({
       method: 'GET',
       url: this.url + '/billboards',
@@ -93,7 +94,7 @@ var api = {
       }, callback);
   },
 
-  editBillboard: function (id, token, data, callback) {
+  editBillboard: function(id, token, data, callback) {
     this.ajax({
       method: 'PATCH',
       url: this.url + '/billboards/' + id,
@@ -106,7 +107,7 @@ var api = {
     }, callback);
   },
 
-  deleteBillboard: function (id, token, callback) {
+  deleteBillboard: function(id, token, callback) {
     this.ajax({
       method: 'DELETE',
       url: this.url + '/billboards/' + id,
@@ -120,7 +121,7 @@ var api = {
   },
 
 
-  watchBillboard: function (id, token) {
+  watchBillboard: function(id, token) {
     var url = this.url + '/billboards/' + id + '/watch';
     var auth = {
       Authorization: 'Token token=' + token
