@@ -5,8 +5,7 @@
 var api = {
   billboardWatcher: null,
   // url: 'https://mighty-lowlands-8515.herokuapp.com',
-  // url: 'https://stormy-oasis-7808.herokuapp.com/',
-  url: 'http://localhost:3000/',
+  url: 'https://stormy-oasis-7808.herokuapp.com/',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
