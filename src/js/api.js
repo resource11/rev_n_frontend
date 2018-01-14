@@ -1,68 +1,62 @@
-'use strict';
 
 // api HTTP requests/responses
-
-var api = {
+const api = {
   billboardWatcher: null,
-  // url: 'https://mighty-lowlands-8515.herokuapp.com',
   url: 'https://stormy-oasis-7808.herokuapp.com/',
 
-  ajax: function(config, cb) {
-    $.ajax(config).done(function(data, textStatus, jqxhr) {
+  ajax(config, cb) {
+    $.ajax(config).done((data, textStatus, jqxhr) => {
       cb(null, data);
-    }).fail(function(jqxhr, status, error) {
+    }).fail((jqxhr, status, error) => {
       cb({jqxher: jqxhr, status: status, error: error});
     });
   },
 
-  register: function(credentials, callback) {
+  register(credentials, callback) {
     this.ajax({
       method: 'POST',
-      // url: 'http://httpbin.org/post',
-      url: this.url + '/register',
+      url: `${this.url}/register`,
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(credentials),
       dataType: 'json'
     }, callback);
   },
 
-  login: function(credentials, callback) {
+  login(credentials, callback) {
     this.ajax({
       method: 'POST',
-      url: this.url + '/login',
+      url: `${this.url}/login`,
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(credentials),
       dataType: 'json'
     }, callback);
   },
 
-  listAllBillboards: function (callback) {
+  listAllBillboards(callback) {
     this.ajax({
       method: 'GET',
-      url: this.url + '/billboards',
+      url: `${this.url }/billboards`,
       dataType: 'json'
       }, callback);
   },
 
-
   //Authenticated api actions
-
-  logout: function(id, token, callback) {
+  logout(id, token, callback) {
     this.ajax({
       method: 'POST',
-      url: this.url + '/logout',
+      url: `${this.url}/logout`,
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(id),
       dataType: 'json'
     }, callback);
   },
 
-  createBillboard: function(token, data, callback) {
+  createBillboard(token, data, callback) {
     this.ajax({
       method: 'POST',
-      url: this.url + '/billboards',
+      url: `${this.url}/billboards`,
       headers: {
-        Authorization: 'Token token=' + token
+        Authorization: `Token token=${token}`
       },
       contentType: 'application/json',
       data: JSON.stringify(data),
@@ -71,34 +65,34 @@ var api = {
   },
 
 
-  showBillboard: function(id, token, callback) {
+  showBillboard(id, token, callback) {
     this.ajax({
       method: 'GET',
-      url: this.url + '/billboards/' + id,
+      url: `${this.url}/billboards/${id}`,
       headers: {
-        Authorization: 'Token token=' + token
+        Authorization: `Token token=${token}`
       },
       dataType: 'json'
     }, callback);
   },
 
-  listUserBillboards: function(token, callback) {
+  listUserBillboards(token, callback) {
     this.ajax({
       method: 'GET',
-      url: this.url + '/billboards',
+      url: `${this.url}/billboards`,
       headers: {
-        Authorization: 'Token token=' + token
+        Authorization: `Token token=${token}`
       },
       dataType: 'json'
       }, callback);
   },
 
-  editBillboard: function(id, token, data, callback) {
+  updateBillboard(id, token, data, callback) {
     this.ajax({
       method: 'PATCH',
-      url: this.url + '/billboards/' + id,
+      url: `${this.url}/billboards/${id}`,
       headers: {
-        Authorization: 'Token token=' + token
+        Authorization: `Token token=${token}`
       },
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(data),
@@ -106,12 +100,12 @@ var api = {
     }, callback);
   },
 
-  deleteBillboard: function(id, token, callback) {
+  deleteBillboard(id, token, callback) {
     this.ajax({
       method: 'DELETE',
-      url: this.url + '/billboards/' + id,
+      url: `${this.url}/billboards/${id}`,
       headers: {
-        Authorization: 'Token token=' + token
+        Authorization: `Token token=${token}`
       },
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(id),
@@ -120,14 +114,13 @@ var api = {
   },
 
 
-  watchBillboard: function(id, token) {
-    var url = this.url + '/billboards/' + id + '/watch';
-    var auth = {
-      Authorization: 'Token token=' + token
+  watchBillboard(id, token) {
+    const url = `${this.url}/billboards/${id}/watch`;
+    const auth = {
+      Authorization: `Token token=${token}`
     };
     this.billboardWatcher = resourceWatcher(url, auth); //jshint ignore: line
     return this.billboardWatcher;
   }
 
 };
-

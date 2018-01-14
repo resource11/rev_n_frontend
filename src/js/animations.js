@@ -34,16 +34,12 @@ for(var i = 0; i < titleNumWords; i++){
 }
 tl.from(titleText, tl.duration(), {rotationX:180, transformOrigin:"75% 50% 50", ease:Power2.easeOut}, 0);
 
-
-
 //intro sequence, subtext01
 for(var i = 0; i < subtxtNumWords01; i++){
   tl.from(subtxtSplitText01.words[i], 1.5, {z:randomNumber(500,-300), opacity:0, rotationY:randomNumber(-40, 40)}, Math.random()*1.5);
   // tl.from(titleSplitText.chars[i], 1.5, {z:randomNumber(-500,300), opacity:0, rotationY:randomNumber(-40, 40)}, Math.random()*1.5);
 }
 tl.from(subtxtText01, tl.duration(), {rotationY:-180, transformOrigin:"50% 75% 100", ease:Power2.easeOut}, 0);
-
-
 
 //intro sequence, subtext02
 for(var i = 0; i < subtxtNumWords02; i++){
@@ -52,17 +48,12 @@ for(var i = 0; i < subtxtNumWords02; i++){
 }
 tl.from(subtxtText02, tl.duration(), {rotationY:-180, transformOrigin:"50% 75% 100", ease:Power2.easeOut}, 0);
 
-
-
-
 //randomly change z of each word, map opacity to z depth and rotate titleText on y axis
 for(var i = 0; i < titleNumWords; i++){
   var z = randomNumber(-50,50)
   tl.to(titleSplitText.words[i], 0.5, {z:z, opacity:rangeToPercent(z, -50, 50)}, "pulse");
 }
 tl.to(titleText, 0.5, {x:-100, y:-30, rotationY:80}, "pulse");
-
-
 
 //randomly change z of each word, map opacity to z depth and rotate titleText on xy axis
 for(var i = 0; i < titleNumWords; i++){
@@ -82,9 +73,6 @@ for(var i = 0; i < titleNumWords; i++){
   tl.to(titleSplitText.words[i], 0.6, {z:randomNumber(100, 500), opacity:0, rotationX:randomNumber(-360, 360)}, "explode+=" + Math.random()*0.2);
 }
 
-
-
-
 //randomly change z of each word, map opacity to z depth and rotate subtxtText01 on y axis
 for(var i = 0; i < subtxtNumWords01; i++){
   var z = randomNumber(-50,50)
@@ -99,7 +87,6 @@ for(var i = 0; i < subtxtNumWords01; i++){
 }
 tl.to(subtxtText01, 0.5, {x:0, y:0, rotationX:-35, rotationY:0}, "pulse2");
 
-
 //reset the titleText to normal position
 tl.to(subtxtSplitText01.words, 0.5, {z:0, opacity:1}, "reset")
 tl.to(subtxtText01, 0.5, {rotationY:0, rotationX:0}, "reset");
@@ -110,9 +97,6 @@ tl.add("explode", "+=0")
 for(var i = 0; i < subtxtNumWords01; i++){
   tl.to(subtxtSplitText01.words[i], 0.6, {z:randomNumber(100, 500), opacity:0, rotationX:randomNumber(-360, 360)}, "explode+=" + Math.random()*0.2);
 }
-
-
-
 
 //randomly change z of each word, map opacity to z depth and rotate subtxtText02 on y axis
 for(var i = 0; i < subtxtNumWords02; i++){
@@ -128,7 +112,6 @@ for(var i = 0; i < subtxtNumWords02; i++){
 }
 tl.to(subtxtText02, 0.5, {x:0, y:0, rotationX:-35, rotationY:0}, "pulse2");
 
-
 //reset the titleText to normal position
 tl.to(subtxtSplitText02.words, 0.5, {z:0, opacity:1}, "reset")
 tl.to(subtxtText02, 0.5, {rotationY:0, rotationX:0}, "reset");
@@ -140,12 +123,8 @@ for(var i = 0; i < subtxtNumWords02; i++){
   tl.to(subtxtSplitText02.words[i], 0.6, {z:randomNumber(100, 500), opacity:0, rotationX:randomNumber(-360, 360)}, "explode+=" + Math.random()*0.2);
 }
 
-
-
 //TRY THIS FOR SUPER-SLOW-MO
 //tl.timeScale(0.2);
-
-
 
 //some helper functions
 function randomNumber(min, max){
@@ -155,17 +134,3 @@ function randomNumber(min, max){
 function rangeToPercent(number, min, max){
     return ((number - min) / (max - min));
 }
-
-
-
-
-// //$(document).ready(...
-// $(function() {
-
-
-
-
-
-
-// });
-// // end doc ready function
